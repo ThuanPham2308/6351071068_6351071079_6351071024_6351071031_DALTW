@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e7530c3a57cb49c59ae1f79f45500eed" Name="Diagram1">
+        <EntityTypeShape EntityType="MenShopModel.Admin" Width="1.5" PointX="8.25" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MenShopModel.Cart" Width="1.5" PointX="7.5" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MenShopModel.Category" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MenShopModel.Contact" Width="1.5" PointX="10.5" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MenShopModel.Customer" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MenShopModel.DiscountProduct" Width="1.5" PointX="7.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MenShopModel.DiscountProgram" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MenShopModel.InvoiceDetail" Width="1.5" PointX="7.5" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MenShopModel.Invoice" Width="1.5" PointX="5.25" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MenShopModel.ProductPicture" Width="1.5" PointX="7.5" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MenShopModel.Product" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MenShopModel.TypeCategory" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MenShopModel.Wishlist" Width="1.5" PointX="10.5" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="MenShopModel.FK__Contacts__AdminI__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="MenShopModel.FK__Carts__CustomerI__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="MenShopModel.FK__Carts__ProductID__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="MenShopModel.FK__Categorie__TypeC__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="MenShopModel.FK__Products__Catego__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="MenShopModel.FK__Contacts__Custom__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="MenShopModel.FK__Wishlists__Custo__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="MenShopModel.FK_Invoices_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="MenShopModel.FK__DiscountP__Disco__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="MenShopModel.FK__DiscountP__Produ__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="MenShopModel.FK__InvoiceDe__Invoi__6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="MenShopModel.FK__InvoiceDe__Produ__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="MenShopModel.FK__ProductPi__Produ__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="MenShopModel.FK__Wishlists__Produ__74AE54BC" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

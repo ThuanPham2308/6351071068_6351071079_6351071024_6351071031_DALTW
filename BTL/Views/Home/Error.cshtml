@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Error";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="error_section">
+        <div class="row">
+            <div class="col-12">
+                <div class="error_form">
+                    <h1>404</h1>
+                    <h2>Ôi không! KHÔNG TÌM THẤY TRANG</h2>
+                    <p>Xin lỗi nhưng trang bạn đang tìm không tồn tại, đã bị xóa, đổi tên hoặc hiện không khả dụng.</p>
+                    <a href="@Url.Action("Index", "Home")">Quay lại trang chủ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

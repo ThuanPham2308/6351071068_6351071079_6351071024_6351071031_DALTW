@@ -1,0 +1,88 @@
+﻿@model BTL.Models.DiscountProgram
+@{
+    ViewBag.Title = "sale";
+    Layout = "~/Areas/AdminArea/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@using (Html.BeginForm("sale", "ProductsManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div id="add-product-form">
+        <div class="content-section-header">Chương trình giảm giá</div>
+        <div class="product-form">
+            <label for="DiscountProgramName">Tên chương trình giảm giá: </label>
+            @Html.TextBoxFor(model => model.DiscountProgramName, new { placeholder = "Tên chương trình giảm giá" })
+            <div class="validation-message">
+                @Html.ValidationMessageFor(model => model.DiscountProgramName, "", new { @class = "text-danger" })
+            </div>
+
+            <label for="DiscountPercentage">Giảm giá: </label>
+            @Html.DropDownListFor(
+              model => model.DiscountPercentage,
+              new SelectList(new List<object>
+              {
+                  new { Value = "10", Text = "10%" },
+                  new { Value = "15", Text = "15%" },
+                  new { Value = "20", Text = "20%" }
+              }, "Value", "Text"),
+              "Chọn giảm giá"
+          )
+            <label for="StartDate">Ngày bắt đầu: </label>
+            @Html.TextBoxFor(model => model.StartDate, new { type = "date" })
+            <div class="validation-message">
+                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+            </div>
+            <label for="EndDate">Ngày kết thúc: </label>
+            @Html.TextBoxFor(model => model.EndDate, new { type = "date" })
+            <div class="validation-message">
+                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+            </div>
+            <input type="hidden" name="CreatedDate" value="@DateTime.Now" />
+            <label for="Description">Mô tả: </label>
+            @Html.TextAreaFor(model => model.Description, new { placeholder = "Mô tả" })
+            <div class="validation-message">
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+
+            <div id="product-selection">
+                <label for="ProductSelect">Chọn sản phẩm:</label>
+                @Html.DropDownList(
+                    "SelectedProductId",
+                    new SelectList(ViewBag.Products, "ProductID", "ProductName"),
+                    "Chọn sản phẩm",
+                    new { id = "ProductSelect" }
+                )
+                <label for="QuantityDiscounted">Số lượng sản phẩm giảm giá:</label>
+                <input type="number" name="Quantities[]" class="form-control" min="1" placeholder="Số lượng sản phẩm giảm giá" />
+                @Html.ValidationMessage("Quantities", "", new { @class = "text-danger" })
+                <button type="button" id="add-product" onclick="addProduct()">+ Thêm sản phẩm vào chương trình</button>
+            </div>
+           
+            <ul id="selected-products-list"></ul>
+            <button id="save-product" type="submit">Lưu lại</button>
+            <button type="button" onclick="location.href='@Url.Action("index", "ProductsManagement")'" id="cancel-product">Hủy bỏ</button>
+        </div>
+    </div>
+}
+<script>
+    function addProduct() {
+        var selectedProduct = document.getElementById("ProductSelect");
+        var productId = selectedProduct.value;
+        var productName = selectedProduct.options[selectedProduct.selectedIndex].text;
+
+        if (productId) {
+            var productList = document.getElementById("selected-products-list");
+            var newItem = document.createElement("li");
+            newItem.textContent = productName + " (ID: " + productId + ")";
+            newItem.setAttribute("data-product-id", productId);
+            productList.appendChild(newItem);
+
+            var hiddenInput = document.createElement("input");
+            hiddenInput.type = "hidden";
+            hiddenInput.name = "SelectedProducts";
+            hiddenInput.value = productId;
+            productList.appendChild(hiddenInput);
+        }
+    }
+</script>

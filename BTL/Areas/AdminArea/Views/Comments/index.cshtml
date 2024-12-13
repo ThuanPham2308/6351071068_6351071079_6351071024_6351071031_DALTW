@@ -1,0 +1,57 @@
+﻿@using BTL.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<Contact>
+@{
+    ViewBag.Title = "comments";
+    Layout = "~/Areas/AdminArea/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div id="contact-content" class="content-section active">
+    <div class="content-section-header">Ý kiến đóng góp</div>
+    <div class="contact-container">
+        <div class="buttons">
+            <button class="button export" onclick="location.href='@Url.Action("ExportToExcel", "Comments", new { search = ViewBag.CurrentSearch })'">
+                Xuất Excel
+            </button>
+        </div>
+        <div class="search-options">
+            @using (Html.BeginForm("index", "Comments", FormMethod.Get))
+            {
+                <p>
+                    @Html.TextBox("search", "", new { @class = "search-input", placeholder = "Nhập tên khách hàng để tìm kiếm..." })
+                    <button type="submit" class="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </p>
+            }
+        </div>
+        @if (ViewBag.error == "")
+        {
+            <div class="order-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th> ID</th>
+                            <th> Tên khách hàng</th>
+                            <th> Chủ đề</th>
+                            <th> Ý kiến đóng góp</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="center-clm">@Html.DisplayFor(modelItem => item.ContactID)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Customer.FullName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Topic)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Message)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        <h2 style="text-align:center">@ViewBag.error</h2>
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+        <div class="MenuTrang">
+            @Html.PagedListPager(Model, page => Url.Action("index", new { search = ViewBag.CurrentSearch, page = page }))
+        </div>
+    </div>

@@ -1,0 +1,1210 @@
+USE [MenShop]
+GO
+SET IDENTITY_INSERT [dbo].[Admins] ON 
+GO
+INSERT [dbo].[Admins] ([AdminID], [Username], [Password], [FullName], [Email], [Address], [PhoneNumber], [BirthDate], [HomeTown], [IdentityCard], [VerificationCode], [VerificationCodeExpiration], [URLPicture], [Role]) VALUES (1, N'phamVanThuan', N'abc11111', N'Phạm Văn Thuân', N'vanThuan@gmailcom', N'123 Đường ABC', N'0987654321', CAST(N'1985-05-20T00:00:00.000' AS DateTime), N'Hà Nội', N'052204013761', NULL, NULL, N'thuận.png', N'Nhân viên')
+GO
+INSERT [dbo].[Admins] ([AdminID], [Username], [Password], [FullName], [Email], [Address], [PhoneNumber], [BirthDate], [HomeTown], [IdentityCard], [VerificationCode], [VerificationCodeExpiration], [URLPicture], [Role]) VALUES (2, N'quangVinh', N'abc22222', N'Đặng Quang Vinh', N'quangVinh@gmailcom', N'456 Đường XYZ', N'0971234567', CAST(N'1990-09-15T00:00:00.000' AS DateTime), N'Đà Nẵng', N'052204013762', NULL, NULL, N'https://examplecom/quangVinhpng', N'Admin')
+GO
+INSERT [dbo].[Admins] ([AdminID], [Username], [Password], [FullName], [Email], [Address], [PhoneNumber], [BirthDate], [HomeTown], [IdentityCard], [VerificationCode], [VerificationCodeExpiration], [URLPicture], [Role]) VALUES (3, N'vanHuynh', N'abc33333', N'Đinh Văn Huynh', N'vanHuynh@gmailcom', N'789 Đường DEF', N'0963456789', CAST(N'1992-12-10T00:00:00.000' AS DateTime), N'Hải Phòng', N'052204013763', NULL, NULL, N'https://examplecom/vanHuynhpng', N'Admin')
+GO
+INSERT [dbo].[Admins] ([AdminID], [Username], [Password], [FullName], [Email], [Address], [PhoneNumber], [BirthDate], [HomeTown], [IdentityCard], [VerificationCode], [VerificationCodeExpiration], [URLPicture], [Role]) VALUES (4, N'thanhHoa', N'abc44444', N'Nguyễn Thanh Hòa', N'thanhHoa@gmailcom', N'321 Đường GHI', N'0956781234', CAST(N'1988-03-25T00:00:00.000' AS DateTime), N'Hồ Chí Minh', N'052204013764', NULL, NULL, N'https://examplecom/thanhHoapng', N'Admin')
+GO
+INSERT [dbo].[Admins] ([AdminID], [Username], [Password], [FullName], [Email], [Address], [PhoneNumber], [BirthDate], [HomeTown], [IdentityCard], [VerificationCode], [VerificationCodeExpiration], [URLPicture], [Role]) VALUES (6, N'vinhh', N'123456789', N'Quang Vinhh', N'quangvinh120504@gmail.com', N'asdias', N'0325447045', CAST(N'2004-05-12T00:00:00.000' AS DateTime), N'Bình Ð?nh', N'052204013766', NULL, NULL, N'vinh.png', N'Nhân viên')
+GO
+SET IDENTITY_INSERT [dbo].[Admins] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Customers] ON 
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (1, N'kh_hoangminh', N'password123', N'Nguyễn Hoàng Minh', CAST(N'1995-06-15T00:00:00.000' AS DateTime), N'0901234567', N'minhnguyen@examplecom', N'123 Đường Trần Phú, Quận 1, TPHCM', NULL, NULL, CAST(N'2024-11-28T14:02:40.860' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (2, N'kh_thaongan', N'password456', N'Lê Thảo Ngân', CAST(N'1997-09-20T00:00:00.000' AS DateTime), N'0902345678', N'nganle@examplecom', N'45 Đường Lý Tự Trọng, Quận 3, TPHCM', NULL, NULL, CAST(N'2024-11-28T14:02:40.860' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (3, N'kh_anhthu', N'password789', N'Trần Anh Thư', CAST(N'1998-01-12T00:00:00.000' AS DateTime), N'0903456789', N'thutran@examplecom', N'78 Đường Nguyễn Huệ, Quận 1, TPHCM', NULL, NULL, CAST(N'2024-11-28T14:02:40.860' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (4, N'kh_ducthanh', N'password101', N'Phạm Đức Thành', CAST(N'1996-11-22T00:00:00.000' AS DateTime), N'0904567890', N'thanhpham@examplecom', N'90 Đường Nguyễn Văn Linh, Quận 7, TPHCM', NULL, NULL, CAST(N'2024-11-28T14:02:40.860' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (5, N'kh_thaotrinh', N'password102', N'Ngô Thảo Trinh', CAST(N'1999-02-18T00:00:00.000' AS DateTime), N'0905678901', N'trinhngo@examplecom', N'120 Đường Hai Bà Trưng, Quận 1, TPHCM', NULL, NULL, CAST(N'2024-11-28T14:02:40.860' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (6, N'kh_minhtuan', N'password103', N'Vũ Minh Tuấn', CAST(N'1994-03-10T00:00:00.000' AS DateTime), N'0906789012', N'tuanvu@examplecom', N'135 Đường Trần Quang Khải, Quận Phú Nhuận, TPHCM', NULL, NULL, CAST(N'2024-11-28T14:02:40.860' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (7, N'kh_kimthanh', N'password104', N'Lý Kim Thành', CAST(N'1995-08-05T00:00:00.000' AS DateTime), N'0907890123', N'thanhly@examplecom', N'56 Đường Phan Đăng Lưu, Quận Bình Thạnh, TPHCM', NULL, NULL, CAST(N'2024-11-28T14:02:40.860' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (8, N'kh_hoanghuy', N'password105', N'Nguyễn Hoàng Huy', CAST(N'1993-04-22T00:00:00.000' AS DateTime), N'0908901234', N'huynguyen@examplecom', N'76 Đường Nguyễn Trãi, Quận 5, TPHCM', NULL, NULL, CAST(N'2024-11-28T14:02:40.860' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (9, N'kh_loanmai', N'password106', N'Đoàn Loan Mai', CAST(N'1992-12-30T00:00:00.000' AS DateTime), N'0909012345', N'maidoan@examplecom', N'123 Đường Điện Biên Phủ, Quận Bình Thạnh, TPHCM', NULL, NULL, CAST(N'2024-11-28T14:02:40.860' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (10, N'kh_quynhanh', N'password107', N'Đặng Quỳnh Anh', CAST(N'1991-07-07T00:00:00.000' AS DateTime), N'0910123456', N'anhdang@examplecom', N'45 Đường Võ Văn Kiệt, Quận 6, TPHCM', NULL, NULL, CAST(N'2024-11-28T14:02:40.860' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (11, N'vinh', N'123', N'Đặng Quang Vinh', CAST(N'2004-12-05T00:00:00.000' AS DateTime), N'0325447045', N'quangvinhdang7a1@gmail.com', N'sdasdas', NULL, NULL, NULL)
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (15, N'vinhh', N'12345678', N'Đặng Quang Vinhhhhhhhhhhh', CAST(N'2004-12-05T00:00:00.000' AS DateTime), N'0325447046', N'quangvinh120504@gmail.com', N'sad', NULL, NULL, CAST(N'2024-12-08T20:56:15.753' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (16, N'User030', N'password123', N'Khách Hàng 30', CAST(N'2017-11-19T00:00:00.000' AS DateTime), N'0300127226', N'user30@example.com', N'Ð?a ch? 30', NULL, NULL, CAST(N'2024-12-16T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (18, N'User115', N'password123', N'Khách Hàng 115', CAST(N'2014-09-20T00:00:00.000' AS DateTime), N'0900711249', N'user115@example.com', N'Ð?a ch? 115', NULL, NULL, CAST(N'2024-05-18T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (20, N'User011', N'password123', N'Khách Hàng 11', CAST(N'1992-03-19T00:00:00.000' AS DateTime), N'0398885678', N'user011@example.com', N'Ð?a ch? 11', NULL, NULL, CAST(N'2024-02-01T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (21, N'User012', N'password123', N'Khách Hàng 12', CAST(N'1990-10-12T00:00:00.000' AS DateTime), N'0912233445', N'user012@example.com', N'Ð?a ch? 12', NULL, NULL, CAST(N'2024-02-02T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (22, N'User013', N'password123', N'Khách Hàng 13', CAST(N'1993-01-01T00:00:00.000' AS DateTime), N'0356789101', N'user013@example.com', N'Ð?a ch? 13', NULL, NULL, CAST(N'2024-02-03T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (23, N'User014', N'password123', N'Khách Hàng 14', CAST(N'1988-04-28T00:00:00.000' AS DateTime), N'0387654321', N'user014@example.com', N'Ð?a ch? 14', NULL, NULL, CAST(N'2024-02-04T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (24, N'User015', N'password123', N'Khách Hàng 15', CAST(N'1994-11-20T00:00:00.000' AS DateTime), N'0901213145', N'user015@example.com', N'Ð?a ch? 15', NULL, NULL, CAST(N'2024-02-05T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (25, N'User016', N'password123', N'Khách Hàng 16', CAST(N'1991-02-13T00:00:00.000' AS DateTime), N'0334567890', N'user016@example.com', N'Ð?a ch? 16', NULL, NULL, CAST(N'2024-02-06T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (26, N'User017', N'password123', N'Khách Hàng 17', CAST(N'1986-07-07T00:00:00.000' AS DateTime), N'0979876543', N'user017@example.com', N'Ð?a ch? 17', NULL, NULL, CAST(N'2024-02-07T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (27, N'User018', N'password123', N'Khách Hàng 18', CAST(N'1995-12-21T00:00:00.000' AS DateTime), N'0323123456', N'user018@example.com', N'Ð?a ch? 18', NULL, NULL, CAST(N'2024-02-08T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (28, N'User019', N'password123', N'Khách Hàng 19', CAST(N'1990-06-18T00:00:00.000' AS DateTime), N'0912345678', N'user019@example.com', N'Ð?a ch? 19', NULL, NULL, CAST(N'2024-02-09T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (29, N'User020', N'password123', N'Khách Hàng 20', CAST(N'1987-08-25T00:00:00.000' AS DateTime), N'0398765432', N'user020@example.com', N'Ð?a ch? 20', NULL, NULL, CAST(N'2024-02-10T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (30, N'User021', N'password123', N'Khách Hàng 21', CAST(N'1990-03-25T00:00:00.000' AS DateTime), N'0325544701', N'user021@example.com', N'Ð?a ch? 21', NULL, NULL, CAST(N'2024-03-01T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (31, N'User022', N'password123', N'Khách Hàng 22', CAST(N'1991-06-10T00:00:00.000' AS DateTime), N'0398765433', N'user022@example.com', N'Ð?a ch? 22', NULL, NULL, CAST(N'2024-03-02T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (32, N'User023', N'password123', N'Khách Hàng 23', CAST(N'1992-09-14T00:00:00.000' AS DateTime), N'0912564789', N'user023@example.com', N'Ð?a ch? 23', NULL, NULL, CAST(N'2024-03-03T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (33, N'User024', N'password123', N'Khách Hàng 24', CAST(N'1988-04-18T00:00:00.000' AS DateTime), N'0356782910', N'user024@example.com', N'Ð?a ch? 24', NULL, NULL, CAST(N'2024-03-04T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (34, N'User025', N'password123', N'Khách Hàng 25', CAST(N'1994-11-30T00:00:00.000' AS DateTime), N'0905678912', N'user025@example.com', N'Ð?a ch? 25', NULL, NULL, CAST(N'2024-03-05T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (35, N'User026', N'password123', N'Khách Hàng 26', CAST(N'1993-01-03T00:00:00.000' AS DateTime), N'0334567892', N'user026@example.com', N'Ð?a ch? 26', NULL, NULL, CAST(N'2024-03-06T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (36, N'User027', N'password123', N'Khách Hàng 27', CAST(N'1987-07-20T00:00:00.000' AS DateTime), N'0979876533', N'user027@example.com', N'Ð?a ch? 27', NULL, NULL, CAST(N'2024-03-07T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (37, N'User028', N'password123', N'Khách Hàng 28', CAST(N'1995-02-16T00:00:00.000' AS DateTime), N'0323123457', N'user028@example.com', N'Ð?a ch? 28', NULL, NULL, CAST(N'2024-03-08T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (38, N'User029', N'password123', N'Khách Hàng 29', CAST(N'1990-12-05T00:00:00.000' AS DateTime), N'0912456789', N'user029@example.com', N'Ð?a ch? 29', NULL, NULL, CAST(N'2024-03-09T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (44, N'User041', N'password123', N'Khách Hàng 41', CAST(N'1991-01-01T00:00:00.000' AS DateTime), N'0325544790', N'user041@example.com', N'Ð?a ch? 41', NULL, NULL, CAST(N'2024-05-01T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (45, N'User042', N'password123', N'Khách Hàng 42', CAST(N'1994-08-22T00:00:00.000' AS DateTime), N'0398765436', N'user042@example.com', N'Ð?a ch? 42', NULL, NULL, CAST(N'2024-05-02T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (46, N'User043', N'password123', N'Khách Hàng 43', CAST(N'1990-02-18T00:00:00.000' AS DateTime), N'0912345671', N'user043@example.com', N'Ð?a ch? 43', NULL, NULL, CAST(N'2024-05-03T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (47, N'User044', N'password123', N'Khách Hàng 44', CAST(N'1989-04-30T00:00:00.000' AS DateTime), N'0356783001', N'user044@example.com', N'Ð?a ch? 44', NULL, NULL, CAST(N'2024-05-04T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (48, N'User045', N'password123', N'Khách Hàng 45', CAST(N'1992-12-14T00:00:00.000' AS DateTime), N'0906789013', N'user045@example.com', N'Ð?a ch? 45', NULL, NULL, CAST(N'2024-05-05T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (49, N'User046', N'password123', N'Khách Hàng 46', CAST(N'1987-10-09T00:00:00.000' AS DateTime), N'0334567802', N'user046@example.com', N'Ð?a ch? 46', NULL, NULL, CAST(N'2024-05-06T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (50, N'User047', N'password123', N'Khách Hàng 47', CAST(N'1993-08-27T00:00:00.000' AS DateTime), N'0979876545', N'user047@example.com', N'Ð?a ch? 47', NULL, NULL, CAST(N'2024-05-07T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (51, N'User048', N'password123', N'Khách Hàng 48', CAST(N'1994-01-11T00:00:00.000' AS DateTime), N'0323123459', N'user048@example.com', N'Ð?a ch? 48', NULL, NULL, CAST(N'2024-05-08T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (52, N'User049', N'password123', N'Khách Hàng 49', CAST(N'1991-11-13T00:00:00.000' AS DateTime), N'0912456791', N'user049@example.com', N'Ð?a ch? 49', NULL, NULL, CAST(N'2024-05-09T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (53, N'User050', N'password123', N'Khách Hàng 50', CAST(N'1990-07-20T00:00:00.000' AS DateTime), N'0398765442', N'user050@example.com', N'Ð?a ch? 50', NULL, NULL, CAST(N'2024-05-10T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (54, N'User051', N'password123', N'Khách Hàng 51', CAST(N'1990-04-14T00:00:00.000' AS DateTime), N'0325544791', N'user051@example.com', N'Ð?a ch? 51', NULL, NULL, CAST(N'2024-06-01T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (55, N'User052', N'password123', N'Khách Hàng 52', CAST(N'1992-07-23T00:00:00.000' AS DateTime), N'0398765437', N'user052@example.com', N'Ð?a ch? 52', NULL, NULL, CAST(N'2024-06-02T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (56, N'User053', N'password123', N'Khách Hàng 53', CAST(N'1989-09-12T00:00:00.000' AS DateTime), N'0912345672', N'user053@example.com', N'Ð?a ch? 53', NULL, NULL, CAST(N'2024-06-03T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (57, N'User054', N'password123', N'Khách Hàng 54', CAST(N'1993-11-06T00:00:00.000' AS DateTime), N'0356783012', N'user054@example.com', N'Ð?a ch? 54', NULL, NULL, CAST(N'2024-06-04T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (58, N'User055', N'password123', N'Khách Hàng 55', CAST(N'1994-10-28T00:00:00.000' AS DateTime), N'0906789014', N'user055@example.com', N'Ð?a ch? 55', NULL, NULL, CAST(N'2024-06-05T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (59, N'User056', N'password123', N'Khách Hàng 56', CAST(N'1990-03-18T00:00:00.000' AS DateTime), N'0334567803', N'user056@example.com', N'Ð?a ch? 56', NULL, NULL, CAST(N'2024-06-06T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (60, N'User057', N'password123', N'Khách Hàng 57', CAST(N'1991-12-08T00:00:00.000' AS DateTime), N'0979876546', N'user057@example.com', N'Ð?a ch? 57', NULL, NULL, CAST(N'2024-06-07T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (61, N'User058', N'password123', N'Khách Hàng 58', CAST(N'1992-06-22T00:00:00.000' AS DateTime), N'0323123460', N'user058@example.com', N'Ð?a ch? 58', NULL, NULL, CAST(N'2024-06-08T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (62, N'User059', N'password123', N'Khách Hàng 59', CAST(N'1990-08-01T00:00:00.000' AS DateTime), N'0912456792', N'user059@example.com', N'Ð?a ch? 59', NULL, NULL, CAST(N'2024-06-09T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (63, N'User060', N'password123', N'Khách Hàng 60', CAST(N'1993-02-10T00:00:00.000' AS DateTime), N'0398765443', N'user060@example.com', N'Ð?a ch? 60', NULL, NULL, CAST(N'2024-06-10T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (64, N'User061', N'password123', N'Khách Hàng 61', CAST(N'1991-04-25T00:00:00.000' AS DateTime), N'0325544792', N'user061@example.com', N'Ð?a ch? 61', NULL, NULL, CAST(N'2024-07-01T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (65, N'User062', N'password123', N'Khách Hàng 62', CAST(N'1990-11-15T00:00:00.000' AS DateTime), N'0398765438', N'user062@example.com', N'Ð?a ch? 62', NULL, NULL, CAST(N'2024-07-02T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (66, N'User063', N'password123', N'Khách Hàng 63', CAST(N'1989-06-07T00:00:00.000' AS DateTime), N'0912345673', N'user063@example.com', N'Ð?a ch? 63', NULL, NULL, CAST(N'2024-07-03T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (67, N'User064', N'password123', N'Khách Hàng 64', CAST(N'1993-07-30T00:00:00.000' AS DateTime), N'0356783023', N'user064@example.com', N'Ð?a ch? 64', NULL, NULL, CAST(N'2024-07-04T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (68, N'User065', N'password123', N'Khách Hàng 65', CAST(N'1992-01-22T00:00:00.000' AS DateTime), N'0906789015', N'user065@example.com', N'Ð?a ch? 65', NULL, NULL, CAST(N'2024-07-05T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (69, N'User066', N'password123', N'Khách Hàng 66', CAST(N'1994-08-18T00:00:00.000' AS DateTime), N'0334567804', N'user066@example.com', N'Ð?a ch? 66', NULL, NULL, CAST(N'2024-07-06T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (70, N'User067', N'password123', N'Khách Hàng 67', CAST(N'1987-03-19T00:00:00.000' AS DateTime), N'0979876547', N'user067@example.com', N'Ð?a ch? 67', NULL, NULL, CAST(N'2024-07-07T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (71, N'User068', N'password123', N'Khách Hàng 68', CAST(N'1993-10-17T00:00:00.000' AS DateTime), N'0323123461', N'user068@example.com', N'Ð?a ch? 68', NULL, NULL, CAST(N'2024-07-08T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (72, N'User069', N'password123', N'Khách Hàng 69', CAST(N'1991-05-04T00:00:00.000' AS DateTime), N'0912456793', N'user069@example.com', N'Ð?a ch? 69', NULL, NULL, CAST(N'2024-07-09T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (73, N'User070', N'password123', N'Khách Hàng 70', CAST(N'1994-09-09T00:00:00.000' AS DateTime), N'0398765444', N'user070@example.com', N'Ð?a ch? 70', NULL, NULL, CAST(N'2024-07-10T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (74, N'User071', N'password123', N'Khách Hàng 71', CAST(N'1990-02-14T00:00:00.000' AS DateTime), N'0325544793', N'user071@example.com', N'Ð?a ch? 71', NULL, NULL, CAST(N'2024-08-01T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (75, N'User072', N'password123', N'Khách Hàng 72', CAST(N'1992-03-29T00:00:00.000' AS DateTime), N'0398765439', N'user072@example.com', N'Ð?a ch? 72', NULL, NULL, CAST(N'2024-08-02T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (76, N'User073', N'password123', N'Khách Hàng 73', CAST(N'1989-12-17T00:00:00.000' AS DateTime), N'0912345674', N'user073@example.com', N'Ð?a ch? 73', NULL, NULL, CAST(N'2024-08-03T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (77, N'User074', N'password123', N'Khách Hàng 74', CAST(N'1994-06-12T00:00:00.000' AS DateTime), N'0356783034', N'user074@example.com', N'Ð?a ch? 74', NULL, NULL, CAST(N'2024-08-04T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (78, N'User075', N'password123', N'Khách Hàng 75', CAST(N'1990-01-19T00:00:00.000' AS DateTime), N'0906789016', N'user075@example.com', N'Ð?a ch? 75', NULL, NULL, CAST(N'2024-08-05T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (79, N'User076', N'password123', N'Khách Hàng 76', CAST(N'1991-05-02T00:00:00.000' AS DateTime), N'0334567805', N'user076@example.com', N'Ð?a ch? 76', NULL, NULL, CAST(N'2024-08-06T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (80, N'User077', N'password123', N'Khách Hàng 77', CAST(N'1992-09-03T00:00:00.000' AS DateTime), N'0979876548', N'user077@example.com', N'Ð?a ch? 77', NULL, NULL, CAST(N'2024-08-07T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (81, N'User078', N'password123', N'Khách Hàng 78', CAST(N'1993-04-04T00:00:00.000' AS DateTime), N'0323123462', N'user078@example.com', N'Ð?a ch? 78', NULL, NULL, CAST(N'2024-08-08T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (82, N'User079', N'password123', N'Khách Hàng 79', CAST(N'1994-12-02T00:00:00.000' AS DateTime), N'0912456794', N'user079@example.com', N'Ð?a ch? 79', NULL, NULL, CAST(N'2024-08-09T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (83, N'User080', N'password123', N'Khách Hàng 80', CAST(N'1990-07-11T00:00:00.000' AS DateTime), N'0398765445', N'user080@example.com', N'Ð?a ch? 80', NULL, NULL, CAST(N'2024-08-10T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (84, N'User081', N'password123', N'Khách Hàng 81', CAST(N'1992-10-23T00:00:00.000' AS DateTime), N'0325544794', N'user081@example.com', N'Ð?a ch? 81', NULL, NULL, CAST(N'2024-09-01T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (85, N'User082', N'password123', N'Khách Hàng 82', CAST(N'1991-08-17T00:00:00.000' AS DateTime), N'0398765446', N'user082@example.com', N'Ð?a ch? 82', NULL, NULL, CAST(N'2024-09-02T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (86, N'User083', N'password123', N'Khách Hàng 83', CAST(N'1990-05-22T00:00:00.000' AS DateTime), N'0912345675', N'user083@example.com', N'Ð?a ch? 83', NULL, NULL, CAST(N'2024-09-03T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (87, N'User084', N'password123', N'Khách Hàng 84', CAST(N'1993-02-18T00:00:00.000' AS DateTime), N'0356783045', N'user084@example.com', N'Ð?a ch? 84', NULL, NULL, CAST(N'2024-09-04T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (88, N'User085', N'password123', N'Khách Hàng 85', CAST(N'1994-11-11T00:00:00.000' AS DateTime), N'0906789017', N'user085@example.com', N'Ð?a ch? 85', NULL, NULL, CAST(N'2024-09-05T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (89, N'User086', N'password123', N'Khách Hàng 86', CAST(N'1992-07-25T00:00:00.000' AS DateTime), N'0334567806', N'user086@example.com', N'Ð?a ch? 86', NULL, NULL, CAST(N'2024-09-06T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (90, N'User087', N'password123', N'Khách Hàng 87', CAST(N'1991-01-13T00:00:00.000' AS DateTime), N'0979876549', N'user087@example.com', N'Ð?a ch? 87', NULL, NULL, CAST(N'2024-09-07T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (91, N'User088', N'password123', N'Khách Hàng 88', CAST(N'1993-12-14T00:00:00.000' AS DateTime), N'0323123463', N'user088@example.com', N'Ð?a ch? 88', NULL, NULL, CAST(N'2024-09-08T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (92, N'User089', N'password123', N'Khách Hàng 89', CAST(N'1990-03-28T00:00:00.000' AS DateTime), N'0912456795', N'user089@example.com', N'Ð?a ch? 89', NULL, NULL, CAST(N'2024-09-09T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (93, N'User090', N'password123', N'Khách Hàng 90', CAST(N'1992-08-04T00:00:00.000' AS DateTime), N'0398765447', N'user090@example.com', N'Ð?a ch? 90', NULL, NULL, CAST(N'2024-09-10T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (94, N'User091', N'password123', N'Khách Hàng 91', CAST(N'1994-01-05T00:00:00.000' AS DateTime), N'0325544795', N'user091@example.com', N'Ð?a ch? 91', NULL, NULL, CAST(N'2024-10-01T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (95, N'User092', N'password123', N'Khách Hàng 92', CAST(N'1990-06-14T00:00:00.000' AS DateTime), N'0398765448', N'user092@example.com', N'Ð?a ch? 92', NULL, NULL, CAST(N'2024-10-02T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (96, N'User093', N'password123', N'Khách Hàng 93', CAST(N'1992-09-09T00:00:00.000' AS DateTime), N'0912345676', N'user093@example.com', N'Ð?a ch? 93', NULL, NULL, CAST(N'2024-10-03T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (97, N'User094', N'password123', N'Khách Hàng 94', CAST(N'1993-04-11T00:00:00.000' AS DateTime), N'0356783056', N'user094@example.com', N'Ð?a ch? 94', NULL, NULL, CAST(N'2024-10-04T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (98, N'User095', N'password123', N'Khách Hàng 95', CAST(N'1994-12-25T00:00:00.000' AS DateTime), N'0906789018', N'user095@example.com', N'Ð?a ch? 95', NULL, NULL, CAST(N'2024-10-05T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (99, N'User096', N'password123', N'Khách Hàng 96', CAST(N'1990-02-21T00:00:00.000' AS DateTime), N'0334567807', N'user096@example.com', N'Ð?a ch? 96', NULL, NULL, CAST(N'2024-10-06T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (100, N'User097', N'password123', N'Khách Hàng 97', CAST(N'1991-07-13T00:00:00.000' AS DateTime), N'0979876550', N'user097@example.com', N'Ð?a ch? 97', NULL, NULL, CAST(N'2024-10-07T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (101, N'User098', N'password123', N'Khách Hàng 98', CAST(N'1993-01-03T00:00:00.000' AS DateTime), N'0323123464', N'user098@example.com', N'Ð?a ch? 98', NULL, NULL, CAST(N'2024-10-08T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (102, N'User099', N'password123', N'Khách Hàng 99', CAST(N'1994-08-30T00:00:00.000' AS DateTime), N'0912456796', N'user099@example.com', N'Ð?a ch? 99', NULL, NULL, CAST(N'2024-10-09T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (103, N'User100', N'password123', N'Khách Hàng 100', CAST(N'1992-05-19T00:00:00.000' AS DateTime), N'0398765449', N'user100@example.com', N'Ð?a ch? 100', NULL, NULL, CAST(N'2024-10-10T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (104, N'User101', N'password123', N'Khách Hàng 101', CAST(N'1994-03-02T00:00:00.000' AS DateTime), N'0325544796', N'user101@example.com', N'Ð?a ch? 101', NULL, NULL, CAST(N'2024-11-01T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (105, N'User102', N'password123', N'Khách Hàng 102', CAST(N'1991-11-11T00:00:00.000' AS DateTime), N'0398765450', N'user102@example.com', N'Ð?a ch? 102', NULL, NULL, CAST(N'2024-11-02T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (106, N'User103', N'password123', N'Khách Hàng 103', CAST(N'1990-12-28T00:00:00.000' AS DateTime), N'0912345677', N'user103@example.com', N'Ð?a ch? 103', NULL, NULL, CAST(N'2024-11-03T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (107, N'User104', N'password123', N'Khách Hàng 104', CAST(N'1992-02-15T00:00:00.000' AS DateTime), N'0356783067', N'user104@example.com', N'Ð?a ch? 104', NULL, NULL, CAST(N'2024-11-04T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (108, N'User105', N'password123', N'Khách Hàng 105', CAST(N'1994-09-05T00:00:00.000' AS DateTime), N'0906789019', N'user105@example.com', N'Ð?a ch? 105', NULL, NULL, CAST(N'2024-11-05T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (109, N'User106', N'password123', N'Khách Hàng 106', CAST(N'1991-01-26T00:00:00.000' AS DateTime), N'0334567808', N'user106@example.com', N'Ð?a ch? 106', NULL, NULL, CAST(N'2024-11-06T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (110, N'User107', N'password123', N'Khách Hàng 107', CAST(N'1992-06-30T00:00:00.000' AS DateTime), N'0979876551', N'user107@example.com', N'Ð?a ch? 107', NULL, NULL, CAST(N'2024-11-07T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (111, N'User108', N'password123', N'Khách Hàng 108', CAST(N'1990-07-15T00:00:00.000' AS DateTime), N'0323123465', N'user108@example.com', N'Ð?a ch? 108', NULL, NULL, CAST(N'2024-11-08T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (112, N'User109', N'password123', N'Khách Hàng 109', CAST(N'1993-10-18T00:00:00.000' AS DateTime), N'0912456797', N'user109@example.com', N'Ð?a ch? 109', NULL, NULL, CAST(N'2024-11-09T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (113, N'User110', N'password123', N'Khách Hàng 110', CAST(N'1994-04-25T00:00:00.000' AS DateTime), N'0398765451', N'user110@example.com', N'Ð?a ch? 110', NULL, NULL, CAST(N'2024-11-10T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (133, N'User112', N'password123', N'Khách Hàng 73', CAST(N'1992-03-08T00:00:00.000' AS DateTime), N'0114242657', N'user112@example.com', N'Ð?a ch? 73', NULL, NULL, CAST(N'2024-07-03T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (134, N'User114', N'password123', N'Khách Hàng 76', CAST(N'1994-06-10T00:00:00.000' AS DateTime), N'0294719421', N'user114@example.com', N'Ð?a ch? 76', NULL, NULL, CAST(N'2024-07-06T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (135, N'User116', N'password123', N'Khách Hàng 79', CAST(N'1991-04-14T00:00:00.000' AS DateTime), N'0912412782', N'user116@example.com', N'Ð?a ch? 79', NULL, NULL, CAST(N'2024-07-09T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (136, N'User117', N'password123', N'Khách Hàng 80', CAST(N'1994-10-01T00:00:00.000' AS DateTime), N'0239765438', N'user117@example.com', N'Ð?a ch? 80', NULL, NULL, CAST(N'2024-07-10T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (137, N'User121', N'password123', N'Khách Hàng 85', CAST(N'1994-11-11T00:00:00.000' AS DateTime), N'0906129017', N'user121@example.com', N'Ð?a ch? 85', NULL, NULL, CAST(N'2024-08-05T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (138, N'User122', N'password123', N'Khách Hàng 86', CAST(N'1992-07-25T00:00:00.000' AS DateTime), N'0331267806', N'user122@example.com', N'Ð?a ch? 86', NULL, NULL, CAST(N'2024-08-06T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (139, N'User123', N'password123', N'Khách Hàng 88', CAST(N'1993-12-14T00:00:00.000' AS DateTime), N'0763123463', N'user123@example.com', N'Ð?a ch? 88', NULL, NULL, CAST(N'2024-08-08T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (140, N'User124', N'password123', N'Khách Hàng 89', CAST(N'1990-03-28T00:00:00.000' AS DateTime), N'0912036795', N'user124@example.com', N'Ð?a ch? 89', NULL, NULL, CAST(N'2024-08-09T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[Customers] ([CustomerID], [Username], [Password], [FullName], [BirthDate], [PhoneNumber], [Email], [Address], [VerificationCode], [VerificationCodeExpiration], [CreatedDate]) VALUES (141, N'User125', N'password123', N'Khách Hàng 90', CAST(N'1992-08-04T00:00:00.000' AS DateTime), N'0398724447', N'user125@example.com', N'Ð?a ch? 90', NULL, NULL, CAST(N'2024-08-10T00:00:00.000' AS DateTime))
+GO
+SET IDENTITY_INSERT [dbo].[Customers] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Contacts] ON 
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (1, 1, 1, N'Hỗ trợ đơn hàng', N'Xin chào, tôi cần hỗ trợ về đơn hàng', CAST(N'2024-11-28T14:02:55.760' AS DateTime))
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (2, 2, 2, N'Chi tiết sản phẩm', N'Tôi muốn biết thêm chi tiết về sản phẩm', CAST(N'2024-11-28T14:02:55.760' AS DateTime))
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (3, 3, 3, N'Đổi trả sản phẩm', N'Làm sao để đổi trả sản phẩm?', CAST(N'2024-11-28T14:02:55.760' AS DateTime))
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (4, 4, 4, N'Hàng hóa', N'Khi nào sản phẩm mới có hàng trở lại?', CAST(N'2024-11-28T14:02:55.760' AS DateTime))
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (5, 5, 3, N'Hỗ trợ kỹ thuật', N'Tôi có thể nhận hỗ trợ về kỹ thuật không?', CAST(N'2024-11-28T14:02:55.760' AS DateTime))
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (6, 6, 3, N'Hủy đơn hàng', N'Tôi muốn hủy đơn hàng', CAST(N'2024-11-28T14:02:55.760' AS DateTime))
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (7, 7, 3, N'Giao hàng', N'Khi nào đơn hàng của tôi được giao?', CAST(N'2024-11-28T14:02:55.760' AS DateTime))
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (8, 8, 2, N'Khuyến mãi', N'Tôi cần tư vấn thêm về các chương trình khuyến mãi', CAST(N'2024-11-28T14:02:55.760' AS DateTime))
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (9, 9, 2, N'Bảo hành', N'Tôi muốn biết chi tiết về bảo hành sản phẩm', CAST(N'2024-11-28T14:02:55.760' AS DateTime))
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (10, 10, 1, N'Hỗ trợ trực tiếp', N'Làm thế nào để liên hệ trực tiếp với hỗ trợ?', CAST(N'2024-11-28T14:02:55.760' AS DateTime))
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (15, 15, 1, N'dasdas', N'asdasdsadas', CAST(N'2024-12-12T11:16:25.050' AS DateTime))
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (16, 15, 1, N'ads', N'asd', CAST(N'2024-12-12T11:18:46.283' AS DateTime))
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (17, 15, 1, N'dasda', N'asdasdsa', CAST(N'2024-12-12T11:20:05.267' AS DateTime))
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (18, 15, 1, N'das', N'asdasd', CAST(N'2024-12-12T11:24:08.110' AS DateTime))
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (19, 15, 1, N'sdsa', N'dasdasdsadsad', CAST(N'2024-12-12T11:24:26.163' AS DateTime))
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (20, 15, 1, N'dsad', N'dasdsad', CAST(N'2024-12-12T11:25:35.507' AS DateTime))
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (21, 15, 1, N'asdasdsa', N'dasdasdsadsad', CAST(N'2024-12-12T11:32:39.437' AS DateTime))
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (22, 15, 1, N'asdasdsa', N'dasdasdsadsad', CAST(N'2024-12-12T11:32:42.880' AS DateTime))
+GO
+INSERT [dbo].[Contacts] ([ContactID], [CustomerID], [AdminID], [Topic], [Message], [CreatedDate]) VALUES (23, 15, 1, N'dasdsada', N'asdasdasdsa12312adas', CAST(N'2024-12-12T11:34:24.917' AS DateTime))
+GO
+SET IDENTITY_INSERT [dbo].[Contacts] OFF
+GO
+SET IDENTITY_INSERT [dbo].[TypeCategories] ON 
+GO
+INSERT [dbo].[TypeCategories] ([TypeCategoryID], [TypeCategoryName]) VALUES (1, N'Áo nam')
+GO
+INSERT [dbo].[TypeCategories] ([TypeCategoryID], [TypeCategoryName]) VALUES (4, N'Giày dép')
+GO
+INSERT [dbo].[TypeCategories] ([TypeCategoryID], [TypeCategoryName]) VALUES (3, N'Phụ kiện')
+GO
+INSERT [dbo].[TypeCategories] ([TypeCategoryID], [TypeCategoryName]) VALUES (2, N'Quần nam')
+GO
+SET IDENTITY_INSERT [dbo].[TypeCategories] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Categories] ON 
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (1, 1, N'Áo sơ mi')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (2, 1, N'Áo thun')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (3, 1, N'Áo polo')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (4, 1, N'Áo khoác')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (5, 1, N'áo hoodie & sweatshirt')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (6, 1, N'Áo len')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (7, 1, N'Áo vest')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (8, 1, N'Áo ghi lê')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (9, 2, N'Quần jeans')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (10, 2, N'Quần tây')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (11, 2, N'Quần kaki')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (12, 2, N'Quần jogger')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (13, 2, N'Quần short')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (14, 2, N'Quần lót')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (15, 3, N'Thắt lưng')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (16, 3, N'Ví da')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (17, 3, N'Cà vạt')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (18, 3, N'Nơ')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (19, 3, N'Vớ nam')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (20, 3, N'Mũ nón')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (21, 3, N'Túi xách')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (22, 3, N'Mắt kính')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (23, 4, N'Giày')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (24, 4, N'Sandal')
+GO
+INSERT [dbo].[Categories] ([CategoryID], [TypeCategoryID], [CategoryName]) VALUES (25, 4, N'Dép nam')
+GO
+SET IDENTITY_INSERT [dbo].[Categories] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Products] ON 
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (1, N'Áo GiLê NAZAFU Đen 1103', 8, CAST(250000.00 AS Decimal(18, 2)), N'Áo GiLê NAZAFU Đen 1103.jpg', 62, N'Áo GiLê NAZAFU Đen 1103', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (2, N'Áo GiLê NAZAFU Đen AG1115', 8, CAST(450000.00 AS Decimal(18, 2)), N'Áo GiLê NAZAFU Đen AG1115.jpg', 48, N'Áo GiLê NAZAFU Đen AG1115', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (3, N'Áo GiLê NAZAFU Xám Chuột AG1114', 8, CAST(350000.00 AS Decimal(18, 2)), N'Áo GiLê NAZAFU Xám Chuột AG1114.jpg', 100, N'Áo GiLê NAZAFU Xám Chuột AG1114', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (4, N'Áo GiLê NAZAFU Xanh Đen 1113', 8, CAST(450000.00 AS Decimal(18, 2)), N'Áo GiLê NAZAFU Xanh Đen 1113.jpg', 30, N'Áo GiLê NAZAFU Xanh Đen 1113', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (5, N'Áo Gile Trơn 4 Nút Form Slimfit AG036 Màu Xám Trắng', 8, CAST(450000.00 AS Decimal(18, 2)), N'Áo Gile Trơn 4 Nút Form Slimfit AG036 Màu Xám Trắng.jpg', 10, N'Áo Gile Trơn 4 Nút Form Slimfit AG036 Màu Xám Trắng', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (6, N'Áo Vest Caro Nâu Form Slimfit AV033', 7, CAST(150000.00 AS Decimal(18, 2)), N'Áo Vest Caro Nâu Form Slimfit AV033.jpg', 30, N'Áo Vest Caro Nâu Form Slimfit AV033', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (7, N'Áo Vest Caro Xanh Form Slimfit AV032', 7, CAST(150000.00 AS Decimal(18, 2)), N'Áo Vest Caro Xanh Form Slimfit AV032.jpg', 30, N'Áo Vest Caro Xanh Form Slimfit AV032', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (8, N'Áo Vest Cổ V 3 Hàng Nút Linen AV1137 Màu Xanh Bích', 7, CAST(150000.00 AS Decimal(18, 2)), N'Áo Vest Cổ V 3 Hàng Nút Linen AV1137 Màu Xanh Bích.jpg', 10, N'Áo Vest Cổ V 3 Hàng Nút Linen AV1137 Màu Xanh Bích', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (9, N'Áo Vest Trơn Form Slimfit AV031', 7, CAST(150000.00 AS Decimal(18, 2)), N'Áo Vest Trơn Form Slimfit AV031.jpg', 10, N'Áo Vest Trơn Form Slimfit AV031', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (10, N'Áo Vest Trơn Linen Form Regular AV040 Màu Trắng', 7, CAST(150000.00 AS Decimal(18, 2)), N'Áo Vest Trơn Linen Form Regular AV040 Màu Trắng.jpg', 10, N'Áo Vest Trơn Linen Form Regular AV040 Màu Trắng', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (11, N'Áo Vest Trơn Regular Túi Đắp AV037 Màu Be', 7, CAST(150000.00 AS Decimal(18, 2)), N'Áo Vest Trơn Regular Túi Đắp AV037 Màu Be.jpg', 10, N'Áo Vest Trơn Regular Túi Đắp AV037 Màu Be', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (12, N'Áo Hoodie Believe AK012 Màu Rêu', 5, CAST(150000.00 AS Decimal(18, 2)), N'Áo Hoodie Believe AK012 Màu Rêu.jpg', 10, N'Áo Hoodie Believe AK012 Màu Rêu', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (13, N'Áo Hoodie May Đắp Basic Form Regular AH003 Màu Xanh Đen', 5, CAST(150000.00 AS Decimal(18, 2)), N'Áo Hoodie May Đắp Basic Form Regular AH003 Màu Xanh Đen.jpg', 100, N'Áo Hoodie May Đắp Basic Form Regular AH003 Màu Xanh Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (14, N'Áo Hoodie Rã Phối Thêu Home Is Form Regular AH004 Màu Kem', 5, CAST(150000.00 AS Decimal(18, 2)), N'Áo Hoodie Rã Phối Thêu Home Is Form Regular AH004 Màu Kem.jpg', 100, N'Áo Hoodie Rã Phối Thêu Home Is Form Regular AH004 Màu Kem', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (15, N'Áo Sweater Thêu Logo 4MEN Form Regular AS004 Màu Kem', 5, CAST(150000.00 AS Decimal(18, 2)), N'Áo Sweater Thêu Logo 4MEN Form Regular AS004 Màu Kem.jpg', 100, N'Áo Sweater Thêu Logo 4MEN Form Regular AS004 Màu Kem', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (16, N'Áo Sweatshirt Regular Phối Sọc AS001 Màu Đen', 5, CAST(150000.00 AS Decimal(18, 2)), N'Áo Sweatshirt Regular Phối Sọc AS001 Màu Đen.jpg', 100, N'Áo Sweatshirt Regular Phối Sọc AS001 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (17, N'Áo Sweatshirt Regular Sọc Gân AS002 Màu Đen', 5, CAST(250000.00 AS Decimal(18, 2)), N'Áo Sweatshirt Regular Sọc Gân AS002 Màu Đen.jpg', 100, N'Áo Sweatshirt Regular Sọc Gân AS002 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (18, N'Áo Khoác Da Form Regular AK056 Màu Đen', 4, CAST(450000.00 AS Decimal(18, 2)), N'Áo Khoác Da Form Regular AK056 Màu Đen.jpg', 50, N'Áo Khoác Da Form Regular AK056 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (19, N'Áo Khoác Da Lộn Rã Phối Regular AK054 Màu Nâu', 4, CAST(350000.00 AS Decimal(18, 2)), N'Áo Khoác Da Lộn Rã Phối Regular AK054 Màu Nâu.jpg', 20, N'Áo Khoác Da Lộn Rã Phối Regular AK054 Màu Nâu', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (20, N'Áo Khoác Kaki Business Jacket Form Regular AK062 Màu Be', 4, CAST(450000.00 AS Decimal(18, 2)), N'Áo Khoác Kaki Business Jacket Form Regular AK062 Màu Be.jpg', 10, N'Áo Khoác Kaki Business Jacket Form Regular AK062 Màu Be', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (21, N'Áo Khoác Kaki Có Nón Form Loose AK058 Màu Đen', 4, CAST(450000.00 AS Decimal(18, 2)), N'Áo Khoác Kaki Có Nón Form Loose AK058 Màu Đen.jpg', 10, N'Áo Khoác Kaki Có Nón Form Loose AK058 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (22, N'Áo Khoác Kaki Có Nón Rã Phối Preppy Heritage Form Loose AK061 Màu Đen', 4, CAST(150000.00 AS Decimal(18, 2)), N'Áo Khoác Kaki Có Nón Rã Phối Preppy Heritage Form Loose AK061 Màu Đen.jpg', 100, N'Áo Khoác Kaki Có Nón Rã Phối Preppy Heritage Form Loose AK061 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (23, N'Áo Khoác Kaki Harington Form Regular AK057 Màu Be', 4, CAST(150000.00 AS Decimal(18, 2)), N'Áo Khoác Kaki Harington Form Regular AK057 Màu Be.jpg', 30, N'Áo Khoác Kaki Harington Form Regular AK057 Màu Be', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (24, N'Áo Khoác Kaki Trượt Nước Rã Viền Thêu Chữ Ký 4MEN Form Regular AK060 Màu Xanh Đen', 4, CAST(150000.00 AS Decimal(18, 2)), N'Áo Khoác Kaki Trượt Nước Rã Viền Thêu Chữ Ký 4MEN Form Regular AK060 Màu Xanh Đen.jpg', 100, N'Áo Khoác Kaki Trượt Nước Rã Viền Thêu Chữ Ký 4MEN Form Regular AK060 Màu Xanh Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (25, N'Áo Khoác Varsity Phối Bo Sọc Thêu 4MEN Tennis Club Form Regular AK059 Màu Xanh Đen', 4, CAST(150000.00 AS Decimal(18, 2)), N'Áo Khoác Varsity Phối Bo Sọc Thêu 4MEN Tennis Club Form Regular AK059 Màu Xanh Đen.jpg', 100, N'Áo Khoác Varsity Phối Bo Sọc Thêu 4MEN Tennis Club Form Regular AK059 Màu Xanh Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (26, N'Áo Len Cổ Tròn Bo Sọc AL005 Màu Nâu', 6, CAST(150000.00 AS Decimal(18, 2)), N'Áo Len Cổ Tròn Bo Sọc AL005 Màu Nâu.jpg', 30, N'Áo Len Cổ Tròn Bo Sọc AL005 Màu Nâu', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (27, N'Áo Len Đắp Tay AL010 Màu Bò', 6, CAST(150000.00 AS Decimal(18, 2)), N'Áo Len Đắp Tay AL010 Màu Bò.jpg', 30, N'Áo Len Đắp Tay AL010 Màu Bò', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (28, N'Áo Len Phối Màu AL011 Màu Đỏ', 6, CAST(150000.00 AS Decimal(18, 2)), N'Áo Len Phối Màu AL011 Màu Đỏ.jpg', 10, N'Áo Len Phối Màu AL011 Màu Đỏ', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (29, N'Áo Len Regular Sọc Dệt Kim AL009 Màu Đen', 6, CAST(150000.00 AS Decimal(18, 2)), N'Áo Len Regular Sọc Dệt Kim AL009 Màu Đen.jpg', 20, N'Áo Len Regular Sọc Dệt Kim AL009 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (30, N'Áo Len Tay Dài Cổ V Sọc Dệt Vặn Thừng Form Regular AL013 Màu Trắng Kem', 6, CAST(150000.00 AS Decimal(18, 2)), N'Áo Len Tay Dài Cổ V Sọc Dệt Vặn Thừng Form Regular AL013 Màu Trắng Kem.jpg', 10, N'Áo Len Tay Dài Cổ V Sọc Dệt Vặn Thừng Form Regular AL013 Màu Trắng Kem', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (31, N'Áo Len Tay Dài Dệt Họa Tiết Quả Trám Form Regular AL012 Màu Nâu', 6, CAST(150000.00 AS Decimal(18, 2)), N'Áo Len Tay Dài Dệt Họa Tiết Quả Trám Form Regular AL012 Màu Nâu.jpg', 10, N'Áo Len Tay Dài Dệt Họa Tiết Quả Trám Form Regular AL012 Màu Nâu', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (32, N'Áo Polo Cổ V Phối In Họa Tiết Form Regular PO122 Màu Trắng', 3, CAST(150000.00 AS Decimal(18, 2)), N'Áo Polo Cổ V Phối In Họa Tiết Form Regular PO122 Màu Trắng.jpg', 10, N'Áo Polo Cổ V Phối In Họa Tiết Form Regular PO122 Màu Trắng', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (33, N'Áo Polo In Full Họa Tiết 4TC Form Regular PO132 Màu Trắng', 3, CAST(250000.00 AS Decimal(18, 2)), N'Áo Polo In Full Họa Tiết 4TC Form Regular PO132 Màu Trắng.jpg', 20, N'Áo Polo In Full Họa Tiết 4TC Form Regular PO132 Màu Trắng', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (34, N'Áo Polo In Sọc Thêu Hình Ở Ngực Form Regular PO129 Màu Kem', 3, CAST(250000.00 AS Decimal(18, 2)), N'Áo Polo In Sọc Thêu Hình Ở Ngực Form Regular PO129 Màu Kem.jpg', 20, N'Áo Polo In Sọc Thêu Hình Ở Ngực Form Regular PO129 Màu Kem', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (35, N'Áo Polo Phối Bo Kiểu Thêu Ngực Form Regular PO133 Màu Xanh Đen', 3, CAST(450000.00 AS Decimal(18, 2)), N'Áo Polo Phối Bo Kiểu Thêu Ngực Form Regular PO133 Màu Xanh Đen.jpg', 20, N'Áo Polo Phối Bo Kiểu Thêu Ngực Form Regular PO133 Màu Xanh Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (36, N'Áo Polo Phối Bo Thêu 4MEN Form Slimfit PO125 Màu Trắng', 3, CAST(350000.00 AS Decimal(18, 2)), N'Áo Polo Phối Bo Thêu 4MEN Form Slimfit PO125 Màu Trắng.jpg', 30, N'Áo Polo Phối Bo Thêu 4MEN Form Slimfit PO125 Màu Trắng', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (37, N'Áo Polo Rã Phối Dọc Thêu Ở Bo Cổ Form Regular PO131 Màu Xanh Lá', 3, CAST(450000.00 AS Decimal(18, 2)), N'Áo Polo Rã Phối Dọc Thêu Ở Bo Cổ Form Regular PO131 Màu Xanh Lá.jpg', 20, N'Áo Polo Rã Phối Dọc Thêu Ở Bo Cổ Form Regular PO131 Màu Xanh Lá', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (38, N'Áo Polo Rã Phối Thêu Đắp Con Giống Form Regular PO127 Màu Xanh Đen', 3, CAST(450000.00 AS Decimal(18, 2)), N'Áo Polo Rã Phối Thêu Đắp Con Giống Form Regular PO127 Màu Xanh Đen.jpg', 30, N'Áo Polo Rã Phối Thêu Đắp Con Giống Form Regular PO127 Màu Xanh Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (39, N'Áo Polo Rã Phối Thêu Logo Form Slimfit PO123 Màu Trắng', 3, CAST(150000.00 AS Decimal(18, 2)), N'Áo Polo Rã Phối Thêu Logo Form Slimfit PO123 Màu Trắng.jpg', 30, N'Áo Polo Rã Phối Thêu Logo Form Slimfit PO123 Màu Trắng', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (40, N'Áo Polo Trơn Form Regular PO137 Màu Nâu Đậm', 3, CAST(150000.00 AS Decimal(18, 2)), N'Áo Polo Trơn Form Regular PO137 Màu Nâu Đậm.jpg', 30, N'Áo Polo Trơn Form Regular PO137 Màu Nâu Đậm', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (41, N'Áo Polo Vải Họa Tiết Nanh Sói Phối Tay Raglan Form Slimfit PO139 Màu Nâu', 3, CAST(150000.00 AS Decimal(18, 2)), N'Áo Polo Vải Họa Tiết Nanh Sói Phối Tay Raglan Form Slimfit PO139 Màu Nâu.jpg', 30, N'Áo Polo Vải Họa Tiết Nanh Sói Phối Tay Raglan Form Slimfit PO139 Màu Nâu', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (42, N'Áo Sơ Mi Oxford Thêu Logo 4M SM085 Màu Xanh Đen', 1, CAST(150000.00 AS Decimal(18, 2)), N'Áo Sơ Mi Oxford Thêu Logo 4M SM085 Màu Xanh Đen.jpg', 10, N'Áo Sơ Mi Oxford Thêu Logo 4M SM085 Màu Xanh Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (43, N'Áo Sơ Mi Sọc Vải Bamboo Thêu Gentlemen Ở Măng Séc Form Slimfit SM156', 1, CAST(150000.00 AS Decimal(18, 2)), N'Áo Sơ Mi Sọc Vải Bamboo Thêu Gentlemen Ở Măng Séc Form Slimfit SM156.jpg', 10, N'Áo Sơ Mi Sọc Vải Bamboo Thêu Gentlemen Ở Măng Séc Form Slimfit SM156', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (44, N'Áo Sơ Mi Vải Oxford Sọc Form Regular SM159 Sọc Xanh Biển', 1, CAST(150000.00 AS Decimal(18, 2)), N'Áo Sơ Mi Vải Oxford Sọc Form Regular SM159 Sọc Xanh Biển.jpg', 30, N'Áo Sơ Mi Vải Oxford Sọc Form Regular SM159 Sọc Xanh Biển', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (45, N'Áo Sơ Mi Vải Oxford Sọc Phối Cổ Trắng Form Regular SM165 Màu Sọc Be', 1, CAST(250000.00 AS Decimal(18, 2)), N'Áo Sơ Mi Vải Oxford Sọc Phối Cổ Trắng Form Regular SM165 Màu Sọc Be.jpg', 20, N'Áo Sơ Mi Vải Oxford Sọc Phối Cổ Trắng Form Regular SM165 Màu Sọc Be', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (46, N'Áo Sơ Mi Vải Oxford Trơn Form Regular SM158 Màu Kem', 1, CAST(450000.00 AS Decimal(18, 2)), N'Áo Sơ Mi Vải Oxford Trơn Form Regular SM158 Màu Kem.jpg', 30, N'Áo Sơ Mi Vải Oxford Trơn Form Regular SM158 Màu Kem', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (47, N'Áo Sơ Mi Vải Oxford Trơn Signature Form Regular SM157 Màu Trắng Kem', 1, CAST(350000.00 AS Decimal(18, 2)), N'Áo Sơ Mi Vải Oxford Trơn Signature Form Regular SM157 Màu Trắng Kem.jpg', 20, N'Áo Sơ Mi Vải Oxford Trơn Signature Form Regular SM157 Màu Trắng Kem', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (48, N'Áo Polo Vải Sọc Ngang Thêu 4M Ở Lai Form Regular PO142 Màu Sọc Xanh', 2, CAST(450000.00 AS Decimal(18, 2)), N'Áo Polo Vải Sọc Ngang Thêu 4M Ở Lai Form Regular PO142 Màu Sọc Xanh.jpg', 20, N'Áo Polo Vải Sọc Ngang Thêu 4M Ở Lai Form Regular PO142 Màu Sọc Xanh', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (49, N'Áo Polo Vải Thun Xương Cá Cổ V Thêu 4M Form Slimfit PO141 Màu Trắng Kem ', 2, CAST(450000.00 AS Decimal(18, 2)), N'Áo Polo Vải Thun Xương Cá Cổ V Thêu 4M Form Slimfit PO141 Màu Trắng Kem .jpg', 20, N'Áo Polo Vải Thun Xương Cá Cổ V Thêu 4M Form Slimfit PO141 Màu Trắng Kem ', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (50, N'Áo Rugby Shirt Sọc Thêu Logo Ngực Form Regular PO140 Màu Sọc Be', 2, CAST(150000.00 AS Decimal(18, 2)), N'Áo Rugby Shirt Sọc Thêu Logo Ngực Form Regular PO140 Màu Sọc Be.jpg', 20, N'Áo Rugby Shirt Sọc Thêu Logo Ngực Form Regular PO140 Màu Sọc Be', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (51, N'Áo Thun In Graphic Mỏ Neo Lớn Form Regular AT147 Màu Trắng', 2, CAST(150000.00 AS Decimal(18, 2)), N'Áo Thun In Graphic Mỏ Neo Lớn Form Regular AT147 Màu Trắng.jpg', 20, N'Áo Thun In Graphic Mỏ Neo Lớn Form Regular AT147 Màu Trắng', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (52, N'Áo Thun In Thêu Heritage Sau Lưng Form Loose AT157 Màu Be', 2, CAST(150000.00 AS Decimal(18, 2)), N'Áo Thun In Thêu Heritage Sau Lưng Form Loose AT157 Màu Be.jpg', 20, N'Áo Thun In Thêu Heritage Sau Lưng Form Loose AT157 Màu Be', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (53, N'Áo Thun Rã Phối In Home Is Form Regular AT141 Màu Nâu', 2, CAST(150000.00 AS Decimal(18, 2)), N'Áo Thun Rã Phối In Home Is Form Regular AT141 Màu Nâu.jpg', 20, N'Áo Thun Rã Phối In Home Is Form Regular AT141 Màu Nâu', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (54, N'Áo Thun Sọc Ngang Nautical Thêu Hình Ở Ngực Form Regular AT149 Màu Sọc Xanh Đen', 2, CAST(150000.00 AS Decimal(18, 2)), N'Áo Thun Sọc Ngang Nautical Thêu Hình Ở Ngực Form Regular AT149 Màu Sọc Xanh Đen.jpg', 10, N'Áo Thun Sọc Ngang Nautical Thêu Hình Ở Ngực Form Regular AT149 Màu Sọc Xanh Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (55, N'Áo Thun Thêu Đắp Con Giống Mỏ Neo Form Regular AT146 Màu Xanh Đen', 2, CAST(150000.00 AS Decimal(18, 2)), N'Áo Thun Thêu Đắp Con Giống Mỏ Neo Form Regular AT146 Màu Xanh Đen.jpg', 10, N'Áo Thun Thêu Đắp Con Giống Mỏ Neo Form Regular AT146 Màu Xanh Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (56, N'Áo Thun Thêu Still Life Bo Cổ Kiểu Form Slimfit AT143 Màu Xám', 2, CAST(250000.00 AS Decimal(18, 2)), N'Áo Thun Thêu Still Life Bo Cổ Kiểu Form Slimfit AT143 Màu Xám.jpg', 10, N'Áo Thun Thêu Still Life Bo Cổ Kiểu Form Slimfit AT143 Màu Xám', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (57, N'Áo Thun Wash Loang In Graphic Tennis Sau Lưng Form Regular AT151 Màu Kem', 2, CAST(450000.00 AS Decimal(18, 2)), N'Áo Thun Wash Loang In Graphic Tennis Sau Lưng Form Regular AT151 Màu Kem.jpg', 10, N'Áo Thun Wash Loang In Graphic Tennis Sau Lưng Form Regular AT151 Màu Kem', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (58, N'Cà Vạt Bản Nhỏ Sọc CV044 Màu Xanh Đen', 17, CAST(350000.00 AS Decimal(18, 2)), N'Cà Vạt Bản Nhỏ Sọc CV044 Màu Xanh Đen.jpg', 100, N'Cà Vạt Bản Nhỏ Sọc CV044 Màu Xanh Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (59, N'Cà vạt bản nhỏ sọc CV054 màu đen', 17, CAST(450000.00 AS Decimal(18, 2)), N'Cà vạt bản nhỏ sọc CV054 màu đen.jpg', 100, N'Cà vạt bản nhỏ sọc CV054 màu đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (60, N'Cà Vạt Họa tiết CV055', 17, CAST(450000.00 AS Decimal(18, 2)), N'Cà Vạt Họa tiết CV055.jpg', 100, N'Cà Vạt Họa tiết CV055', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (61, N'Cà Vạt Sọc CV057 Xanh Đen', 17, CAST(150000.00 AS Decimal(18, 2)), N'Cà Vạt Sọc CV057 Xanh Đen.jpg', 100, N'Cà Vạt Sọc CV057 Xanh Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (62, N'Cà Vạt Sọc CV059', 17, CAST(150000.00 AS Decimal(18, 2)), N'Cà Vạt Sọc CV059.jpg', 100, N'Cà Vạt Sọc CV059', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (63, N'Cavat Caro CV035 Màu Nâu', 17, CAST(150000.00 AS Decimal(18, 2)), N'Cavat Caro CV035 Màu Nâu.jpg', 100, N'Cavat Caro CV035 Màu Nâu', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (64, N'Nón LT Thêu Full Of Hope Màu Vàng MU004', 20, CAST(150000.00 AS Decimal(18, 2)), N'Nón LT Thêu Full Of Hope Màu Vàng MU004.jpg', 10, N'Nón LT Thêu Full Of Hope Màu Vàng MU004', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (65, N'Nón Lưỡi Trai Thêu 4MEN Màu Trắng MU003', 20, CAST(150000.00 AS Decimal(18, 2)), N'Nón Lưỡi Trai Thêu 4MEN Màu Trắng MU003.jpg', 10, N'Nón Lưỡi Trai Thêu 4MEN Màu Trắng MU003', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (66, N'Nón Lưỡi Trai Thêu 4MEN MU001 Màu Bò', 20, CAST(150000.00 AS Decimal(18, 2)), N'Nón Lưỡi Trai Thêu 4MEN MU001 Màu Bò.jpg', 20, N'Nón Lưỡi Trai Thêu 4MEN MU001 Màu Bò', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (67, N'Nón Lưỡi Trai Thêu 4MEN Tennis Club MU010 Màu Trắng', 20, CAST(250000.00 AS Decimal(18, 2)), N'Nón Lưỡi Trai Thêu 4MEN Tennis Club MU010 Màu Trắng.jpg', 30, N'Nón Lưỡi Trai Thêu 4MEN Tennis Club MU010 Màu Trắng', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (68, N'Nón lưỡi trai thêu Basic MU005 Màu Đen', 20, CAST(450000.00 AS Decimal(18, 2)), N'Nón lưỡi trai thêu Basic MU005 Màu Đen.jpg', 20, N'Nón lưỡi trai thêu Basic MU005 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (69, N'Nón Lưỡi Trai Thêu Bon Voyage MU009 Màu Trắng', 20, CAST(350000.00 AS Decimal(18, 2)), N'Nón Lưỡi Trai Thêu Bon Voyage MU009 Màu Trắng.jpg', 10, N'Nón Lưỡi Trai Thêu Bon Voyage MU009 Màu Trắng', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (70, N'Nón Lưỡi Trai Thêu Mỏ Neo MU008 Màu Đen', 20, CAST(450000.00 AS Decimal(18, 2)), N'Nón Lưỡi Trai Thêu Mỏ Neo MU008 Màu Đen.jpg', 10, N'Nón Lưỡi Trai Thêu Mỏ Neo MU008 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (71, N'Nơ Nam Họa tiết NO 014', 18, CAST(450000.00 AS Decimal(18, 2)), N'Nơ Nam Họa tiết NO 014.jpg', 10, N'Nơ Nam Họa tiết NO 014', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (72, N'Nơ Nam Họa tiết NO 015 ', 18, CAST(150000.00 AS Decimal(18, 2)), N'Nơ Nam Họa tiết NO 015 .jpg', 10, N'Nơ Nam Họa tiết NO 015 ', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (73, N'Nơ Nam Họa tiết NO 016', 18, CAST(150000.00 AS Decimal(18, 2)), N'Nơ Nam Họa tiết NO 016.jpg', 10, N'Nơ Nam Họa tiết NO 016', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (74, N'Nơ Nam Họa tiết NO 017', 18, CAST(150000.00 AS Decimal(18, 2)), N'Nơ Nam Họa tiết NO 017.jpg', 10, N'Nơ Nam Họa tiết NO 017', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (75, N'Nơ Nam Sọc caro NO 020', 18, CAST(150000.00 AS Decimal(18, 2)), N'Nơ Nam Sọc caro NO 020.jpg', 10, N'Nơ Nam Sọc caro NO 020', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (76, N'Nơ Nam Sọc gân NO 019', 18, CAST(150000.00 AS Decimal(18, 2)), N'Nơ Nam Sọc gân NO 019.jpg', 10, N'Nơ Nam Sọc gân NO 019', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (77, N'Thắt lưng đầu kim TL156', 15, CAST(150000.00 AS Decimal(18, 2)), N'Thắt lưng đầu kim TL156.jpg', 10, N'Thắt lưng đầu kim TL156', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (78, N'Thắt lưng đầu kim TL165 Màu Nâu', 15, CAST(250000.00 AS Decimal(18, 2)), N'Thắt lưng đầu kim TL165 Màu Nâu.jpg', 10, N'Thắt lưng đầu kim TL165 Màu Nâu', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (79, N'Thắt lưng đầu kim TL166 Màu Nâu', 15, CAST(450000.00 AS Decimal(18, 2)), N'Thắt lưng đầu kim TL166 Màu Nâu.jpg', 20, N'Thắt lưng đầu kim TL166 Màu Nâu', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (80, N'Thắt lưng khóa tự động TL159', 15, CAST(350000.00 AS Decimal(18, 2)), N'Thắt lưng khóa tự động TL159.jpg', 20, N'Thắt lưng khóa tự động TL159', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (81, N'Thắt lưng khóa tự động TL161', 15, CAST(450000.00 AS Decimal(18, 2)), N'Thắt lưng khóa tự động TL161.jpg', 20, N'Thắt lưng khóa tự động TL161', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (82, N'Thắt lưng khóa tự động TL163', 15, CAST(450000.00 AS Decimal(18, 2)), N'Thắt lưng khóa tự động TL163.jpg', 30, N'Thắt lưng khóa tự động TL163', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (83, N'Thắt lưng khóa tự động TL164', 15, CAST(150000.00 AS Decimal(18, 2)), N'Thắt lưng khóa tự động TL164.jpg', 30, N'Thắt lưng khóa tự động TL164', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (84, N'Túi Bao Tử Casual TX014 Màu Xanh Đen', 21, CAST(150000.00 AS Decimal(18, 2)), N'Túi Bao Tử Casual TX014 Màu Xanh Đen.jpg', 30, N'Túi Bao Tử Casual TX014 Màu Xanh Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (85, N'Túi Canvas 4MEN TX013 Màu Be', 21, CAST(150000.00 AS Decimal(18, 2)), N'Túi Canvas 4MEN TX013 Màu Be.jpg', 100, N'Túi Canvas 4MEN TX013 Màu Be', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (86, N'Túi Canvas Đen Phối Trắng TX017', 21, CAST(150000.00 AS Decimal(18, 2)), N'Túi Canvas Đen Phối Trắng TX017.jpg', 30, N'Túi Canvas Đen Phối Trắng TX017', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (87, N'Túi Da Khóa Sắt TX015 Màu Đen', 21, CAST(150000.00 AS Decimal(18, 2)), N'Túi Da Khóa Sắt TX015 Màu Đen.jpg', 20, N'Túi Da Khóa Sắt TX015 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (88, N'Túi Da Ngang TX016 Màu Bò', 21, CAST(150000.00 AS Decimal(18, 2)), N'Túi Da Ngang TX016 Màu Bò.jpg', 10, N'Túi Da Ngang TX016 Màu Bò', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (89, N'Túi đeo chéo phối dây sọc bò TX002', 21, CAST(250000.00 AS Decimal(18, 2)), N'Túi đeo chéo phối dây sọc bò TX002.jpg', 50, N'Túi đeo chéo phối dây sọc bò TX002', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (90, N'Túi Vải Canvas TX001 Màu Trắng', 21, CAST(450000.00 AS Decimal(18, 2)), N'Túi Vải Canvas TX001 Màu Trắng.jpg', 50, N'Túi Vải Canvas TX001 Màu Trắng', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (91, N'Ví Da Dáng Ngang BV045 Màu Bò', 16, CAST(350000.00 AS Decimal(18, 2)), N'Ví Da Dáng Ngang BV045 Màu Bò.jpg', 50, N'Ví Da Dáng Ngang BV045 Màu Bò', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (92, N'Ví Da Dáng Ngang BV041 Màu Đen', 16, CAST(450000.00 AS Decimal(18, 2)), N'Ví Da Dáng Ngang BV041 Màu Đen.jpg', 10, N'Ví Da Dáng Ngang BV041 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (93, N'Ví Da Dáng Ngang BV030 Màu Nâu', 16, CAST(450000.00 AS Decimal(18, 2)), N'Ví Da Dáng Ngang BV030 Màu Nâu.jpg', 20, N'Ví Da Dáng Ngang BV030 Màu Nâu', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (94, N'Ví cầm tay có khóa trơn 020 Màu Đen', 16, CAST(150000.00 AS Decimal(18, 2)), N'Ví cầm tay có khóa trơn 020 Màu Đen.jpg', 30, N'Ví cầm tay có khóa trơn 020 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (95, N'Ví cầm tay có khóa hoa văn 018', 16, CAST(150000.00 AS Decimal(18, 2)), N'Ví cầm tay có khóa hoa văn 018.jpg', 20, N'Ví cầm tay có khóa hoa văn 018', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (96, N'Ví cầm tay có khóa cá sấu 017', 16, CAST(150000.00 AS Decimal(18, 2)), N'Ví cầm tay có khóa cá sấu 017.jpg', 10, N'Ví cầm tay có khóa cá sấu 017', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (97, N'Vớ dài sọc VO073 Màu Xanh Đen', 19, CAST(150000.00 AS Decimal(18, 2)), N'Vớ dài sọc VO073 Màu Xanh Đen.jpg', 10, N'Vớ dài sọc VO073 Màu Xanh Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (98, N'Vớ dài sọc VO072', 19, CAST(150000.00 AS Decimal(18, 2)), N'Vớ dài sọc VO072.jpg', 10, N'Vớ dài sọc VO072', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (99, N'Vớ lười FREEDOM VO064', 19, CAST(150000.00 AS Decimal(18, 2)), N'Vớ lười FREEDOM VO064.jpg', 10, N'Vớ lười FREEDOM VO064', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (100, N'Vớ Nam cổ cao phối sọc VO059 màu nâu', 19, CAST(150000.00 AS Decimal(18, 2)), N'Vớ Nam cổ cao phối sọc VO059 màu nâu.jpg', 20, N'Vớ Nam cổ cao phối sọc VO059 màu nâu', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (101, N'Vớ Nam cổ dài phối màu VO068', 19, CAST(150000.00 AS Decimal(18, 2)), N'Vớ Nam cổ dài phối màu VO068.jpg', 10, N'Vớ Nam cổ dài phối màu VO068', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (102, N'Vớ Nam cổ ngắn VO065 Màu Trắng', 19, CAST(150000.00 AS Decimal(18, 2)), N'Vớ Nam cổ ngắn VO065 Màu Trắng.jpg', 30, N'Vớ Nam cổ ngắn VO065 Màu Trắng', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (103, N'Dép da Microfiber đế TPR', 25, CAST(150000.00 AS Decimal(18, 2)), N'Dép da Microfiber đế TPR - DE004 Màu Đen.jpg', 10, N'Dép da Microfiber đế TPR - DE004 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (104, N'Dép da Microfiber đế trấu DE003 Màu Đen', 25, CAST(150000.00 AS Decimal(18, 2)), N'Dép da Microfiber đế trấu DE003 Màu Đen.jpg', 10, N'Dép da Microfiber đế trấu DE003 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (105, N'Dép sandal quai chéo da Microfiber đế TPR - DE006 Màu Kem', 24, CAST(350000.00 AS Decimal(18, 2)), N'Dép sandal quai chéo da Microfiber đế TPR - DE006 Màu Kem.jpg', 20, N'Dép sandal quai chéo da Microfiber đế TPR - DE006 Màu Kem', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (106, N'Giày Chelsea Boots All Black G018 Màu Đen', 23, CAST(850000.00 AS Decimal(18, 2)), N'Giày Chelsea Boots All Black G018 Màu Đen.jpg', 10, N'Giày Chelsea Boots All Black G018 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (107, N'Giày Derby GI021 Màu Đen', 23, CAST(850000.00 AS Decimal(18, 2)), N'Giày Derby GI021 Màu Đen.jpg', 100, N'Giày Derby GI021 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (108, N'Giày Penny Loafer Da Bò GI020 Màu Đen', 23, CAST(850000.00 AS Decimal(18, 2)), N'Giày Penny Loafer Da Bò GI020 Màu Đen.jpg', 10, N'Giày Penny Loafer Da Bò GI020 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (109, N'Giày Tây G015 Màu Nâu', 23, CAST(850000.00 AS Decimal(18, 2)), N'Giày Tây 4MEN G015 Màu Nâu.jpg', 100, N'Giày Tây G015 Màu Nâu', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (110, N'Giày Tây Leather G017 Màu Đen', 23, CAST(850000.00 AS Decimal(18, 2)), N'Giày Tây Leather G017 Màu Đen.jpg', 12, N'Giày Tây Leather G017 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (111, N'Quần Jeans Regular Mid - Blue Geometric QJ071', 9, CAST(450000.00 AS Decimal(18, 2)), N'Quần Jeans Regular Mid - Blue Geometric QJ071.jpg', 20, NULL, CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (112, N'Quần Jeans Thêu 4M Túi Sau Form Straight QJ104 Màu Be', 9, CAST(550000.00 AS Decimal(18, 2)), N'Quần Jeans Thêu 4M Túi Sau Form Straight QJ104 Màu Be.jpg', 100, NULL, CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (113, N'Quần Jean Slim Cropped QJ1654 Màu Xanh Biển Đậm', 9, CAST(550000.00 AS Decimal(18, 2)), N'Quần Jean Slim Cropped QJ1654 Màu Xanh Biển Đậm.jpg', 100, NULL, CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (114, N'Quần Jeans Thêu Mỏ Neo Form Straight QJ099 Màu Xanh Biển Đậm', 9, CAST(450000.00 AS Decimal(18, 2)), N'Quần Jeans Thêu Mỏ Neo Form Straight QJ099 Màu Xanh Biển Đậm.jpg', 100, N'Quần Jeans Thêu Mỏ Neo Form Straight QJ099 Màu Xanh Biển Đậm', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (115, N'Quần Jeans Xám Regular Túi Kiểu QJ080 Màu Xám', 9, CAST(550000.00 AS Decimal(18, 2)), N'Quần Jeans Xám Regular Túi Kiểu QJ080 Màu Xám.jpg', 40, NULL, CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (116, N'Quần Jeans Xám Thêu Logo Túi Form Straight QJ087', 9, CAST(550000.00 AS Decimal(18, 2)), N'Quần Jeans Xám Thêu Logo Túi Form Straight QJ087.jpg', 30, NULL, CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (117, N'Quần Jeans Xanh Đậm Wash Cát Form Straight QJ095', 9, CAST(550000.00 AS Decimal(18, 2)), N'Quần Jeans Xanh Đậm Wash Cát Form Straight QJ095.jpg', 50, NULL, CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (118, N'Quần Tây Sidetab Regular Xếp Ly QT049 Màu Be', 10, CAST(850000.00 AS Decimal(18, 2)), N'Quần Tây Sidetab Regular Xếp Ly QT049 Màu Be.jpg', 20, N'Quần Tây Sidetab Regular Xếp Ly QT049 Màu Be', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (119, N'Quần Tây Sọc Túi Nắp Sau Form Slimfit QT061 Màu Xám', 10, CAST(850000.00 AS Decimal(18, 2)), N'Quần Tây Sọc Túi Nắp Sau Form Slimfit QT061 Màu Xám.jpg', 100, N'Quần Tây Sọc Túi Nắp Sau Form Slimfit QT061 Màu Xám', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (120, N'Quần Tây Lưng Thun Form Regular QT059 Màu Kem', 10, CAST(450000.00 AS Decimal(18, 2)), N'Quần Tây Lưng Thun Form Regular QT059 Màu Kem.jpg', 100, N'Quần Tây Lưng Thun Form Regular QT059 Màu Kem', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (121, N'Quần Tây Lưng Thun Form Regular QT060', 10, CAST(550000.00 AS Decimal(18, 2)), N'Quần Tây Lưng Thun Form Regular QT060.jpg', 10, NULL, CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (122, N'Quần Tây Sidetab 1 Bên Form Regular QT062 Màu Be', 10, CAST(550000.00 AS Decimal(18, 2)), N'Quần Tây Sidetab 1 Bên Form Regular QT062 Màu Be.jpg', 20, NULL, CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (123, N'Quần Tây Sidetab Form Slim-Cropped QT056 Màu Xám', 10, CAST(450000.00 AS Decimal(18, 2)), N'Quần Tây Sidetab Form Slim-Cropped QT056 Màu Xám.jpg', 10, N'Quần Tây Sidetab Form Slim-Cropped QT056 Màu Xám', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (124, N'Quần Tây Trơn Slimfit Tem Inox QT054 Màu Nâu Nhạt', 10, CAST(550000.00 AS Decimal(18, 2)), N'Quần Tây Trơn Slimfit Tem Inox QT054 Màu Nâu Nhạt.jpg', 20, NULL, CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (125, N'Quần Tây Xếp Li Thêu Form Slimfit Crop QT055 Màu Be', 10, CAST(550000.00 AS Decimal(18, 2)), N'Quần Tây Xếp Li Thêu Form Slimfit Crop QT055 Màu Be.jpg', 20, NULL, CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (126, N'Quần Kaki Túi Kiểu Trang Trí Dây Sọc Form Regular QK029 Màu Be', 11, CAST(850000.00 AS Decimal(18, 2)), N'Quần Kaki Túi Kiểu Trang Trí Dây Sọc Form Regular QK029 Màu Be.jpg', 100, NULL, CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (127, N'Quần Kaki Túi Chéo Kiểu Form Slimfit QK024 Màu Nâu', 11, CAST(850000.00 AS Decimal(18, 2)), N'Quần Kaki Túi Chéo Kiểu Form Slimfit QK024 Màu Nâu.jpg', 100, NULL, CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (128, N'Quần Kaki Nhung Tăm Lưng Thun Form Slim-Cropped QK023 Màu Nâu', 11, CAST(450000.00 AS Decimal(18, 2)), N'Quần Kaki Nhung Tăm Lưng Thun Form Slim-Cropped QK023 Màu Nâu.jpg', 100, N'Quần Kaki Nhung Tăm Lưng Thun Form Slim-Cropped QK023 Màu Nâu', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (129, N'Quần Kaki Slimfit Trơn QK018 Màu Xám', 11, CAST(550000.00 AS Decimal(18, 2)), N'Quần Kaki Slimfit Trơn QK018 Màu Xám.jpg', 100, N'Quần Kaki Slimfit Trơn QK018 Màu Xám', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (130, N'Quần Kaki Slimfit Túi Rã QK020 Màu Đen', 11, CAST(550000.00 AS Decimal(18, 2)), N'Quần Kaki Slimfit Túi Rã QK020 Màu Đen.jpg', 20, N'Quần Kaki Slimfit Túi Rã QK020 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (131, N'Quần Kaki Thêu Wave Form Baggy QK022 Màu Be', 11, CAST(450000.00 AS Decimal(18, 2)), N'Quần Kaki Thêu Wave Form Baggy QK022 Màu Be.jpg', 20, N'Quần Kaki Thêu Wave Form Baggy QK022 Màu Be', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (132, N'Quần Kaki Trơn Slimfit Rã Tam Giác QK019 Màu Kem', 11, CAST(550000.00 AS Decimal(18, 2)), N'Quần Kaki Trơn Slimfit Rã Tam Giác QK019 Màu Kem.jpg', 10, N'Quần Kaki Trơn Slimfit Rã Tam Giác QK019 Màu Kem', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (133, N'Quần Kaki Trơn Túi Rã Form Slimfit QK021 Màu Rêu', 11, CAST(550000.00 AS Decimal(18, 2)), N'Quần Kaki Trơn Túi Rã Form Slimfit QK021 Màu Rêu.jpg', 10, N'Quần Kaki Trơn Túi Rã Form Slimfit QK021 Màu Rêu', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (134, N'Quần Jogger Nỉ Bông Regular Rã Kiểu J009 Màu Be', 12, CAST(550000.00 AS Decimal(18, 2)), N'Quần Jogger Nỉ Bông Regular Rã Kiểu J009 Màu Be.jpg', 20, N'Quần Jogger Nỉ Bông Regular Rã Kiểu J009 Màu Be', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (135, N'Quần Jogger Đũi Co Giãn Form Regular JO011 Màu Rêu', 12, CAST(550000.00 AS Decimal(18, 2)), N'Quần Jogger Đũi Co Giãn Form Regular JO011 Màu Rêu.jpg', 20, N'Quần Jogger Đũi Co Giãn Form Regular JO011 Màu Rêu', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (136, N'Quần Jogger Thun J811 Màu Đỏ Đô.jpg', 12, CAST(450000.00 AS Decimal(18, 2)), N'Quần Jogger Thun J811 Màu Đỏ Đô.jpg', 10, N'Jogger Thun J811 Màu Đỏ Đô', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (137, N'Quần Jogger Nỉ Chân Cua Regular Minimalism J010 Màu Đen', 12, CAST(550000.00 AS Decimal(18, 2)), N'Quần Jogger Nỉ Chân Cua Regular Minimalism J010 Màu Đen.jpg', 10, N'Quần Jogger Nỉ Chân Cua Regular Minimalism J010 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (138, N'Quần Jogger Túi Chéo 4MEN Form Slimfit JO013 Màu Đen', 12, CAST(550000.00 AS Decimal(18, 2)), N'Quần Jogger Túi Chéo 4MEN Form Slimfit JO013 Màu Đen.jpg', 10, N'Quần Jogger Túi Chéo 4MEN Form Slimfit JO013 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (139, N'Quần Short Caro Lưng Thun Form Slimfit QS046 Màu Caro Xanh', 13, CAST(850000.00 AS Decimal(18, 2)), N'Quần Short Caro Lưng Thun Form Slimfit QS046 Màu Caro Xanh.jpg', 20, N'Quần Short Caro Lưng Thun Form Slimfit QS046 Màu Caro Xanh', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (140, N'Quần Short Jeans Xanh Đáp Túi Kiểu Form Straight QS051', 13, CAST(850000.00 AS Decimal(18, 2)), N'Quần Short Jeans Xanh Đáp Túi Kiểu Form Straight QS051.jpg', 20, N'Quần Short Jeans Xanh Đáp Túi Kiểu Form Straight QS051', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (141, N'Quần Short Jeans Đen Túi Chéo Wash Bạc Form Straight QS052', 13, CAST(550000.00 AS Decimal(18, 2)), N'Quần Short Jeans Đen Túi Chéo Wash Bạc Form Straight QS052.jpg', 100, N'Quần Short Jeans Đen Túi Chéo Wash Bạc Form Straight QS052', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (142, N'Quần Short Kaki Túi Nhỏ Kiểu Form Regular QS054 Màu Đen', 13, CAST(550000.00 AS Decimal(18, 2)), N'Quần Short Kaki Túi Nhỏ Kiểu Form Regular QS054 Màu Đen.jpg', 100, N'Quần Short Kaki Túi Nhỏ Kiểu Form Regular QS054 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (143, N'Quần Short Nhung Tăm Gắn Tag Da Tam Giác Form Straight QS050 Màu Nâu', 13, CAST(450000.00 AS Decimal(18, 2)), N'Quần Short Nhung Tăm Gắn Tag Da Tam Giác Form Straight QS050 Màu Nâu.jpg', 100, N'Quần Short Nhung Tăm Gắn Tag Da Tam Giác Form Straight QS050 Màu Nâu', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (144, N'QUẦN SHORT REGULAR PHỐI SỌC QS038 Màu Bò', 13, CAST(550000.00 AS Decimal(18, 2)), N'QUẦN SHORT REGULAR PHỐI SỌC QS038 Màu Bò.jpg', 100, N'QUẦN SHORT REGULAR PHỐI SỌC QS038 Màu Bò', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (145, N'Quần Short Trơn Túi Xéo Basic Form Regular QS048 Màu Đen', 13, CAST(550000.00 AS Decimal(18, 2)), N'Quần Short Trơn Túi Xéo Basic Form Regular QS048 Màu Đen.jpg', 100, N'Quần Short Trơn Túi Xéo Basic Form Regular QS048 Màu Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (146, N'Quần Short Túi Chéo Gắn Tag Da 4MEN Form Regular QS053 Màu Xanh Đen', 13, CAST(550000.00 AS Decimal(18, 2)), N'Quần Short Túi Chéo Gắn Tag Da 4MEN Form Regular QS053 Màu Xanh Đen.jpg', 100, N'Quần Short Túi Chéo Gắn Tag Da 4MEN Form Regular QS053 Màu Xanh Đen', CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (147, N'Quần boxer lưng xám QL059 Màu Đen Màu Xanh Biển', 14, CAST(50000.00 AS Decimal(18, 2)), N'Quần boxer lưng xám QL059 Màu Đen Màu Xanh Biển.jpg', 100, NULL, CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (148, N'Quần Boxer Slimfit Phối QL056 Màu Xám', 14, CAST(50000.00 AS Decimal(18, 2)), N'Quần Boxer Slimfit Phối QL056 Màu Xám.jpg', 100, NULL, CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (149, N'Quần Boxer SlimfitBasics QL055 Màu Đen', 14, CAST(50000.00 AS Decimal(18, 2)), N'Quần Boxer SlimfitBasics QL055 Màu Đen.jpg', 98, NULL, CAST(N'2024-11-28T14:44:37.197' AS DateTime))
+GO
+INSERT [dbo].[Products] ([ProductID], [ProductName], [CategoryID], [Price], [URLPicture], [QuantityInStock], [Description], [CreatedDate]) VALUES (152, N'Giày Thể Thao Thông Dụng Nam Biti''s Basic BSM000600', 23, CAST(300000.00 AS Decimal(18, 2)), N'Giày Thể Thao Thông Dụng Nam Biti''s Basic BSM000600.jpg', 50, N'Giày Thể Thao Thông Dụng Nam Biti''s Basic BSM000600', CAST(N'2024-12-12T21:06:08.637' AS DateTime))
+GO
+SET IDENTITY_INSERT [dbo].[Products] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Wishlists] ON 
+GO
+INSERT [dbo].[Wishlists] ([WishlistID], [CustomerID], [ProductID], [Status], [CreatedDate]) VALUES (1007, 15, 104, N'Còn hàng', CAST(N'2024-12-12T15:47:13.470' AS DateTime))
+GO
+INSERT [dbo].[Wishlists] ([WishlistID], [CustomerID], [ProductID], [Status], [CreatedDate]) VALUES (1008, 15, 1, N'Còn hàng', CAST(N'2024-12-12T16:07:51.353' AS DateTime))
+GO
+SET IDENTITY_INSERT [dbo].[Wishlists] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Invoices] ON 
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1002, CAST(N'2024-12-09T21:16:19.487' AS DateTime), CAST(3550000.00 AS Decimal(18, 2)), N'Đã xác nhận', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1003, CAST(N'2024-12-09T21:18:13.653' AS DateTime), CAST(3550000.00 AS Decimal(18, 2)), N'Đã từ chối', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1004, CAST(N'2024-12-10T14:03:29.503' AS DateTime), CAST(3550000.00 AS Decimal(18, 2)), N'Đã từ chối', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1005, CAST(N'2024-12-10T14:04:29.647' AS DateTime), CAST(450000.00 AS Decimal(18, 2)), N'Đã xác nhận', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1006, CAST(N'2024-12-10T14:09:46.870' AS DateTime), CAST(250000.00 AS Decimal(18, 2)), N'Đang chờ xác nhận đơn', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1007, CAST(N'2024-12-10T14:15:40.953' AS DateTime), CAST(450000.00 AS Decimal(18, 2)), N'Đang chờ xác nhận đơn', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1008, CAST(N'2024-12-10T14:16:49.893' AS DateTime), CAST(450000.00 AS Decimal(18, 2)), N'Đang chờ xác nhận đơn', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1009, CAST(N'2024-12-10T14:19:27.597' AS DateTime), CAST(450000.00 AS Decimal(18, 2)), N'Đang chờ xác nhận đơn', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1010, CAST(N'2024-12-10T14:21:46.280' AS DateTime), CAST(450000.00 AS Decimal(18, 2)), N'Đang chờ xác nhận đơn', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1011, CAST(N'2024-12-10T14:24:17.743' AS DateTime), CAST(800000.00 AS Decimal(18, 2)), N'Đang chờ xác nhận đơn', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1012, CAST(N'2024-12-10T19:03:41.893' AS DateTime), CAST(127500.00 AS Decimal(18, 2)), N'Đang chờ xác nhận đơn', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1013, CAST(N'2024-12-10T22:12:32.847' AS DateTime), CAST(467500.00 AS Decimal(18, 2)), N'Đang chờ xác nhận đơn', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1014, CAST(N'2024-12-10T22:13:34.183' AS DateTime), CAST(637500.00 AS Decimal(18, 2)), N'Đang chờ xác nhận đơn', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1015, CAST(N'2024-12-10T22:14:01.870' AS DateTime), CAST(92500.00 AS Decimal(18, 2)), N'Đang chờ xác nhận đơn', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1016, CAST(N'2024-12-10T23:36:15.110' AS DateTime), CAST(42500.00 AS Decimal(18, 2)), N'Đã xác nhận', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1017, CAST(N'2024-12-11T14:10:55.920' AS DateTime), CAST(425000.00 AS Decimal(18, 2)), N'Đã xác nhận', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1018, CAST(N'2024-12-12T11:41:13.170' AS DateTime), CAST(680000.00 AS Decimal(18, 2)), N'Đang chờ xác nhận đơn', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1019, CAST(N'2024-12-12T11:41:46.790' AS DateTime), CAST(382500.00 AS Decimal(18, 2)), N'Đang chờ xác nhận đơn', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1020, CAST(N'2024-12-12T11:42:21.850' AS DateTime), CAST(212500.00 AS Decimal(18, 2)), N'Đang chờ xác nhận đơn', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1021, CAST(N'2024-12-12T14:30:16.250' AS DateTime), CAST(42500.00 AS Decimal(18, 2)), N'Đang chờ xác nhận đơn', 15)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1022, CAST(N'2024-12-01T00:00:00.000' AS DateTime), CAST(500000.00 AS Decimal(18, 2)), N'Đã xác nhận', 1)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1023, CAST(N'2024-12-02T00:00:00.000' AS DateTime), CAST(300000.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 2)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1024, CAST(N'2024-12-03T00:00:00.000' AS DateTime), CAST(450000.00 AS Decimal(18, 2)), N'Đã từ chối', 3)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1025, CAST(N'2024-12-04T00:00:00.000' AS DateTime), CAST(700000.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 4)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1026, CAST(N'2024-07-10T00:00:00.000' AS DateTime), CAST(329166.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 29)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1027, CAST(N'2024-03-06T00:00:00.000' AS DateTime), CAST(696729.00 AS Decimal(18, 2)), N'Đã xác nhận', 36)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1028, CAST(N'2024-01-06T00:00:00.000' AS DateTime), CAST(103358.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 3)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1029, CAST(N'2024-03-05T00:00:00.000' AS DateTime), CAST(767996.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 10)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1030, CAST(N'2024-08-01T00:00:00.000' AS DateTime), CAST(926793.00 AS Decimal(18, 2)), N'Đã từ chối', 83)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1031, CAST(N'2024-07-20T00:00:00.000' AS DateTime), CAST(396276.00 AS Decimal(18, 2)), N'Đã xác nhận', 11)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1032, CAST(N'2024-12-19T00:00:00.000' AS DateTime), CAST(800088.00 AS Decimal(18, 2)), N'Đã từ chối', 45)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1033, CAST(N'2024-08-30T00:00:00.000' AS DateTime), CAST(739931.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 54)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1034, CAST(N'2024-05-08T00:00:00.000' AS DateTime), CAST(227597.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 75)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1035, CAST(N'2024-09-11T00:00:00.000' AS DateTime), CAST(271606.00 AS Decimal(18, 2)), N'Đã xác nhận', 78)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1036, CAST(N'2024-02-08T00:00:00.000' AS DateTime), CAST(1080313.00 AS Decimal(18, 2)), N'Đã từ chối', 73)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1037, CAST(N'2024-04-04T00:00:00.000' AS DateTime), CAST(792092.00 AS Decimal(18, 2)), N'Đã từ chối', 48)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1038, CAST(N'2024-06-04T00:00:00.000' AS DateTime), CAST(1074384.00 AS Decimal(18, 2)), N'Đã xác nhận', 60)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1039, CAST(N'2024-11-14T00:00:00.000' AS DateTime), CAST(135038.00 AS Decimal(18, 2)), N'Đã từ chối', 20)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1040, CAST(N'2024-11-25T00:00:00.000' AS DateTime), CAST(404250.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 100)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1041, CAST(N'2024-03-22T00:00:00.000' AS DateTime), CAST(797135.00 AS Decimal(18, 2)), N'Đã xác nhận', 52)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1042, CAST(N'2024-03-03T00:00:00.000' AS DateTime), CAST(634192.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 51)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1043, CAST(N'2024-02-16T00:00:00.000' AS DateTime), CAST(271246.00 AS Decimal(18, 2)), N'Đã xác nhận', 71)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1044, CAST(N'2024-01-19T00:00:00.000' AS DateTime), CAST(441845.00 AS Decimal(18, 2)), N'Đã từ chối', 28)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1045, CAST(N'2024-05-19T00:00:00.000' AS DateTime), CAST(346551.00 AS Decimal(18, 2)), N'Đã xác nhận', 59)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1046, CAST(N'2024-08-08T00:00:00.000' AS DateTime), CAST(119461.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 75)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1047, CAST(N'2024-03-02T00:00:00.000' AS DateTime), CAST(561845.00 AS Decimal(18, 2)), N'Đã từ chối', 61)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1048, CAST(N'2024-08-15T00:00:00.000' AS DateTime), CAST(973006.00 AS Decimal(18, 2)), N'Đã xác nhận', 21)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1049, CAST(N'2024-01-07T00:00:00.000' AS DateTime), CAST(199135.00 AS Decimal(18, 2)), N'Đã xác nhận', 32)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1050, CAST(N'2024-08-09T00:00:00.000' AS DateTime), CAST(828221.00 AS Decimal(18, 2)), N'Đã từ chối', 46)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1051, CAST(N'2024-10-16T00:00:00.000' AS DateTime), CAST(887997.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 27)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1052, CAST(N'2024-05-02T00:00:00.000' AS DateTime), CAST(150987.00 AS Decimal(18, 2)), N'Đã xác nhận', 63)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1053, CAST(N'2024-12-30T00:00:00.000' AS DateTime), CAST(645626.00 AS Decimal(18, 2)), N'Đã xác nhận', 32)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1054, CAST(N'2024-09-24T00:00:00.000' AS DateTime), CAST(844332.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 81)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1055, CAST(N'2024-08-24T00:00:00.000' AS DateTime), CAST(669786.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 91)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1056, CAST(N'2024-02-06T00:00:00.000' AS DateTime), CAST(622561.00 AS Decimal(18, 2)), N'Đã xác nhận', 91)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1057, CAST(N'2024-11-13T00:00:00.000' AS DateTime), CAST(108952.00 AS Decimal(18, 2)), N'Đã xác nhận', 61)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1058, CAST(N'2024-07-16T00:00:00.000' AS DateTime), CAST(552728.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 83)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1059, CAST(N'2024-11-03T00:00:00.000' AS DateTime), CAST(199255.00 AS Decimal(18, 2)), N'Đã từ chối', 46)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1060, CAST(N'2024-11-18T00:00:00.000' AS DateTime), CAST(1004219.00 AS Decimal(18, 2)), N'Đã từ chối', 26)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1062, CAST(N'2024-07-24T00:00:00.000' AS DateTime), CAST(1048275.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 2)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1063, CAST(N'2024-08-07T00:00:00.000' AS DateTime), CAST(1080864.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 95)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1064, CAST(N'2024-02-22T00:00:00.000' AS DateTime), CAST(310941.00 AS Decimal(18, 2)), N'Đã xác nhận', 46)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1065, CAST(N'2024-10-06T00:00:00.000' AS DateTime), CAST(165371.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 53)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1066, CAST(N'2024-02-02T00:00:00.000' AS DateTime), CAST(655439.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 63)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1067, CAST(N'2024-07-06T00:00:00.000' AS DateTime), CAST(492444.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 66)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1069, CAST(N'2024-03-25T00:00:00.000' AS DateTime), CAST(675351.00 AS Decimal(18, 2)), N'Đã từ chối', 46)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1070, CAST(N'2024-08-05T00:00:00.000' AS DateTime), CAST(497389.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 64)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1071, CAST(N'2024-03-08T00:00:00.000' AS DateTime), CAST(999046.00 AS Decimal(18, 2)), N'Đã xác nhận', 100)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1072, CAST(N'2024-07-29T00:00:00.000' AS DateTime), CAST(1091417.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 61)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1073, CAST(N'2024-06-17T00:00:00.000' AS DateTime), CAST(507395.00 AS Decimal(18, 2)), N'Đã từ chối', 2)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1074, CAST(N'2024-05-03T00:00:00.000' AS DateTime), CAST(526917.00 AS Decimal(18, 2)), N'Đã xác nhận', 88)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1075, CAST(N'2024-12-09T00:00:00.000' AS DateTime), CAST(1046722.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 62)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1076, CAST(N'2024-09-12T00:00:00.000' AS DateTime), CAST(781131.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 11)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1077, CAST(N'2024-03-02T00:00:00.000' AS DateTime), CAST(912660.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 95)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1078, CAST(N'2024-09-24T00:00:00.000' AS DateTime), CAST(695636.00 AS Decimal(18, 2)), N'Đã xác nhận', 1)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1079, CAST(N'2024-10-25T00:00:00.000' AS DateTime), CAST(531279.00 AS Decimal(18, 2)), N'Đã xác nhận', 50)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1080, CAST(N'2024-12-13T00:00:00.000' AS DateTime), CAST(333474.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 62)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1081, CAST(N'2024-02-01T00:00:00.000' AS DateTime), CAST(541102.00 AS Decimal(18, 2)), N'Đã xác nhận', 25)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1082, CAST(N'2024-08-18T00:00:00.000' AS DateTime), CAST(927242.00 AS Decimal(18, 2)), N'Đã từ chối', 24)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1083, CAST(N'2024-09-30T00:00:00.000' AS DateTime), CAST(1046099.00 AS Decimal(18, 2)), N'Đã từ chối', 61)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1084, CAST(N'2024-12-01T00:00:00.000' AS DateTime), CAST(954443.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 93)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1085, CAST(N'2024-08-11T00:00:00.000' AS DateTime), CAST(812059.00 AS Decimal(18, 2)), N'Đã từ chối', 66)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1086, CAST(N'2024-05-11T00:00:00.000' AS DateTime), CAST(622746.00 AS Decimal(18, 2)), N'Đã xác nhận', 54)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1087, CAST(N'2024-03-09T00:00:00.000' AS DateTime), CAST(607941.00 AS Decimal(18, 2)), N'Đã từ chối', 35)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1088, CAST(N'2024-10-30T00:00:00.000' AS DateTime), CAST(590455.00 AS Decimal(18, 2)), N'Đã xác nhận', 10)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1089, CAST(N'2024-02-13T00:00:00.000' AS DateTime), CAST(836417.00 AS Decimal(18, 2)), N'Đã từ chối', 67)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1090, CAST(N'2024-02-02T00:00:00.000' AS DateTime), CAST(916037.00 AS Decimal(18, 2)), N'Đã từ chối', 7)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1091, CAST(N'2024-07-19T00:00:00.000' AS DateTime), CAST(179195.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 61)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1092, CAST(N'2024-05-18T00:00:00.000' AS DateTime), CAST(418613.00 AS Decimal(18, 2)), N'Đã từ chối', 7)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1093, CAST(N'2024-01-22T00:00:00.000' AS DateTime), CAST(178944.00 AS Decimal(18, 2)), N'Đã xác nhận', 89)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1094, CAST(N'2024-03-21T00:00:00.000' AS DateTime), CAST(335630.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 86)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1095, CAST(N'2024-07-15T00:00:00.000' AS DateTime), CAST(881717.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 47)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1096, CAST(N'2024-04-30T00:00:00.000' AS DateTime), CAST(609342.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 11)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1097, CAST(N'2024-06-30T00:00:00.000' AS DateTime), CAST(362113.00 AS Decimal(18, 2)), N'Đã từ chối', 83)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1098, CAST(N'2024-01-28T00:00:00.000' AS DateTime), CAST(774018.00 AS Decimal(18, 2)), N'Đã xác nhận', 54)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1099, CAST(N'2024-03-15T00:00:00.000' AS DateTime), CAST(401544.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 65)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1101, CAST(N'2024-06-05T00:00:00.000' AS DateTime), CAST(1073815.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 73)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1102, CAST(N'2024-07-16T00:00:00.000' AS DateTime), CAST(954785.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 52)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1103, CAST(N'2024-01-22T00:00:00.000' AS DateTime), CAST(373693.00 AS Decimal(18, 2)), N'Đã xác nhận', 76)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1104, CAST(N'2024-10-08T00:00:00.000' AS DateTime), CAST(448239.00 AS Decimal(18, 2)), N'Đã xác nhận', 73)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1105, CAST(N'2024-04-30T00:00:00.000' AS DateTime), CAST(758223.00 AS Decimal(18, 2)), N'Đã từ chối', 10)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1106, CAST(N'2024-02-15T00:00:00.000' AS DateTime), CAST(1005262.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 26)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1107, CAST(N'2024-02-08T00:00:00.000' AS DateTime), CAST(155904.00 AS Decimal(18, 2)), N'Đã xác nhận', 36)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1108, CAST(N'2024-11-28T00:00:00.000' AS DateTime), CAST(1039611.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 51)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1109, CAST(N'2024-06-27T00:00:00.000' AS DateTime), CAST(227567.00 AS Decimal(18, 2)), N'Đã xác nhận', 92)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1110, CAST(N'2024-05-23T00:00:00.000' AS DateTime), CAST(307251.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 69)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1111, CAST(N'2024-11-02T00:00:00.000' AS DateTime), CAST(1022993.00 AS Decimal(18, 2)), N'Đã từ chối', 44)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1112, CAST(N'2024-09-13T00:00:00.000' AS DateTime), CAST(258891.00 AS Decimal(18, 2)), N'Đã xác nhận', 83)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1113, CAST(N'2024-03-05T00:00:00.000' AS DateTime), CAST(287951.00 AS Decimal(18, 2)), N'Đã từ chối', 99)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1114, CAST(N'2024-05-18T00:00:00.000' AS DateTime), CAST(713171.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 89)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1115, CAST(N'2024-10-27T00:00:00.000' AS DateTime), CAST(390874.00 AS Decimal(18, 2)), N'Đã xác nhận', 16)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1116, CAST(N'2024-03-06T00:00:00.000' AS DateTime), CAST(304630.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 64)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1118, CAST(N'2024-06-04T00:00:00.000' AS DateTime), CAST(768282.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 35)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1119, CAST(N'2024-08-24T00:00:00.000' AS DateTime), CAST(839210.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 61)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1120, CAST(N'2024-12-10T00:00:00.000' AS DateTime), CAST(184819.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 67)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1121, CAST(N'2024-05-23T00:00:00.000' AS DateTime), CAST(353819.00 AS Decimal(18, 2)), N'Đang chờ xác nhận', 89)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1123, CAST(N'2024-09-15T00:00:00.000' AS DateTime), CAST(694010.00 AS Decimal(18, 2)), N'Đã xác nhận', 36)
+GO
+INSERT [dbo].[Invoices] ([InvoiceID], [CreatedDate], [TotalAmount], [Status], [CustomerID]) VALUES (1124, CAST(N'2024-11-02T00:00:00.000' AS DateTime), CAST(689543.00 AS Decimal(18, 2)), N'Đã xác nhận', 72)
+GO
+SET IDENTITY_INSERT [dbo].[Invoices] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Carts] ON 
+GO
+INSERT [dbo].[Carts] ([CartID], [CustomerID], [ProductID], [Quantity]) VALUES (1053, 15, 1, 1)
+GO
+SET IDENTITY_INSERT [dbo].[Carts] OFF
+GO
+SET IDENTITY_INSERT [dbo].[ProductPictures] ON 
+GO
+INSERT [dbo].[ProductPictures] ([ProductPictureID], [ProductID], [URLPicture]) VALUES (5, 1, N'01.jpg')
+GO
+INSERT [dbo].[ProductPictures] ([ProductPictureID], [ProductID], [URLPicture]) VALUES (6, 1, N'02.jpg')
+GO
+SET IDENTITY_INSERT [dbo].[ProductPictures] OFF
+GO
+SET IDENTITY_INSERT [dbo].[InvoiceDetails] ON 
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1002, 1002, 1, 7, CAST(250000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1003, 1002, 2, 2, CAST(450000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1004, 1002, 12, 6, CAST(150000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1005, 1003, 1, 7, CAST(250000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1006, 1003, 2, 2, CAST(450000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1007, 1003, 12, 6, CAST(150000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1008, 1004, 1, 7, CAST(250000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1009, 1004, 2, 2, CAST(450000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1010, 1004, 12, 6, CAST(150000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1011, 1005, 2, 1, CAST(450000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1012, 1006, 1, 1, CAST(250000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1013, 1007, 2, 1, CAST(450000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1014, 1008, 4, 1, CAST(450000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1015, 1009, 2, 1, CAST(450000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1016, 1010, 5, 1, CAST(450000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1017, 1011, 18, 1, CAST(450000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1018, 1011, 19, 1, CAST(350000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1019, 1012, 149, 3, CAST(50000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1020, 1013, 149, 1, CAST(42500.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1021, 1013, 1, 2, CAST(212500.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1022, 1014, 149, 1, CAST(42500.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1023, 1014, 1, 1, CAST(212500.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1024, 1014, 2, 1, CAST(382500.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1025, 1015, 149, 1, CAST(42500.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1026, 1015, 148, 1, CAST(50000.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1027, 1016, 149, 1, CAST(42500.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1028, 1017, 149, 1, CAST(42500.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1029, 1017, 2, 1, CAST(382500.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1030, 1018, 149, 1, CAST(42500.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1031, 1018, 1, 3, CAST(212500.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1032, 1019, 136, 1, CAST(382500.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1033, 1020, 1, 1, CAST(212500.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1034, 1021, 149, 1, CAST(42500.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1035, 1041, 111, 62, CAST(967665.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1036, 1049, 80, 55, CAST(572451.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1037, 1062, 135, 96, CAST(880574.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1038, 1038, 133, 19, CAST(121794.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1040, 1072, 104, 95, CAST(301994.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1041, 1040, 42, 95, CAST(840849.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1042, 1112, 105, 61, CAST(502356.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1043, 1041, 1, 62, CAST(539527.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1044, 1098, 110, 41, CAST(687132.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1045, 1097, 120, 87, CAST(277546.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1046, 1118, 41, 7, CAST(971996.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1047, 1058, 125, 52, CAST(959937.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1048, 1111, 69, 2, CAST(131249.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1049, 1074, 89, 22, CAST(376603.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1050, 1093, 83, 7, CAST(323843.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1051, 1077, 122, 2, CAST(91060.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1052, 1115, 49, 71, CAST(452322.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1053, 1072, 24, 29, CAST(923036.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1054, 1111, 41, 91, CAST(50327.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1055, 1040, 24, 27, CAST(991476.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1057, 1096, 130, 7, CAST(470988.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1058, 1115, 25, 15, CAST(930237.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1059, 1046, 36, 55, CAST(926364.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1060, 1119, 132, 10, CAST(583131.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1061, 1048, 97, 2, CAST(887450.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1062, 1071, 123, 87, CAST(698182.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1063, 1096, 7, 63, CAST(785670.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1064, 1119, 39, 92, CAST(958996.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1065, 1119, 130, 77, CAST(292539.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1066, 1076, 79, 91, CAST(709373.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1067, 1088, 128, 31, CAST(502423.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1068, 1104, 34, 76, CAST(451137.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1069, 1105, 125, 57, CAST(236657.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1070, 1040, 46, 30, CAST(595909.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1071, 1070, 77, 91, CAST(235947.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1072, 1093, 88, 92, CAST(430611.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1073, 1058, 114, 98, CAST(357269.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1074, 1075, 84, 42, CAST(268919.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1075, 1075, 14, 7, CAST(709268.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1076, 1044, 144, 22, CAST(357051.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1077, 1109, 26, 75, CAST(396757.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1078, 1111, 124, 4, CAST(480173.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1079, 1048, 124, 98, CAST(916898.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1080, 1075, 46, 33, CAST(526954.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1081, 1084, 107, 14, CAST(587026.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1082, 1060, 83, 1, CAST(163648.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1083, 1074, 109, 76, CAST(368779.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1084, 1113, 81, 5, CAST(621686.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1085, 1084, 117, 17, CAST(331310.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1086, 1058, 92, 18, CAST(673222.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1087, 1056, 130, 7, CAST(169034.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1088, 1109, 135, 19, CAST(608315.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1089, 1071, 75, 42, CAST(443295.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1090, 1041, 119, 61, CAST(964274.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1091, 1121, 37, 57, CAST(597414.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1092, 1093, 75, 96, CAST(810447.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1093, 1086, 85, 7, CAST(714654.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1094, 1106, 91, 37, CAST(173861.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1095, 1078, 116, 72, CAST(302043.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1096, 1060, 68, 75, CAST(879963.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1097, 1104, 119, 95, CAST(665467.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1098, 1096, 23, 2, CAST(124346.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1099, 1093, 13, 65, CAST(241628.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1100, 1046, 112, 22, CAST(314529.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1101, 1049, 52, 60, CAST(228833.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1102, 1067, 127, 60, CAST(555067.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1103, 1120, 100, 87, CAST(908015.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1104, 1078, 80, 4, CAST(782914.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1105, 1103, 28, 55, CAST(997376.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1106, 1124, 42, 35, CAST(732246.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1108, 1075, 14, 91, CAST(813106.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1109, 1069, 76, 23, CAST(285082.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1110, 1041, 11, 2, CAST(932352.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1111, 1106, 60, 72, CAST(76080.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1112, 1038, 110, 61, CAST(753369.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1113, 1099, 120, 60, CAST(143059.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1114, 1124, 56, 58, CAST(967938.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1115, 1082, 43, 37, CAST(345587.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1116, 1123, 99, 18, CAST(472762.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1117, 1085, 140, 16, CAST(382147.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1118, 1099, 122, 16, CAST(295306.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1119, 1039, 61, 66, CAST(836004.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1120, 1113, 11, 9, CAST(774657.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1121, 1037, 142, 18, CAST(124144.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1122, 1115, 118, 50, CAST(93152.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1123, 1095, 70, 66, CAST(768052.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1124, 1093, 51, 66, CAST(163589.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1125, 1081, 143, 16, CAST(489935.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1127, 1054, 143, 21, CAST(896003.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1128, 1070, 97, 57, CAST(898880.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1129, 1113, 98, 81, CAST(746582.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1130, 1118, 59, 30, CAST(979219.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1131, 1106, 48, 49, CAST(462687.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1132, 1098, 119, 32, CAST(912648.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1133, 1110, 15, 62, CAST(272127.00 AS Decimal(10, 2)))
+GO
+INSERT [dbo].[InvoiceDetails] ([InvoiceDetailID], [InvoiceID], [ProductID], [Quantity], [Price]) VALUES (1134, 1106, 44, 94, CAST(181046.00 AS Decimal(10, 2)))
+GO
+SET IDENTITY_INSERT [dbo].[InvoiceDetails] OFF
+GO
+SET IDENTITY_INSERT [dbo].[DiscountPrograms] ON 
+GO
+INSERT [dbo].[DiscountPrograms] ([DiscountProgramID], [DiscountProgramName], [DiscountPercentage], [Description], [StartDate], [EndDate], [CreatedDate]) VALUES (1, N'Khuy?n mãi mùa hè', CAST(15.00 AS Decimal(5, 2)), N'Gi?m giá cho các s?n ph?m mùa hè', CAST(N'2024-12-09T00:00:00.000' AS DateTime), CAST(N'2025-01-15T00:00:00.000' AS DateTime), CAST(N'2024-12-08T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[DiscountPrograms] ([DiscountProgramID], [DiscountProgramName], [DiscountPercentage], [Description], [StartDate], [EndDate], [CreatedDate]) VALUES (2, N'Khuy?n mãi nang lu?ng', CAST(20.00 AS Decimal(5, 2)), N'Bùng nổ năng lượng cho ngày mới bức phá', CAST(N'2024-12-15T00:00:00.000' AS DateTime), CAST(N'2024-12-16T00:00:00.000' AS DateTime), NULL)
+GO
+INSERT [dbo].[DiscountPrograms] ([DiscountProgramID], [DiscountProgramName], [DiscountPercentage], [Description], [StartDate], [EndDate], [CreatedDate]) VALUES (4, N'Khuy?n mãi nang lu?ng 123123', CAST(10.00 AS Decimal(5, 2)), N'Khuyến mãi năng lượng 123123', CAST(N'2024-11-20T00:00:00.000' AS DateTime), CAST(N'2024-11-28T00:00:00.000' AS DateTime), CAST(N'2024-12-12T19:31:06.000' AS DateTime))
+GO
+SET IDENTITY_INSERT [dbo].[DiscountPrograms] OFF
+GO
+SET IDENTITY_INSERT [dbo].[DiscountProducts] ON 
+GO
+INSERT [dbo].[DiscountProducts] ([DiscountProductID], [DiscountProgramID], [ProductID], [QuantityDiscounted]) VALUES (1, 1, 1, 10)
+GO
+INSERT [dbo].[DiscountProducts] ([DiscountProductID], [DiscountProgramID], [ProductID], [QuantityDiscounted]) VALUES (2, 1, 2, 3)
+GO
+INSERT [dbo].[DiscountProducts] ([DiscountProductID], [DiscountProgramID], [ProductID], [QuantityDiscounted]) VALUES (3, 1, 3, 20)
+GO
+INSERT [dbo].[DiscountProducts] ([DiscountProductID], [DiscountProgramID], [ProductID], [QuantityDiscounted]) VALUES (4, 1, 4, 15)
+GO
+INSERT [dbo].[DiscountProducts] ([DiscountProductID], [DiscountProgramID], [ProductID], [QuantityDiscounted]) VALUES (6, 1, 42, 10)
+GO
+INSERT [dbo].[DiscountProducts] ([DiscountProductID], [DiscountProgramID], [ProductID], [QuantityDiscounted]) VALUES (7, 1, 136, 10)
+GO
+INSERT [dbo].[DiscountProducts] ([DiscountProductID], [DiscountProgramID], [ProductID], [QuantityDiscounted]) VALUES (8, 1, 149, 9)
+GO
+INSERT [dbo].[DiscountProducts] ([DiscountProductID], [DiscountProgramID], [ProductID], [QuantityDiscounted]) VALUES (9, 4, 98, 10)
+GO
+SET IDENTITY_INSERT [dbo].[DiscountProducts] OFF
+GO

@@ -1,0 +1,122 @@
+﻿@model List<BTL.Models.Wishlist>
+@{
+    ViewBag.Title = "wishlist";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+
+    //// Nhóm sản phẩm theo CategoryID và lấy tên Category
+    //var categoryFolders = Model
+    //    .GroupBy(p => p.CategoryID)
+    //    .ToDictionary(g => g.Key, g => g.First().Category.CategoryName);
+
+    //// Nhóm sản phẩm theo TypeCategoryID và lấy tên TypeCategory
+    //var typeCategoryFolders = Model
+    //    .GroupBy(p => p.Category.TypeCategoryID)
+    //    .ToDictionary(
+    //        g => g.Key,
+    //        g => g.FirstOrDefault()?.Category.TypeCategory.TypeCategoryName ?? "default" // Thêm kiểm tra null
+    //    );
+}
+
+<br />
+<div style="padding-left:10%;padding-right:10%">
+    <div class="breadcrumbs_area">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb_content">
+                    <ul>
+                        <li><a href="@Url.Action("index","Home")">Trang chủ</a></li>
+                        <li><i class="fa fa-angle-right"></i></li>
+                        <li>Danh sách yêu thích</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shopping_cart_area">
+        <form action="#">
+            <div class="row">
+                <div class="col-12">
+                    <div class="table_desc wishlist">
+                        <div class="cart_page table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="product_thumb">Hình ảnh</th>
+                                        <th class="product_name">Tên sản phẩm</th>
+                                        <th class="product-price">Giá</th>
+                                        <th class="product_quantity">Trạng thái sản phẩm</th>
+                                        <th class="product_total">Thêm vào giỏ hàng</th>
+                                        <th class="product_remove">Xóa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class="product_thumb">
+                                                <a href="@Url.Action("Details", "Product", new {id = item.ProductID})">
+                                                    <img src="@Url.Content($"~/Content/images/{item.Product.Category.TypeCategory.TypeCategoryName}/{item.Product.Category.CategoryName}/{item.Product.URLPicture}")" alt="@item.Product.ProductName" style="width: 50%;">
+                                                </a>
+                                            </td>
+                                            <td class="product_name">
+                                                <a href="@Url.Action("Details", "Product", new {id = item.ProductID})">@item.Product.ProductName</a>
+                                            </td>
+                                            <td class="product-price">@item.Product.Price.ToString("N0")</td>
+                                            <td>
+                                                @if (item.Product.QuantityInStock > 0)
+                                                {
+                                                    <span>Còn hàng</span>
+                                                }
+                                                else
+                                                {
+                                                    <span>Hết hàng</span>
+                                                }
+                                            </td>
+                                            <td class="product_total"><a href="@Url.Action("AddToCart", "Cart", new {id = item.Product.ProductID})">Add To Cart</a></td>
+                                            <td class="product_remove"><a href="@Url.Action("RemoveFromWishlist", "Wishlist", new {id = item.WishlistID})"><i class="fa-regular fa-trash-can"></i></a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                @*<tbody>
+                                        @if (Model.Any())
+                                        {
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td class="product_thumb">
+                                                        <a href="@Url.Action("Details", "Product", new { id = item.ProductID })">
+                                                            <img src="@Url.Content($"~/Content/{item.Category.TypeCategory.TypeCategoryName}/{item.Category.CategoryName}/{item.URLPicture}")" alt="@item.ProductName" />
+                                                        </a>
+                                                    </td>
+                                                    <td class="product_name">
+                                                        <a href="@Url.Action("Details", "Product", new { id = item.ProductID })">@item.ProductName</a>
+                                                    </td>
+                                                    <td class="product-price">@item.Price</td>
+                                                    <td class="product_quantity">@item.QuantityInStock</td>
+                                                    <td class="product_total">
+                                                        <a href="@Url.Action("AddToCart", "Wishlist", new { id = item.ProductID })">Add To Cart</a>
+                                                    </td>
+                                                    <td class="product_remove">
+                                                        <a href="@Url.Action("RemoveFromWishlist", "Wishlist", new { id = item.ProductID })">
+                                                            <i class="fa-regular fa-trash-can"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <tr>
+                                                <td colspan="6">Your wishlist is empty.</td>
+                                            </tr>
+                                        }
+                                    </tbody>*@
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

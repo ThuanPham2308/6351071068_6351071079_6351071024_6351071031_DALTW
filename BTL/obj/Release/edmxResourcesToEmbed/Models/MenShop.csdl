@@ -1,0 +1,423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MenShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="HomeTown" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdentityCard" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="VerificationCode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="VerificationCodeExpiration" Type="DateTime" Precision="3" />
+    <Property Name="URLPicture" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Contacts" Relationship="Self.FK__Contacts__AdminI__7B5B524B" FromRole="Admins" ToRole="Contacts" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="CartID" />
+    </Key>
+    <Property Name="CartID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Carts__CustomerI__5812160E" FromRole="Carts" ToRole="Customers" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Carts__ProductID__59063A47" FromRole="Carts" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeCategoryID" Type="Int32" />
+    <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="TypeCategory" Relationship="Self.FK__Categorie__TypeC__48CFD27E" FromRole="Categories" ToRole="TypeCategories" />
+    <NavigationProperty Name="Products" Relationship="Self.FK__Products__Catego__4F7CD00D" FromRole="Categories" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ContactID" />
+    </Key>
+    <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="AdminID" Type="Int32" Nullable="false" />
+    <Property Name="Topic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Admin" Relationship="Self.FK__Contacts__AdminI__7B5B524B" FromRole="Contacts" ToRole="Admins" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Contacts__Custom__7A672E12" FromRole="Contacts" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="VerificationCode" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+    <Property Name="VerificationCodeExpiration" Type="DateTime" Precision="3" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Carts" Relationship="Self.FK__Carts__CustomerI__5812160E" FromRole="Customers" ToRole="Carts" />
+    <NavigationProperty Name="Contacts" Relationship="Self.FK__Contacts__Custom__7A672E12" FromRole="Customers" ToRole="Contacts" />
+    <NavigationProperty Name="Wishlists" Relationship="Self.FK__Wishlists__Custo__17036CC0" FromRole="Customers" ToRole="Wishlists" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoices_Customers" FromRole="Customers" ToRole="Invoices" />
+  </EntityType>
+  <EntityType Name="DiscountProduct">
+    <Key>
+      <PropertyRef Name="DiscountProductID" />
+    </Key>
+    <Property Name="DiscountProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DiscountProgramID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="QuantityDiscounted" Type="Int32" />
+    <NavigationProperty Name="DiscountProgram" Relationship="Self.FK__DiscountP__Disco__76969D2E" FromRole="DiscountProducts" ToRole="DiscountPrograms" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__DiscountP__Produ__75A278F5" FromRole="DiscountProducts" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="DiscountProgram">
+    <Key>
+      <PropertyRef Name="DiscountProgramID" />
+    </Key>
+    <Property Name="DiscountProgramID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DiscountProgramName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DiscountPercentage" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="DiscountProducts" Relationship="Self.FK__DiscountP__Disco__76969D2E" FromRole="DiscountPrograms" ToRole="DiscountProducts" />
+  </EntityType>
+  <EntityType Name="InvoiceDetail">
+    <Key>
+      <PropertyRef Name="InvoiceDetailID" />
+    </Key>
+    <Property Name="InvoiceDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Invoice" Relationship="Self.FK__InvoiceDe__Invoi__6383C8BA" FromRole="InvoiceDetails" ToRole="Invoices" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__InvoiceDe__Produ__6477ECF3" FromRole="InvoiceDetails" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+    </Key>
+    <Property Name="InvoiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CustomerID" Type="Int32" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Invoices_Customers" FromRole="Invoices" ToRole="Customers" />
+    <NavigationProperty Name="InvoiceDetails" Relationship="Self.FK__InvoiceDe__Invoi__6383C8BA" FromRole="Invoices" ToRole="InvoiceDetails" />
+  </EntityType>
+  <EntityType Name="ProductPicture">
+    <Key>
+      <PropertyRef Name="ProductPictureID" />
+    </Key>
+    <Property Name="ProductPictureID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="URLPicture" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__ProductPi__Produ__52593CB8" FromRole="ProductPictures" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="URLPicture" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="QuantityInStock" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Carts" Relationship="Self.FK__Carts__ProductID__59063A47" FromRole="Products" ToRole="Carts" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__Products__Catego__4F7CD00D" FromRole="Products" ToRole="Categories" />
+    <NavigationProperty Name="DiscountProducts" Relationship="Self.FK__DiscountP__Produ__75A278F5" FromRole="Products" ToRole="DiscountProducts" />
+    <NavigationProperty Name="InvoiceDetails" Relationship="Self.FK__InvoiceDe__Produ__6477ECF3" FromRole="Products" ToRole="InvoiceDetails" />
+    <NavigationProperty Name="ProductPictures" Relationship="Self.FK__ProductPi__Produ__52593CB8" FromRole="Products" ToRole="ProductPictures" />
+    <NavigationProperty Name="Wishlists" Relationship="Self.FK__Wishlists__Produ__17F790F9" FromRole="Products" ToRole="Wishlists" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TypeCategory">
+    <Key>
+      <PropertyRef Name="TypeCategoryID" />
+    </Key>
+    <Property Name="TypeCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeCategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK__Categorie__TypeC__48CFD27E" FromRole="TypeCategories" ToRole="Categories" />
+  </EntityType>
+  <EntityType Name="Wishlist">
+    <Key>
+      <PropertyRef Name="WishlistID" />
+    </Key>
+    <Property Name="WishlistID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Wishlists__Custo__17036CC0" FromRole="Wishlists" ToRole="Customers" />
+    <NavigationProperty Name="Product" Relationship="Self.FK__Wishlists__Produ__17F790F9" FromRole="Wishlists" ToRole="Products" />
+  </EntityType>
+  <Association Name="FK__Contacts__AdminI__7B5B524B">
+    <End Role="Admins" Type="Self.Admin" Multiplicity="1" />
+    <End Role="Contacts" Type="Self.Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admins">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="Contacts">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Carts__CustomerI__5812160E">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Carts" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Carts">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Carts__ProductID__59063A47">
+    <End Role="Products" Type="Self.Product" Multiplicity="1" />
+    <End Role="Carts" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Carts">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Categorie__TypeC__48CFD27E">
+    <End Role="TypeCategories" Type="Self.TypeCategory" Multiplicity="0..1" />
+    <End Role="Categories" Type="Self.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeCategories">
+        <PropertyRef Name="TypeCategoryID" />
+      </Principal>
+      <Dependent Role="Categories">
+        <PropertyRef Name="TypeCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Products__Catego__4F7CD00D">
+    <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Contacts__Custom__7A672E12">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Contacts" Type="Self.Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Contacts">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wishlists__Custo__17036CC0">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Wishlists" Type="Self.Wishlist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Wishlists">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invoices_Customers">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Invoices" Type="Self.Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Invoices">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DiscountP__Disco__76969D2E">
+    <End Role="DiscountPrograms" Type="Self.DiscountProgram" Multiplicity="1" />
+    <End Role="DiscountProducts" Type="Self.DiscountProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiscountPrograms">
+        <PropertyRef Name="DiscountProgramID" />
+      </Principal>
+      <Dependent Role="DiscountProducts">
+        <PropertyRef Name="DiscountProgramID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DiscountP__Produ__75A278F5">
+    <End Role="Products" Type="Self.Product" Multiplicity="1" />
+    <End Role="DiscountProducts" Type="Self.DiscountProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="DiscountProducts">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__InvoiceDe__Invoi__6383C8BA">
+    <End Role="Invoices" Type="Self.Invoice" Multiplicity="1" />
+    <End Role="InvoiceDetails" Type="Self.InvoiceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoices">
+        <PropertyRef Name="InvoiceID" />
+      </Principal>
+      <Dependent Role="InvoiceDetails">
+        <PropertyRef Name="InvoiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__InvoiceDe__Produ__6477ECF3">
+    <End Role="Products" Type="Self.Product" Multiplicity="1" />
+    <End Role="InvoiceDetails" Type="Self.InvoiceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="InvoiceDetails">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductPi__Produ__52593CB8">
+    <End Role="Products" Type="Self.Product" Multiplicity="1" />
+    <End Role="ProductPictures" Type="Self.ProductPicture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductPictures">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wishlists__Produ__17F790F9">
+    <End Role="Products" Type="Self.Product" Multiplicity="1" />
+    <End Role="Wishlists" Type="Self.Wishlist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Wishlists">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MenShopEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Carts" EntityType="Self.Cart" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Contacts" EntityType="Self.Contact" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="DiscountProducts" EntityType="Self.DiscountProduct" />
+    <EntitySet Name="DiscountPrograms" EntityType="Self.DiscountProgram" />
+    <EntitySet Name="InvoiceDetails" EntityType="Self.InvoiceDetail" />
+    <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+    <EntitySet Name="ProductPictures" EntityType="Self.ProductPicture" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TypeCategories" EntityType="Self.TypeCategory" />
+    <EntitySet Name="Wishlists" EntityType="Self.Wishlist" />
+    <AssociationSet Name="FK__Contacts__AdminI__7B5B524B" Association="Self.FK__Contacts__AdminI__7B5B524B">
+      <End Role="Admins" EntitySet="Admins" />
+      <End Role="Contacts" EntitySet="Contacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Carts__CustomerI__5812160E" Association="Self.FK__Carts__CustomerI__5812160E">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Carts" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Carts__ProductID__59063A47" Association="Self.FK__Carts__ProductID__59063A47">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Carts" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Categorie__TypeC__48CFD27E" Association="Self.FK__Categorie__TypeC__48CFD27E">
+      <End Role="TypeCategories" EntitySet="TypeCategories" />
+      <End Role="Categories" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Products__Catego__4F7CD00D" Association="Self.FK__Products__Catego__4F7CD00D">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Contacts__Custom__7A672E12" Association="Self.FK__Contacts__Custom__7A672E12">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Contacts" EntitySet="Contacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wishlists__Custo__17036CC0" Association="Self.FK__Wishlists__Custo__17036CC0">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Wishlists" EntitySet="Wishlists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invoices_Customers" Association="Self.FK_Invoices_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Invoices" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DiscountP__Disco__76969D2E" Association="Self.FK__DiscountP__Disco__76969D2E">
+      <End Role="DiscountPrograms" EntitySet="DiscountPrograms" />
+      <End Role="DiscountProducts" EntitySet="DiscountProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DiscountP__Produ__75A278F5" Association="Self.FK__DiscountP__Produ__75A278F5">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="DiscountProducts" EntitySet="DiscountProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__InvoiceDe__Invoi__6383C8BA" Association="Self.FK__InvoiceDe__Invoi__6383C8BA">
+      <End Role="Invoices" EntitySet="Invoices" />
+      <End Role="InvoiceDetails" EntitySet="InvoiceDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__InvoiceDe__Produ__6477ECF3" Association="Self.FK__InvoiceDe__Produ__6477ECF3">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="InvoiceDetails" EntitySet="InvoiceDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductPi__Produ__52593CB8" Association="Self.FK__ProductPi__Produ__52593CB8">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="ProductPictures" EntitySet="ProductPictures" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wishlists__Produ__17F790F9" Association="Self.FK__Wishlists__Produ__17F790F9">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Wishlists" EntitySet="Wishlists" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

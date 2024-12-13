@@ -1,0 +1,73 @@
+﻿@model BTL.Models.Cart
+@{
+    ViewBag.Title = "PayMoney";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<style>
+    .coupon_area {
+        margin-top: 50px;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+</style>
+
+<div class="coupon_area">
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            @{
+                var customer = Session["Customer"] as BTL.Models.Customer;
+                <div class="coupon_code">
+                    <h3>Thông tin khách hàng</h3>
+                    <div class="coupon_inner">
+                        <div class="cart_subtotal">
+                            <p>Tên khách hàng</p>
+                            <p class="cart_amount">@customer.FullName</p>
+                        </div>
+
+                        <div class="cart_subtotal">
+                            <p>Địa chỉ giao hàng</p>
+                            <p class="cart_amount">@customer.Address</p>
+                        </div>
+
+                        <div class="cart_subtotal">
+                            <p>Số điện thoại</p>
+                            <p class="cart_amount">@customer.PhoneNumber</p>
+                        </div>
+
+                        <div class="cart_subtotal">
+                            <p>Email</p>
+                            <p class="cart_amount">@customer.Email</p>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+
+        <div class="col-lg-6 col-md-6">
+            <div class="coupon_code">
+                <h3>Hóa đơn</h3>
+                <div class="coupon_inner">
+                    <div class="cart_subtotal">
+                        <p>Tổng tiền sản phẩm</p>
+                        <p class="cart_amount">@ViewBag.TotalAmount VNĐ</p>
+                    </div>
+
+                    @*<a href="#">Thay đổi phí giao hàng</a>*@
+
+                    <br />
+
+                    <div class="cart_subtotal">
+                        <p style="color: red;">Tổng tiền cần thanh toán</p>
+                        <p class="cart_amount" style="color: red;">@ViewBag.TotalAmount VNĐ</p>
+                    </div>
+
+                    <div class="checkout_btn">
+                        <a href="@Url.Action("ConfirmPayment","Cart")">Xem đơn hàng</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

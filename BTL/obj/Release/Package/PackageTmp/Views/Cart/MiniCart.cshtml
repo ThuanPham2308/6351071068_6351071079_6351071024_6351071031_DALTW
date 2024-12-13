@@ -1,0 +1,62 @@
+﻿@model List<BTL.Models.Cart>
+
+<div class="mini_cart">
+    @if (Model != null && Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            decimal finalPrice = item.Product.Price; 
+            decimal originalPrice = item.Product.Price; 
+
+            var discountProductList = ViewData["DiscountProductList"] as List<int>;
+
+            if (discountProductList != null && discountProductList.Contains(item.ProductID))
+            {
+                decimal discountPercentage = (decimal)ViewData["DiscountPercentage"];
+                finalPrice = originalPrice - (originalPrice * discountPercentage / 100); 
+            }
+
+            decimal finalProductTotal = finalPrice * (item.Quantity ?? 0); 
+
+            <div class="cart_item">
+                <div class="cart_img">
+                    <a href="@Url.Action("Details", "Product", new {id = item.ProductID})">
+                        <img src="@Url.Content($"~/Content/images/{item.Product.Category.TypeCategory.TypeCategoryName}/{item.Product.Category.CategoryName}/{item.Product.URLPicture}")" alt="@item.Product.ProductName">
+                    </a>
+                </div>
+                <div class="cart_info">
+                    <a href="@Url.Action("Details", "Product", new {id = item.ProductID})">@item.Product.ProductName</a>
+
+                    @if (discountProductList != null && discountProductList.Contains(item.ProductID))
+                    {
+                        <span class="original_price" style="text-decoration: line-through; color: red;">
+                            @originalPrice.ToString("N0") VNĐ
+                        </span>
+                        <br />
+                    }
+                    <span class="cart_price">@finalPrice.ToString("N0") VNĐ</span> 
+
+                    <span class="quantity">Số lượng: @item.Quantity</span>
+                </div>
+                <div class="cart_remove">
+                    <a title="Remove this item" href="@Url.Action("RemoveFromCart", "Cart", new { id = item.CartID, fromMiniCart = true })">
+                        <i class="fa fa-times-circle"></i>
+                    </a>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>Giỏ hàng của bạn hiện đang trống.</p>
+    }
+
+    <div class="total_price">
+        <span>Tổng tiền</span>
+        <span class="prices">@ViewData["TotalAmount"].ToString() VNĐ</span>
+    </div>
+
+    <div class="cart_button">
+        <a href="@Url.Action("PayMoney", "Cart")">Thanh toán</a>
+    </div>
+</div>

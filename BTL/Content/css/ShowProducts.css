@@ -1,0 +1,243 @@
+﻿
+/* Grid Layout for Large View */
+#large .row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Tạo 5 cột cho mỗi hàng */
+    gap: 20px;
+}
+
+/* Sản phẩm */
+.single_product {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+}
+
+    .single_product:hover {
+        box-shadow: #00bba6;
+    }
+
+/* Thumbnail */
+.product_thumb a {
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.product_thumb img {
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product_thumb:hover img {
+    transform: scale(1.1);
+}
+
+/* Action button */
+.product_action a {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #333;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+    .product_action a:hover {
+        background-color: #00bba6;
+    }
+
+/* Content */
+.product_content {
+    margin-top: 15px;
+}
+
+.product_price {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.product_title {
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+/* Danh sách sản phẩm */
+.product_list_item {
+    margin-top: 20px;
+}
+
+    /* Cấu trúc mỗi sản phẩm */
+    .product_list_item .row {
+        margin-bottom: 30px;
+    }
+
+/* Ảnh sản phẩm */
+.product_thumb {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 70%; /* Đảm bảo chiều rộng của ảnh phù hợp với container */
+}
+
+    .product_thumb img {
+        width: 100%;
+        transition: transform 0.3s ease-in-out;
+        border-radius: 8px;
+    }
+
+    .product_thumb:hover img {
+        transform: scale(1.05); /* Hiệu ứng phóng to nhẹ khi hover */
+    }
+
+/* Nội dung sản phẩm */
+.list_product_content {
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+    .list_product_content:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Hiệu ứng shadow khi hover */
+    }
+
+    .list_product_content .list_title h3 {
+        font-size: 1.25em;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .list_product_content .design {
+        font-size: 1em;
+        color: #777;
+        margin: 10px 0;
+    }
+
+.content_price {
+    font-size: 1.2em;
+    color: #000;
+    font-weight: bold;
+}
+
+    .content_price span {
+        color: #f39c12; /* Màu vàng cho giá sản phẩm */
+    }
+
+/* Các liên kết thao tác (giỏ hàng, yêu thích, chi tiết) */
+.add_links ul {
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    list-style: none;
+}
+
+    .add_links ul li a {
+        text-decoration: none;
+        font-size: 1.2em;
+        color: white;
+        transition: color 0.3s ease;
+    }
+
+        .add_links ul li a:hover {
+            color: #f39c12; /* Màu vàng cho các liên kết khi hover */
+        }
+
+        .add_links ul li a i {
+            margin-right: 3%;
+        }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product_thumb {
+        width: 80%;
+    }
+
+        .product_thumb img {
+            width: 100%;
+        }
+
+    .list_product_content {
+        margin-top: 10px;
+    }
+
+    .add_links ul {
+        gap: 10px;
+    }
+}
+
+/* Tổng thể phân trang */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Các liên kết trang */
+.menuPage {
+    padding: 8px 16px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+    /* Các liên kết trang khi hover */
+    .menuPage:hover {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    /* Nút trang hiện tại */
+    .menuPage.current {
+        background-color: #007bff;
+        color: white;
+        font-weight: bold;
+        pointer-events: none; /* Không cho phép nhấn vào trang hiện tại */
+    }
+
+/* Nút Previous và Next */
+.page-prev, .page-next {
+    font-weight: bold;
+    color: #007bff;
+    padding: 8px 12px;
+}
+
+    /* Khi hover nút Previous/Next */
+    .page-prev:hover, .page-next:hover {
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    /* Khi nút Previous/Next bị disable */
+    .page-prev:disabled, .page-next:disabled {
+        color: #aaa;
+        cursor: not-allowed;
+    }
+
+/* Phần mở rộng cho các màn hình nhỏ */
+@media screen and (max-width: 768px) {
+    .pagination {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menuPage {
+        margin-top: 15px;
+    }
+}
+

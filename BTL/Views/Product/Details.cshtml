@@ -1,0 +1,145 @@
+﻿@model BTL.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    <link href="~/Content/css/Product/Details.css" rel="stylesheet" />
+
+    //// Nhóm sản phẩm theo CategoryID và lấy tên Category
+    //var categoryFolders = Model
+    //    .GroupBy(p => p.CategoryID)
+    //    .ToDictionary(g => g.Key, g => g.First().Category.CategoryName);
+
+    //// Nhóm sản phẩm theo TypeCategoryID và lấy tên TypeCategory
+    //var typeCategoryFolders = Model
+    //    .GroupBy(p => p.Category.TypeCategoryID)
+    //    .ToDictionary(
+    //        g => g.Key,
+    //        g => g.FirstOrDefault()?.Category.TypeCategory.TypeCategoryName ?? "default" // Thêm kiểm tra null
+    //    );
+
+    //var categoryID = Model.CategoryID;
+    //var categoryFolder = Model.Category.CategoryName;
+    //var typeCategoryFolder = Model.Category.TypeCategory.TypeCategoryName;
+
+    var categoryFolder = Model.Category?.CategoryName ?? "default";
+    var typeCategoryFolder = Model.Category?.TypeCategory?.TypeCategoryName ?? "default";
+
+
+}
+
+
+<div class="product_details">
+    <div class="row">
+        <div class="col-lg-5 col-md-6">
+            <div class="product_tab fix">
+                <div class="tab-content produc_tab_c">
+                    <div class="tab-pane fade show active" id="p_tab1" role="tabpanel">
+                        <div class="modal_img">
+                            <a href="#">
+                                <img src="@Url.Content($"~/Content/images/{typeCategoryFolder}/{categoryFolder}/{Model.URLPicture}")" alt="@Model.ProductName" style="width: 70%;">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-lg-7 col-md-6">
+            <div class="product_d_right">
+                <h1>
+                    @Model.ProductName
+                </h1>
+                <div class="product_ratting mb-10">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        <li><a href="#"> Viết đánh giá </a></li>
+                    </ul>
+                </div>
+                <div class="product_desc">
+                    <p>
+                        @Model.Description
+                    </p>
+                </div>
+
+                <div class="content_price mb-15">
+                    @if (ViewData["DiscountPercentage"] != null && (decimal)ViewData["DiscountPercentage"] > 0)
+                    {
+                        <span class="old-price" style="text-decoration: line-through; color: red;">
+                            @Model.Price.ToString("#,0") VNĐ
+                        </span>
+                        <span class="new-price" style="color: green; font-weight: bold;">
+                            @(((decimal)ViewData["FinalPrice"]).ToString("#,0")) VNĐ
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="price" style="color: black; font-weight: bold;">
+                            @Model.Price.ToString("#,0") VNĐ
+                        </span>
+                    }
+                </div>
+
+                <div class="box_quantity mb-20">
+                    <a href="@Url.Action("AddToCart", "Cart", new {id = Model.ProductID})" title="add to cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                    <a href="@Url.Action("AddToWishlist", "Wishlist", new {id = Model.ProductID})" title="add to wishlist"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                </div>
+
+
+                <div class="product_stock mb-20">
+                    <p>@Model.QuantityInStock sản phẩm</p>
+                    <span> Số lượng tồn </span>
+                </div>
+                @*<div class="wishlist-share">
+                    <h4>Chia sẻ:</h4>
+                    <ul>
+                        <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-tiktok"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-envelope"></i></a></li>
+                    </ul>
+                </div>*@
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--new product area start-->
+<div class="new_product_area product_page">
+    <div class="row">
+        <div class="col-12">
+            <div class="block_title">
+                <h3>Sản phẩm tương tự</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="single_p_active owl-carousel">
+            @Html.Action("AnotherProducts", "Product", new { id = Model.ProductID })
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<!--new product area start-->
+<div class="new_product_area product_page">
+    <div class="row">
+        <div class="col-12">
+            <div class="block_title">
+                <h3>Sản phẩm bán chạy</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="single_p_active owl-carousel">
+            @Html.Action("BestSellingProductsList", "Product")
+        </div>
+    </div>
+</div>

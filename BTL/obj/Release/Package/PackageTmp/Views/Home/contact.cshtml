@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "contact";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+<br />
+<div style="padding-left:10%;padding-right:10%">
+    <div class="breadcrumbs_area">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb_content">
+                    <ul>
+                        <li><a href="@Url.Action("index","Home")">Trang chủ</a></li>
+                        <li><i class="fa fa-angle-right"></i></li>
+                        <li>Liên hệ</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact_area">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="contact_message">
+                    <h3>Ý kiến đóng góp</h3>
+                    <form id="contact-form" method="post" action="@Url.Action("contact", "Home")">
+                        <div class="row">
+                            @*<div class="col-lg-6">
+                                <input name="name" placeholder="Tên *" type="text">
+                            </div>
+                            <div class="col-lg-6">
+                                <input name="email" placeholder="Email *" type="email">
+                            </div>*@
+                            @*<div class="col-lg-6">
+                                <input name="subject" placeholder="Chủ đề *" type="text">
+                            </div>*@
+                            @*<div class="col-lg-6">
+                                <input name="phone" placeholder="Số điện thoại *" type="text">
+                            </div>*@
+
+                        <div class="col-12">
+                            <div class="contact_textarea">
+                                <input name="topic" placeholder="Chủ đề *" type="text">
+                            </div>
+                            <div class="contact_textarea">
+                                <textarea placeholder="Ý kiến đóng góp *" name="message" class="form-control2"></textarea>
+                            </div>
+                            <button type="submit"> Gửi </button>
+                        </div>
+                            <div class="col-12">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="contact_message contact_info">
+                    <h3>Liên hệ</h3>
+                    <p>
+                        Chúng tôi xin chân thành cảm ơn quý khách đã dành thời gian quý báu để gửi ý kiến đóng góp cho sản phẩm/dịch vụ của chúng tôi. Những phản hồi của quý khách rất quan trọng và đóng vai trò quyết định trong việc nâng cao chất lượng phục vụ cũng như cải tiến sản phẩm của công ty.
+                    </p>
+                    <ul>
+                        <li><i class="fa fa-fax"></i> Địa chỉ: 450-451 Lê Văn Việt, Phường Tăng Nhơn Phú A, Hồ Chí Minh, Việt Nam</li>
+                        <li><i class="fa fa-phone"></i>  0123456789 </li>
+                        <li><i class="fa fa-envelope-o"></i><a href="#">123@gmail.com</</li>
+                    </ul>
+                    <h3><strong>Thời gian mở cửa</strong></h3>
+                    <p><strong>T2 - T7</strong>:  08AM – 22PM</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,38 @@
+﻿@model BTL.Models.Product
+@{
+    ViewBag.Title = "add";
+    Layout = "~/Areas/AdminArea/Views/Shared/_LayoutPage1.cshtml";
+}
+@using (Html.BeginForm("add", "ProductsManagement", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div id="add-product-form">
+        <div class="content-section-header">Nhập sản phẩm</div>
+        <div class="product-form">
+            <label for="ProductID">Tên sản phẩm: </label>
+            @Html.DropDownList(
+                "id",
+                new SelectList(ViewBag.products, "ProductID", "ProductName"),
+                "Chọn sản phẩm",
+                new { id = "ddlProductID" }
+            )
+            <div class="validation-message">
+                @Html.ValidationMessageFor(model => model.ProductID, "", new { @class = "text-danger" })
+            </div>
+            <label for="QuantityInStock">Số lượng nhập kho: </label>
+            @Html.TextBox(
+                "quantity", 
+                "",
+                new { placeholder = "Số lượng nhập kho", id = "txtQuantityInStock" }
+            )
+            <div class="validation-message">
+                @Html.ValidationMessageFor(model => model.QuantityInStock, "", new { @class = "text-danger" })
+            </div>
+            <input type="hidden" name="id" value="" />
+            <input type="hidden" name="quantity" value="" />
+            <button id="save-product" type="submit">Lưu lại</button>
+            <button type="button" onclick="location.href='@Url.Action("index", "ProductsManagement")'" id="cancel-product">Hủy bỏ</button>
+        </div>
+    </div>
+}

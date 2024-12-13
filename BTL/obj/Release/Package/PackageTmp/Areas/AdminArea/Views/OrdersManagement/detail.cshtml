@@ -1,0 +1,99 @@
+﻿@model BTL.Models.Invoice
+@{
+    ViewBag.Title = "detail";
+    Layout = "~/Areas/AdminArea/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<form method="post" action="@Url.Action("Accept", "OrdersManagement", new {id = Model.InvoiceID})">
+    <div class="content-section-header">Chi tiết đơn hàng</div>
+    <div class="customer-detail">
+        <div class="detail-item">
+            <strong>Mã đơn hàng:</strong> @Html.DisplayFor(model => model.InvoiceID)
+        </div>
+        <div class="detail-item">
+            <strong>Họ và tên khách hàng:</strong> @Html.DisplayFor(model => model.Customer.FullName)
+        </div>
+        <div class="detail-item">
+            <strong>Địa chỉ:</strong> @Html.DisplayFor(model => model.Customer.Address)
+        </div>
+        <div class="detail-item">
+            <strong>Tổng tiền</strong> @(Model.TotalAmount.HasValue ? Model.TotalAmount.Value.ToString("N0") : "0") VNĐ
+        </div>
+        <div class="detail-item">
+            <strong>Ngày lập hóa đơn:</strong> @Model.CreatedDate.ToString()
+        </div>
+        <div class="detail-item">
+            <strong>Trạng thái:</strong> @Html.DisplayFor(model => model.Status)
+        </div>
+        <div>
+            <strong>Danh sách sản phẩm:</strong>
+            <table class="order-table">
+                <thead>
+                    <tr>
+                        <th> Tên sản phẩm</th>
+                        <th> Số lượng</th>
+                        <th> Giá</th>
+                        <th> Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in (IEnumerable<BTL.Models.InvoiceDetail>)ViewData["invoiceDetails"])
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Product.ProductName)</td>
+                            <td class="center-clm" style="@((item.Quantity > item.Product.QuantityInStock ? "color: red;" : ""))">
+                                @Html.DisplayFor(modelItem => item.Quantity)
+                            </td>
+                            <td>@(item.Price.HasValue ? item.Price.Value.ToString("N0") : "0")</td>
+                            <td>@((item.Price * item.Quantity).HasValue ? (item.Price * item.Quantity).Value.ToString("N0") : "0")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    @if (Model.Status == "Đã xác nhận" || Model.Status == "Đã từ chối")
+    {
+        <div class="buttons" style="padding-top:10px; padding-right:5%; float: right;">
+            <button class="btn-go-back" formaction="@Url.Action("index", "OrdersManagement", new {search = ""})" >Quay về</button>
+        </div>
+        <style>
+            .btn-go-back {
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+
+                .btn-go-back:hover {
+                    background-color: #45a049;
+                }
+        </style>
+    }
+    else
+    {
+        <div class="buttons" style="padding-top:10px; padding-right:5%; float: right;">
+            <input type="hidden" id="isAccept" name="isAccept" value="true" />
+            <button class="button add" type="submit" onclick="setAcceptValue(true)">Xác nhận</button>
+            <button class="button sale" type="submit" onclick="setAcceptValue(false)">Từ chối</button>
+        </div>
+    }
+
+    <script>
+        function setAcceptValue(value) {
+            document.getElementById("isAccept").value = value;
+        }
+    </script>
+
+</form>
+
+

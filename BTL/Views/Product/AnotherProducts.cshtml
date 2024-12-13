@@ -1,0 +1,68 @@
+﻿@model List<BTL.Models.Product>
+
+@{
+
+    // Nhóm sản phẩm theo CategoryID và lấy tên Category
+    var categoryFolders = Model
+        .GroupBy(p => p.CategoryID)
+        .ToDictionary(g => g.Key, g => g.First().Category.CategoryName);
+
+    // Nhóm sản phẩm theo TypeCategoryID và lấy tên TypeCategory
+    var typeCategoryFolders = Model
+        .GroupBy(p => p.Category.TypeCategoryID)
+        .ToDictionary(
+            g => g.Key,
+            g => g.FirstOrDefault()?.Category.TypeCategory.TypeCategoryName ?? "default" // Thêm kiểm tra null
+        );
+
+    var products = ViewData["OtherProducts"] as List<BTL.Models.Product>;
+    var finalPrices = ViewData["FinalPrices"] as Dictionary<int, decimal>;
+
+}
+
+@foreach (var item in Model)
+{
+    var categoryFolder = categoryFolders.ContainsKey(item.CategoryID) ? categoryFolders[item.CategoryID] : "default";
+    var typeCategoryFolder = item.Category.TypeCategory != null ? item.Category.TypeCategory.TypeCategoryName : "default";
+
+
+    <div class="col-lg-3">
+        <div class="single_product">
+            <div class="product_thumb">
+
+
+                <a href="@Url.Action("Details", "Product", new { id = item.ProductID })">
+                    <img src="@Url.Content($"~/Content/images/{typeCategoryFolder}/{categoryFolder}/{item.URLPicture}")" alt="@item.ProductName" style="width: 100%;">
+                </a>
+                <div class="product_action">
+                    <a href="@Url.Action("AddToCart", "Cart", new {id = item.ProductID})"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                </div>
+            </div>
+            <div class="product_content">
+                @if (finalPrices != null && finalPrices.ContainsKey(item.ProductID) && finalPrices[item.ProductID] < item.Price)
+                {
+                    <span class="old-price" style="text-decoration: line-through; color: red;">
+                        @(item.Price.ToString("#,0")) VNĐ
+                    </span>
+                    <span class="new-price" style="color: green; font-weight: bold;">
+                        @(finalPrices[item.ProductID].ToString("#,0")) VNĐ
+                    </span>
+                }
+                else
+                {
+                    <span class="price" style="color: black; font-weight: bold;">
+                        @(item.Price.ToString("#,0")) VNĐ
+                    </span>
+                }
+                <h3 class="product_title"><a href="@Url.Action("Details", "Product", new { id = item.ProductID })">@item.ProductName</a></h3>
+            </div>
+
+            <div class="product_info">
+                <ul>
+                    <li><a href="#" title="Add to Wishlist">Add to Wishlist</a></li>
+                    @*<li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>*@
+                </ul>
+            </div>
+        </div>
+    </div>
+}

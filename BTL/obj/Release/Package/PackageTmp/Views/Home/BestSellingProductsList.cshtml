@@ -1,0 +1,41 @@
+﻿@model List<BTL.Models.Product>
+
+<div class="single_p_active owl-carousel">
+    @foreach (var product in Model)
+    {
+        var discountedProductIDs = Session["DiscountedProductIDs"] as List<int>;
+        var isDiscounted = discountedProductIDs != null && discountedProductIDs.Contains(product.ProductID);
+
+
+        var finalPrices = Session["FinalPrices"] as Dictionary<int, decimal>;
+        var finalPrice = finalPrices != null && finalPrices.ContainsKey(product.ProductID)
+            ? finalPrices[product.ProductID]
+            : product.Price;
+
+        <div class="col-lg-3">
+            <!-- This should be inside the loop to wrap each product -->
+            <div class="product_list">
+                <div class="single_product">
+                    <div class="product_thumb">
+                        <a href="@Url.Action("Details", "Product" , new {id = product.ProductID })">
+                            <img src="@Url.Content($"~/Content/images/{product.Category.TypeCategory.TypeCategoryName}/{product.Category.CategoryName}/{product.URLPicture}")" alt="@product.ProductName">
+                        </a>
+                        <div class="product_action">
+                            <a href="@Url.Action("AddToCart", "Cart", new {id = product.ProductID})"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
+                        </div>
+                    </div>
+                    <div class="product_content">
+                        @if (isDiscounted)
+                        {
+                            <span style="color: red; text-decoration: line-through; font-size: 15px;">
+                                @product.Price.ToString("#,0")
+                            </span>
+                        }
+                        <span style="color: black;">@finalPrice.ToString("#,0") VNĐ</span>
+                        <h3 class="product_title"><a href="#">@product.ProductName</a></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

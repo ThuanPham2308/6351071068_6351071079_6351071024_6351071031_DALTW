@@ -1,0 +1,63 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<BTL.Models.Invoice>
+
+@{
+    ViewBag.Title = "Danh sách hóa đơn đã mua";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+    <link href="~/Content/css/Pagination.css" rel="stylesheet" />
+    <link href="~/Content/css/Invoice.css" rel="stylesheet" />
+}
+
+<br />
+<div class="breadcrumbs_area" style="margin-right: 10.1%; margin-left: 10.1%;">
+    <div class="row">
+        <div class="col-12">
+            <div class="breadcrumb_content">
+                <ul>
+                    <li><a href="@Url.Action("index", "Home")">Trang chủ</a></li>
+                    <li><i class="fa fa-angle-right"></i></li>
+                    <li>Lịch sử đơn hàng</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<h3>Danh sách hóa đơn đã mua</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Mã hóa đơn</th>
+            <th>Ngày tạo</th>
+            <th>Trạng thái</th>
+            <th>Tổng tiền</th>
+            @*<th>Chi tiết</th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Count > 0)
+        {
+            foreach (var invoice in Model)
+            {
+                <tr>
+                    <td>@invoice.InvoiceID</td>
+                    <td>@invoice.CreatedDate</td>
+                    <td>@invoice.Status</td>
+                    <td>@(invoice.TotalAmount?.ToString("N0") ?? "0") VNĐ </td>
+                    <td><a href="@Url.Action("Detail", "Invoice", new {id = invoice.InvoiceID})">Xem chi tiết</a></td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" style="text-align: center;">Không có hóa đơn nào.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="pagination-container">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>

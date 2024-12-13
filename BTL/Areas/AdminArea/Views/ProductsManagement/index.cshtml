@@ -1,0 +1,205 @@
+﻿@using BTL.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<Product>
+@{
+    ViewBag.Title = "productsManagement";
+    Layout = "~/Areas/AdminArea/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div id="product-management-content">
+    <div class="content-section-header">Quản lý sản phẩm</div>
+    <div class="product-container">
+        <div class="buttons">
+            <button class="button insert" onclick="location.href='@Url.Action("insert", "ProductsManagement")'">+ Thêm sản phẩm</button>
+            <button class="button add" onclick="location.href='@Url.Action("add", "ProductsManagement")'">+ Nhập sản phẩm</button>
+            <button class="button sale" onclick="location.href='@Url.Action("sale", "ProductsManagement")'">+ Giảm giá sản phẩm</button>
+            <button class="button export" onclick="location.href='@Url.Action("ExportToExcel", "ProductsManagement", new { search = ViewBag.CurrentSearch })'">
+                Xuất Excel
+            </button>
+        </div>
+        <div class="search-options">
+            @using (Html.BeginForm("index", "Productsmanagement", FormMethod.Get))
+            {
+                <p>
+                    @Html.TextBox("search", "", new { @class = "search-input", placeholder = "Nhập tên sản phẩm..." })
+                    <button type="submit" class="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </p>
+            }
+        </div>
+        @if (ViewBag.error == "")
+        {
+            <div class="order-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th> ID</th>
+                            <th> Tên sản phẩm</th>
+                            <th> Ảnh</th>
+                            <th> Tồn kho</th>
+                            <th> Giá tiền</th>
+                            <th> Danh mục</th>
+                            <th> Chỉnh sửa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="center-clm">@Html.DisplayFor(modelItem => item.ProductID)</td>
+                                <td style="width:30%">@Html.DisplayFor(modelItem => item.ProductName)</td>
+                                <td class="center-clm">
+                                    @{
+                                        string imagePath = "";
+                                        switch (item.CategoryID)
+                                        {
+                                            case 1:
+                                                imagePath = $"~/Content/images/Áo nam/áo sơ mi/{item.URLPicture}";
+                                                break;
+                                            case 2:
+                                                imagePath = $"~/Content/images/Áo nam/áo thun/{item.URLPicture}";
+                                                break;
+                                            case 3:
+                                                imagePath = $"~/Content/images/Áo nam/áo polo/{item.URLPicture}";
+                                                break;
+                                            case 4:
+                                                imagePath = $"~/Content/images/Áo nam/áo khoác/{item.URLPicture}";
+                                                break;
+                                            case 5:
+                                                imagePath = $"~/Content/images/Áo nam/áo hoodie & sweatshirt/{item.URLPicture}";
+                                                break;
+                                            case 6:
+                                                imagePath = $"~/Content/images/Áo nam/áo len/{item.URLPicture}";
+                                                break;
+                                            case 7:
+                                                imagePath = $"~/Content/images/Áo nam/áo vest/{item.URLPicture}";
+                                                break;
+                                            case 8:
+                                                imagePath = $"~/Content/images/Áo nam/áo ghi lê/{item.URLPicture}";
+                                                break;
+                                            case 9:
+                                                imagePath = $"~/Content/images/Quần nam/quần jeans/{item.URLPicture}";
+                                                break;
+                                            case 10:
+                                                imagePath = $"~/Content/images/Quần nam/quần tây/{item.URLPicture}";
+                                                break;
+                                            case 11:
+                                                imagePath = $"~/Content/images/Quần nam/quần kaki/{item.URLPicture}";
+                                                break;
+                                            case 12:
+                                                imagePath = $"~/Content/images/Quần nam/quần jogger/{item.URLPicture}";
+                                                break;
+                                            case 13:
+                                                imagePath = $"~/Content/images/Quần nam/quần short/{item.URLPicture}";
+                                                break;
+                                            case 14:
+                                                imagePath = $"~/Content/images/Quần nam/quần lót/{item.URLPicture}";
+                                                break;
+                                            case 15:
+                                                imagePath = $"~/Content/images/Phụ kiện/thắt lưng/{item.URLPicture}";
+                                                break;
+                                            case 16:
+                                                imagePath = $"~/Content/images/Phụ kiện/ví da/{item.URLPicture}";
+                                                break;
+                                            case 17:
+                                                imagePath = $"~/Content/images/Phụ kiện/cà vạt/{item.URLPicture}";
+                                                break;
+                                            case 18:
+                                                imagePath = $"~/Content/images/Phụ kiện/Nơ/{item.URLPicture}";
+                                                break;
+                                            case 19:
+                                                imagePath = $"~/Content/images/Phụ kiện/vớ nam/{item.URLPicture}";
+                                                break;
+                                            case 20:
+                                                imagePath = $"~/Content/images/Phụ kiện/mũ nón/{item.URLPicture}";
+                                                break;
+                                            case 21:
+                                                imagePath = $"~/Content/images/Phụ kiện/túi xách/{item.URLPicture}";
+                                                break;
+                                            case 22:
+                                                imagePath = $"~/Content/images/Phụ kiện/mắt kính/{item.URLPicture}";
+                                                break;
+                                            case 23:
+                                                imagePath = $"~/Content/images/Giày dép/giày/{item.URLPicture}";
+                                                break;
+                                            case 24:
+                                                imagePath = $"~/Content/images/Giày dép/sandal/{item.URLPicture}";
+                                                break;
+                                            case 25:
+                                                imagePath = $"~/Content/images/Giày dép/dép nam/{item.URLPicture}";
+                                                break;
+                                            default:
+                                                imagePath = $"~/Content/images/Áo nam/default/{item.URLPicture}";
+                                                break;
+                                        }
+                                    }
+                                    <img width="100" height="100" src="@Url.Content(imagePath)" alt="Product Image" />
+                                </td>
+
+                                <td class="center-clm" style="color:@(item.QuantityInStock <= 10 ? "red" : "black")">
+                                    @Html.DisplayFor(modelItem => item.QuantityInStock)
+                                </td>
+                                <td class="center-clm">@String.Format("{0:N0} VNĐ", item.Price)</td>
+                                <td class="center-clm">@Html.DisplayFor(modelItem => item.Category.CategoryName)</td>
+                                <td class="actions center-clm">
+                                    <button class="edit" onclick="location.href='@Url.Action("edit", "ProductsManagement", new {id = item.ProductID})'"> Sửa</button>
+                                    <button class="delete" onclick="location.href='@Url.Action("delete", "ProductsManagement", new { id = item.ProductID })'"> Xóa</button>
+                                    <button class="detail" onclick="location.href='@Url.Action("detail", "ProductsManagement", new {id = item.ProductID})'">Chi tiết</button>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+            </p>
+            <div class="MenuTrang">
+                <ul class="pagination">
+                    @if (Model.PageNumber > 1)
+                    {
+                        <li>
+                            <a href="@Url.Action("index", new { search = ViewBag.CurrentSearch, page = 1 })">&laquo;&laquo;</a>
+                        </li>
+                    }
+
+                    @if (Model.PageNumber > 1)
+                    {
+                        <li>
+                            <a href="@Url.Action("index", new { search = ViewBag.CurrentSearch, page = Model.PageNumber - 1 })">&laquo;</a>
+                        </li>
+                    }
+
+                    @foreach (var page in ViewBag.PagesToShow)
+                    {
+                        if (page == Model.PageNumber)
+                        {
+                            <li class="active"><a>@page</a></li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a href="@Url.Action("index", new { search = ViewBag.CurrentSearch, page = page })">@page</a>
+                            </li>
+                        }
+                    }
+
+                    @if (Model.PageNumber < Model.PageCount)
+                    {
+                        <li>
+                            <a href="@Url.Action("index", new { search = ViewBag.CurrentSearch, page = Model.PageNumber + 1 })">&raquo;</a>
+                        </li>
+                    }
+
+                    @if (Model.PageNumber < Model.PageCount)
+                    {
+                        <li>
+                            <a href="@Url.Action("index", new { search = ViewBag.CurrentSearch, page = Model.PageCount })">&raquo;&raquo;</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+        <h2 style="text-align:center">@ViewBag.error</h2>
+    </div>
+</div>

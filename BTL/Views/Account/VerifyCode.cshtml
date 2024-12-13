@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "verifyCode";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<div style="padding-left:10%;padding-right:10%">
+    <br />
+    <div class="breadcrumbs_area">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb_content">
+                    <ul>
+                        <li><a href="@Url.Action("index","Home")">Trang chủ</a></li>
+                        <li><i class="fa fa-angle-right"></i></li>
+                        <li>Quên mật khẩu</li>
+                        <li><i class="fa fa-angle-right"></i></li>
+                        <li>Nhập mã xác nhận</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="customer_login">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="account_form">
+                    <h2>Nhập mã xác nhận</h2>
+                    <form action="@Url.Action("VerifyCode", "Account")" method="post">
+                        <p>@ViewBag.VerificationCode</p>
+                        <p>@ViewBag.Email</p>
+                        <p>
+                            <label>Mã xác nhận<span style="color: red;">*</span></label>
+                            <input type="hidden" name="email" value="@ViewBag.Email" />
+                            <input type="text" required name="verificationCode">
+                        </p>
+                        <div class="login_submit">
+                            <button type="submit">Xác nhận</button>
+                        </div>
+                        @if (ViewBag.ErrorMessage != null)
+                        {
+                            <div class="error-message">
+                                @ViewBag.ErrorMessage
+                            </div>
+                        }
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

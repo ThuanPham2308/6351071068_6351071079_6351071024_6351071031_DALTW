@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+    <link href="~/Content/css/Login/login.css" rel="stylesheet" />
+}
+
+<div style="padding-left:10%;padding-right:10%">
+    <br />
+    <div class="breadcrumbs_area">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb_content">
+                    <ul>
+                        <li><a href="@Url.Action("index","Home")">Trang chủ</a></li>
+                        <li><i class="fa fa-angle-right"></i></li>
+                        <li>Đăng ký</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="customer_login">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="account_form">
+                    <h2>Đăng ký</h2>
+                    <form action="@Url.Action("Register", "Account")" method="post">
+                        <p>
+                            <label>Tên đăng nhập<span style="color: red;">*</span></label>
+                            <input type="text" required name="username">
+                            @if (ViewBag.ErrorMessageUserName != null)
+                            {
+                                <div class="error-message">
+                                    @ViewBag.ErrorMessageUserName
+                                </div>
+                            }
+                        </p>
+
+                        <p>
+                            <label>Mật Khẩu<span style="color: red;">*</span></label>
+                            <input type="password" required name="password">
+                        </p>
+
+                        <p>
+                            <label>Nhập lại mật khẩu<span style="color: red;">*</span></label>
+                            <input type="password" required name="re_password">
+                            @if (ViewBag.ErrorMessagePassword != null)
+                            {
+                                <div class="error-message">
+                                    @ViewBag.ErrorMessagePassword
+                                </div>
+                            }
+                        </p>
+
+                        <p>
+                            <label>Họ và tên<span style="color: red;">*</span></label>
+                            <input type="text" required name="fullName">
+                        </p>
+
+                        <p>
+                            <label>Số điện thoại<span style="color: red;">*</span></label>
+                            <input type="text" required name="phoneNumber">
+                            @if (ViewBag.ErrorMessagePhoneNumber != null)
+                            {
+                                <div class="error-message">
+                                    @ViewBag.ErrorMessagePhoneNumber
+                                </div>
+                            }
+                        </p>
+
+                        <p>
+                            <label>Ngày sinh<span style="color: red;">*</span></label>
+                            <input type="date" required name="birthday">
+                            @if (ViewBag.ErrorMessageBirthday != null)
+                            {
+                                <div class="error-message">
+                                    @ViewBag.ErrorMessageBirthday
+                                </div>
+                            }
+                        </p>
+
+                        <p>
+                            <label>Email<span style="color: red;">*</span></label>
+                            <input type="email" required name="email">
+                            @if (ViewBag.ErrorMessageEmail != null)
+                            {
+                                <div class="error-message">
+                                    @ViewBag.ErrorMessageEmail
+                                </div>
+                            }
+                        </p>
+
+                        <p>
+                            <label>Địa chỉ</label>
+                            <input type="text" name="address">
+                        </p>
+
+                        <div class="login_submit">
+                            <button type="submit">Đăng ký</button>
+                        </div>
+                    </form>
+                    <style>
+                        .error-message{
+                            color: red;
+                        }
+                    </style>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

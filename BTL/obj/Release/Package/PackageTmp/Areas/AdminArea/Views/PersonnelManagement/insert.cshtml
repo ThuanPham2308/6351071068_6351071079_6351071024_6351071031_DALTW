@@ -1,0 +1,89 @@
+﻿@model BTL.Models.Admin
+@{
+    ViewBag.Title = "insert";
+    Layout = "~/Areas/AdminArea/Views/Shared/_LayoutPage1.cshtml";
+}
+<div id="add-employee-form">
+    <div class="content-section-header">Thêm nhân viên</div>
+    <div class="employee-form">
+        @using (Html.BeginForm("insert", "PersonnelManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="validation-summary">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+            <label for="FullName">Họ và tên: </label>
+            @Html.TextBoxFor(model => model.FullName, new { placeholder = "Họ và tên" })
+            <div class="validation-message">
+                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+            </div>
+
+            <label for="Email">Địa chỉ email: </label>
+            @Html.TextBoxFor(model => model.Email, new { placeholder = "Địa chỉ email" })
+            <div class="validation-message">
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <label for="Address">Địa chỉ thường trú: </label>
+            @Html.TextBoxFor(model => model.Address, new { placeholder = "Địa chỉ thường trú" })
+            <div class="validation-message">
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+
+            <label for="PhoneNumber">Số điện thoại: </label>
+            @Html.TextBoxFor(model => model.PhoneNumber, new { placeholder = "Số điện thoại" })
+            <div class="validation-message">
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
+
+            <label for="BirthDate">Ngày sinh: </label>
+            @Html.TextBoxFor(model => model.BirthDate, new { type = "date" })
+            <div class="validation-message">
+                @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+            </div>
+
+            <label for="HomeTown">Quê quán: </label>
+            @Html.TextBoxFor(model => model.HomeTown, new { placeholder = "Quê quán" })
+            <div class="validation-message">
+                @Html.ValidationMessageFor(model => model.HomeTown, "", new { @class = "text-danger" })
+            </div>
+
+            <label for="IndentityCard">Số CCCD/CMND:</label>
+            @Html.TextBoxFor(model => model.IdentityCard, new { placeholder = "Số CCCD/CMND" })
+            <div class="validation-message">
+                @Html.ValidationMessageFor(model => model.IdentityCard, "", new { @class = "text-danger" })
+            </div>
+
+            <label for="Role">Chức vụ:</label>
+            @Html.DropDownListFor(
+                model => model.Role,
+                new SelectList(new List<string> { "Nhân viên", "Quản lý" }),
+                "Chọn chức vụ"
+            )
+            <div class="validation-message">
+                @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+            </div>
+            <label for="URLPicture">Ảnh:</label>
+            <input type="file" name="URLPicture" class="form-control" />
+            <div>
+                @Html.ValidationMessageFor(model => model.URLPicture, "", new { @class = "text-danger", @id = "filename" })
+            </div>
+
+
+            <label for="UserName">Tên đăng nhập:</label>
+            @Html.TextBoxFor(model => model.Username, new { placeholder = "Tên đăng nhập" })
+            <div class="validation-message">
+                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+            </div>
+
+            <label for="Password">Mật khẩu:</label>
+            @Html.PasswordFor(model => model.Password, new { placeholder = "Mật khẩu" })
+            <div class="validation-message">
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+
+            <button id="save-employee" type="submit">Lưu lại</button>
+            <button type="button" onclick="location.href='@Url.Action("index", "PersonnelManagement")'" id="cancel-employee">Hủy bỏ</button>
+        }
+    </div>
+</div>

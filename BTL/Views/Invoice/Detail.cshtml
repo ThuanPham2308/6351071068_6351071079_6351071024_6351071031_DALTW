@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+@model BTL.Models.Invoice
+
+<style>
+    .content {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+</style>
+
+<br />
+<div class="breadcrumbs_area" style="margin-right: 10.1%; margin-left: 10.1%;">
+    <div class="row">
+        <div class="col-12">
+            <div class="breadcrumb_content">
+                <ul>
+                    <li><a href="@Url.Action("index", "Home")">Trang chủ</a></li>
+                    <li><i class="fa fa-angle-right"></i></li>
+                    <li><a href="@Url.Action("Index", "Invoice")">Lịch sử đơn hàng</a></li>
+                    <li><i class="fa fa-angle-right"></i></li>
+                    <li>Chi tiết đơn hàng</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <h3>Chi tiết đơn hàng</h3>
+    <p><strong>Mã hóa đơn:</strong> @Model.InvoiceID</p>
+    <p><strong>Ngày tạo:</strong> @Model.CreatedDate</p>
+    <p><strong>Tổng tiền:</strong> @(Model.TotalAmount?.ToString("N0") ?? "0") VNĐ</p>
+    <p><strong>Trạng thái:</strong> @Model.Status</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Giá</th>
+                <th>Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detail in Model.InvoiceDetails)
+            {
+                <tr>
+                    <td>@detail.Product.ProductName</td>
+                    <td>@detail.Quantity</td>
+                    <td>@(detail.Price?.ToString("N0") ?? "0")</td>
+                    <td>@((detail.Quantity * detail.Price)?.ToString("N0") ?? "0")</td>
+                </tr>
+            }
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" style="text-align: right;"><strong>Tổng cộng:</strong></td>
+                <td><strong>@(Model.TotalAmount?.ToString("N0") ?? "0") VNĐ</strong></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

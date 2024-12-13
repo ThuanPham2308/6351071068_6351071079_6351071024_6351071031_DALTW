@@ -1,0 +1,116 @@
+﻿@model BTL.Models.Product
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/AdminArea/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="content-section-header">Chi tiết sản phẩm</div>
+<div class="product-detail">
+    <div class="detail-item">
+        @{
+            string imagePath = "";
+            switch (Model.Category.CategoryID)
+            {
+                case 1:
+                    imagePath = $"~/Content/images/Áo nam/áo sơ mi/{Model.URLPicture}";
+                    break;
+                case 2:
+                    imagePath = $"~/Content/images/Áo nam/áo thun/{Model.URLPicture}";
+                    break;
+                case 3:
+                    imagePath = $"~/Content/images/Áo nam/áo polo/{Model.URLPicture}";
+                    break;
+                case 4:
+                    imagePath = $"~/Content/images/Áo nam/áo khoác/{Model.URLPicture}";
+                    break;
+                case 5:
+                    imagePath = $"~/Content/images/Áo nam/áo hoodie/{Model.URLPicture}";
+                    break;
+                case 6:
+                    imagePath = $"~/Content/images/Áo nam/áo len/{Model.URLPicture}";
+                    break;
+                case 7:
+                    imagePath = $"~/Content/images/Áo nam/áo vest/{Model.URLPicture}";
+                    break;
+                case 8:
+                    imagePath = $"~/Content/images/Áo nam/áo ghi lê/{Model.URLPicture}";
+                    break;
+                case 9:
+                    imagePath = $"~/Content/images/Quần nam/quần jeans/{Model.URLPicture}";
+                    break;
+                case 10:
+                    imagePath = $"~/Content/images/Quần nam/quần tây/{Model.URLPicture}";
+                    break;
+                case 11:
+                    imagePath = $"~/Content/images/Quần nam/quần kaki/{Model.URLPicture}";
+                    break;
+                case 12:
+                    imagePath = $"~/Content/images/Quần nam/quần jogger/{Model.URLPicture}";
+                    break;
+                case 13:
+                    imagePath = $"~/Content/images/Quần nam/quần short/{Model.URLPicture}";
+                    break;
+                case 14:
+                    imagePath = $"~/Content/images/Quần nam/quần lót/{Model.URLPicture}";
+                    break;
+                case 15:
+                    imagePath = $"~/Content/images/Phụ kiện/thắt lưng/{Model.URLPicture}";
+                    break;
+                case 16:
+                    imagePath = $"~/Content/images/Phụ kiện/ví da/{Model.URLPicture}";
+                    break;
+                case 17:
+                    imagePath = $"~/Content/images/Phụ kiện/cà vạt/{Model.URLPicture}";
+                    break;
+                case 18:
+                    imagePath = $"~/Content/images/Phụ kiện/no/{Model.URLPicture}";
+                    break;
+                case 19:
+                    imagePath = $"~/Content/images/Phụ kiện/vé nam/{Model.URLPicture}";
+                    break;
+                case 20:
+                    imagePath = $"~/Content/images/Phụ kiện/mũ nón/{Model.URLPicture}";
+                    break;
+                case 21:
+                    imagePath = $"~/Content/images/Phụ kiện/túi xách/{Model.URLPicture}";
+                    break;
+                case 22:
+                    imagePath = $"~/Content/images/Phụ kiện/mắt kính/{Model.URLPicture}";
+                    break;
+                case 23:
+                    imagePath = $"~/Content/images/Giày dép/giày/{Model.URLPicture}";
+                    break;
+                case 24:
+                    imagePath = $"~/Content/images/Giày dép/sandal/{Model.URLPicture}";
+                    break;
+                case 25:
+                    imagePath = $"~/Content/images/Giày dép/dép nam/{Model.URLPicture}";
+                    break;
+                default:
+                    imagePath = $"~/Content/images/default/{Model.URLPicture}";
+                    break;
+            }
+        }
+        <img src="@Url.Content(imagePath)" alt="Product Image" />
+    </div>
+    <div class="detail-item">
+        <div>
+            <strong>Mã sản phẩm:</strong> @Html.DisplayFor(model => model.ProductID)
+        </div>
+        <div>
+            <strong>Tên sản phẩm:</strong> @Html.DisplayFor(model => model.ProductName)
+        </div>
+        <div>
+            <strong>Tên danh mục:</strong> @Html.DisplayFor(model => model.Category.CategoryName)
+        </div>
+        <div>
+            <strong>Giá:</strong> @String.Format("{0:N0} VND", Model.Price)
+        </div>
+        <div>
+            <strong>Số lượng tồn kho:</strong> @Html.DisplayFor(model => model.QuantityInStock)
+        </div>
+        <div>
+            <strong>Mô tả:</strong> @Html.DisplayFor(model => model.Description)
+        </div>
+    </div>
+</div>

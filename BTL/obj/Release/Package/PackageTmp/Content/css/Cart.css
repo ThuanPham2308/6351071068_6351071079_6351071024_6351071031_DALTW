@@ -1,0 +1,91 @@
+﻿.table_desc table thead tr th.product_remove, .table_desc table thead tr th.product_quantity, .table_desc table thead tr th.product_update {
+    min-width: 100px;
+}
+
+/* Đặt kiểu cơ bản cho ô nhập */
+.input_quantity {
+    width: 60px; /* Độ rộng của ô nhập */
+    height: 35px; /* Chiều cao của ô nhập */
+    text-align: center; /* Canh giữa văn bản */
+    border: 1px solid #ccc; /* Viền nhẹ */
+    border-radius: 5px; /* Bo góc */
+    font-size: 16px; /* Cỡ chữ */
+    outline: none; /* Bỏ viền xanh khi chọn */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Hiệu ứng chuyển đổi */
+}
+
+    /* Hiệu ứng khi người dùng di chuột qua ô nhập */
+    .input_quantity:hover {
+        border-color: #888; /* Đổi màu viền khi hover */
+    }
+
+    /* Hiệu ứng khi ô nhập được chọn */
+    .input_quantity:focus {
+        border-color: #007bff; /* Màu viền khi focus */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Hiệu ứng đổ bóng */
+    }
+
+/* Đặt kích thước phù hợp trong bảng */
+td.quantity {
+    padding: 5px 10px; /* Khoảng cách bên trong ô bảng */
+    text-align: center; /* Canh giữa nội dung trong ô bảng */
+}
+
+.update-cart-btn {
+    border: none;
+    background-color: #00bba6;
+    color: white;
+    padding: 10px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+    .update-cart-btn i {
+        font-size: 18px;
+        margin-right: 8px;
+    }
+
+    .update-cart-btn:hover {
+        background-color: #dc3545;
+    }
+
+    .update-cart-btn:active {
+        background-color: #0056b3;
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+
+    .update-cart-btn:focus {
+        outline: none;
+    }
+
+.btn-primary {
+    background-color: black;
+    color: white;
+    padding: 0px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+    .btn-primary:hover {
+        background-color: #00bba6;
+        color: white;
+    }
+
+.total_amount {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: right;
+    color: #333;
+}
+
+.total_text {
+    color: #d9534f; /* Màu đỏ đậm */
+}

@@ -1,0 +1,64 @@
+﻿@model BTL.Models.Customer
+
+<form method="post" action="@Url.Action("Edit", "Account")">
+    <div class="container mt-4">
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Họ và tên</label>
+            <div class="col-sm-10">
+                <input type="text" name="fullName" value="@Model.FullName" class="form-control" required/>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Ngày sinh</label>
+            <div class="col-sm-10">
+                <input type="date" name="birthday" value="@Model.BirthDate.ToString("yyyy-MM-dd")" class="form-control" required/>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Số điện thoại</label>
+            <div class="col-sm-10">
+                <input type="text" name="phoneNumber" value="@Model.PhoneNumber" class="form-control" required />
+                @if (ViewBag.ErrorMessagePhoneNumber != null)
+                {
+                    <div class="error-message">
+                        @ViewBag.ErrorMessagePhoneNumber
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="email" name="email" value="@Model.Email" class="form-control" required/>
+                @if (ViewBag.ErrorMessageEmail != null)
+                {
+                    <div class="error-message">
+                        @ViewBag.ErrorMessageEmail
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Địa chỉ</label>
+            <div class="col-sm-10">
+                <input type="text" name="address" value="@Model.Address" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-sm-10 offset-sm-2">
+                <button type="submit" class="btn btn-primary">Lưu</button>
+            </div>
+        </div>
+    </div>
+</form>
+<style>
+    .error-message{
+        color: red;
+    }
+</style>
+   

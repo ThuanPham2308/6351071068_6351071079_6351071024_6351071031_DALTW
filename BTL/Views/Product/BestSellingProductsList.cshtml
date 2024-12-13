@@ -1,0 +1,57 @@
+﻿@model List<BTL.Models.Product>
+
+@foreach (var product in Model)
+{
+    var finalPrice = ViewData["FinalPrices"] as Dictionary<int, decimal>;
+    decimal priceToDisplay = product.Price;
+    decimal? finalPriceToDisplay = null;
+    bool hasDiscount = false;
+
+    if (finalPrice != null && finalPrice.ContainsKey(product.ProductID))
+    {
+        finalPriceToDisplay = finalPrice[product.ProductID];
+        hasDiscount = finalPriceToDisplay < product.Price; // Kiểm tra giảm giá
+        priceToDisplay = finalPriceToDisplay.Value;
+    }
+
+    <div class="col-lg-3">
+        <div class="single_product">
+            <div class="product_thumb">
+                <a productDetails>
+                    <img src="@Url.Content($"~/Content/images/{product.Category.TypeCategory.TypeCategoryName}/{product.Category.CategoryName}/{product.URLPicture}")" alt="@product.ProductName">
+                </a>
+                <div class="product_action">
+                    <a href="#"> <i class="fa fa-shopping-cart"></i> Add to cart</a>
+                </div>
+            </div>
+            <div class="product_content">
+                @if (hasDiscount)
+                {
+                    <span class="old-price" style="text-decoration: line-through; color: red;">
+                        @product.Price.ToString("#,0") VNĐ
+                    </span>
+                    <span class="new-price" style="color: green; font-weight: bold;">
+                        @priceToDisplay.ToString("#,0") VNĐ
+                    </span>
+                }
+                else
+                {
+                    <br />
+                    <span class="price" style="color: black; font-weight: bold;">
+                        @priceToDisplay.ToString("#,0") VNĐ
+                    </span>
+                }
+                <h3 class="product_title">
+                    <a href="@Url.Action("Details", "Product", new { id = product.ProductID })">@product.ProductName</a>
+                </h3>
+            </div>
+            <div class="product_info">
+                <ul>
+                    <li><a href="#" title=" Add to Wishlist ">Add to Wishlist</a></li>
+                    @*<li><a href="#" data-toggle="modal" data-target="#modal_box" title="Quick view">View Detail</a></li>*@
+                </ul>
+            </div>
+        </div>
+    </div>
+}
+

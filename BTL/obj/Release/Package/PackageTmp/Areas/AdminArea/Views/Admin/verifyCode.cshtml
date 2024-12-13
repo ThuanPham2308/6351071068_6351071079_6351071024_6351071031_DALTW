@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhập mã xác thực</title>
+    <link href="~/Content/css/AdminCss/forgetPassword.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="forget-password-container">
+        <h2 style="font-size: 30px; text-align: center; color: #333;">Nhập mã xác thực</h2>
+
+        <!-- Hiển thị email và mã xác thực -->
+        <p>Email: <strong>@ViewBag.Email</strong></p>
+        <p>Mã xác thực: <strong>@ViewBag.VerificationCode</strong></p>
+
+        <!-- Form nhập mã xác thực -->
+        <form action="@Url.Action("verifyCode", "Admin", new { area = "AdminArea" })" method="post">
+            <div class="input-group">
+                <input type="hidden" name="email" value="@ViewBag.Email" />
+                <input type="text" name="verificationCode" placeholder="Nhập mã xác thực" required />
+            </div>
+            <button type="submit">Xác nhận</button>
+        </form>
+
+        @if (ViewBag.Message != null)
+        {
+            <div class="success-message"
+                 style="margin-top: 15px; color: green; font-size: 14px; text-align: center;">
+                @ViewBag.Message
+            </div>
+        }
+
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <div class="error-message"
+                 style="margin-top: 15px; color: red; font-size: 14px; text-align: center;">
+                @ViewBag.ErrorMessage
+            </div>
+        }
+    </div>
+</body>
+</html>

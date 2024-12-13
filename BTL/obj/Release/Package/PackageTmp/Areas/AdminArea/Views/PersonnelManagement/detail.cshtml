@@ -1,0 +1,40 @@
+﻿@model BTL.Models.Admin
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/AdminArea/Views/Shared/_LayoutPage1.cshtml";
+}
+<div class="content-section-header">Thông tin nhân viên</div>
+<div class="admin-detail">
+    <div class="detail-item">
+        <img src="@Url.Content($"~/Content/images/admin/{Model.URLPicture}")" alt="3x4 Image" />
+    </div>
+    <div class="detail-item">
+        <div>
+            <strong>Mã nhân viên:</strong> @Html.DisplayFor(model => model.AdminID)
+        </div>
+        <div>
+            <strong>Họ và tên:</strong> @Html.DisplayFor(model => model.FullName)
+        </div>
+        <div>
+            <strong>Số CCCD:</strong> @Html.DisplayFor(model => model.IdentityCard)
+        </div>
+        <div>
+            <strong>Địa chỉ:</strong> @Html.DisplayFor(model => model.Address)
+        </div>
+        <div>
+            <strong>Ngày sinh:</strong> @Model.BirthDate.ToString("dd/MM/yyyy")
+        </div>
+        <div>
+            <strong>Quê quán:</strong> @Html.DisplayFor(model => model.HomeTown)
+        </div>
+        <div>
+            <strong>Số điện thoại:</strong> @Html.DisplayFor(model => model.PhoneNumber)
+        </div>
+        <div>
+            <strong>Email:</strong> @Html.DisplayFor(model => model.Email)
+        </div>
+        <div>
+            <strong>Chức vụ:</strong> @Html.DisplayFor(model => model.Role)
+        </div>
+    </div>
+</div>

@@ -1,0 +1,145 @@
+﻿@model BTL.Models.Customer
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<br />
+<div style="padding-left:10%;padding-right:10%">
+    <div class="breadcrumbs_area">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb_content">
+                    <ul>
+                        <li><a href="@Url.Action("index","Home")">Trang chủ</a></li>
+                        <li><i class="fa fa-angle-right"></i></li>
+                        <li><a href="@Url.Action("Index","Account")">Tài khoản</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="main_content_area">
+        <div class="account_dashboard">
+            <div class="row">
+                <div class="col-sm-12 col-md-3 col-lg-3">
+                    <div class="dashboard_tab_button">
+                        <ul role="tablist" class="nav flex-column dashboard-list">
+                            <li><a href="#dashboard" data-toggle="tab" class="nav-link active">Bảng điều khiển</a></li>
+                            @*<li> <a href="#orders" data-toggle="tab" class="nav-link">Đơn hàng</a></li>*@
+                            @*<li><a href="#address" data-toggle="tab" class="nav-link">Địa chỉ</a></li>*@
+                            <li><a href="#account-details" data-toggle="tab" class="nav-link">Chi tiết tài khoản</a></li>
+                            <li><a href="#account-edit" data-toggle="tab" class="nav-link">Sửa thông tin tài khoản</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-9 col-lg-9">
+                    <div class="tab-content dashboard_content">
+                        <div class="tab-pane fade show active" id="dashboard">
+                            <h3>Bảng điều khiển </h3>
+                            <p>Từ bảng điều khiển tài khoản của bạn, bạn có thể dễ dàng kiểm tra và xem <a href="@Url.Action("Index", "Invoice")">lịch sử đơn hàng</a>, <a href="@Url.Action("Index", "Cart")"> thông tin giỏ hàng</a> và <a href="@Url.Action("ForgetPassword", "Account")">Quên mật khẩu</a></p>
+                        </div>
+                        @*<div class="tab-pane fade" id="orders">
+                                <h3>Đơn hàng</h3>
+                                <p>Từ bảng điều khiển tài khoản của bạn, bạn có thể dễ dàng kiểm tra và xem <a href="#">các đơn hàng gần đây</a>, quản lý <a href="#">địa chỉ giao hàng và thanh toán</a> và <a href="#">Chỉnh sửa mật khẩu và thông tin tài khoản của bạn.</a></p>
+                            </div>*@
+                        @*<div class="tab-pane fade" id="orders">
+                                <h3>Đơn Hàng</h3>
+                                <div class="coron_table table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Đơn hàng</th>
+                                                <th>Ngày</th>
+                                                <th>Trạng thái</th>
+                                                <th>Tổng cộng</th>
+                                                <th>Hành động</th>
+                                                <th>Đơn Hàng</th>
+                                                <th>Ngày</th>
+                                                <th>Trạng Thái</th>
+                                                <th>Tổng Cộng</th>
+                                                <th>Hành Động</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>May 10, 2018</td>
+                                                <td><span class="success">Completed</span></td>
+                                                <td>$25.00 for 1 item </td>
+                                                <td><a href="cart.html" class="view">view</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>May 10, 2018</td>
+                                                <td>Processing</td>
+                                                <td>$17.00 for 1 item </td>
+                                                <td><a href="cart.html" class="view">view</a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>*@
+                        @*<div class="tab-pane" id="address">
+                                <p>Các địa chỉ sau đây sẽ được sử dụng trên trang thanh toán theo mặc định.</p>
+                                <h4 class="billing-address">Địa chỉ thanh toán</h4>
+                                <a href="#" class="view">Chỉnh sửa</a>
+                                <p><strong>Bobby Jackson</strong></p>
+                                <address>
+                                    Số nhà<br>
+                                    Tên đường<br>
+                                    Ấp<br>
+                                    Huyện/Xã<br>
+                                    Tỉnh/TP<br>
+                                </address>
+                            </div>*@
+                        <div class="tab-pane fade" id="account-details">
+                            <h3>Chi Tiết Tài Khoản</h3>
+                            @*<div class="login">
+                                    <div class="login_form_container">
+                                        <div class="account_login_form">
+                                            <form action="#">
+                                                <p>Bạn đã có tài khoản?<a href="#">Hãy đăng nhập ngay!</a></p>
+                                                <div class="input-radio">
+                                                    <span class="custom-radio"><input type="radio" value="1" name="id_gender"> Ông.</span>
+                                                    <span class="custom-radio"><input type="radio" value="1" name="id_gender"> Bà.</span>
+                                                </div> <br>
+                                                <label>Họ và tên</label>
+                                                <input type="text" name="first-name">
+                                                <label>E-mail</label>
+                                                <input type="text" name="email-name">
+                                                <label>Mật khẩu</label>
+                                                <input type="password" name="user-password">
+                                                <label>Ngày sinh</label>
+                                                <input type="text" placeholder="MM/DD/YYYY" value="" name="birthday">
+                                                <br>
+                                                <span class="custom_checkbox">
+                                                    <input type="checkbox" value="1" name="optin">
+                                                    <label>Nhận ưu đãi từ các đối tác của chúng tôi</label>
+                                                </span>
+                                                <br>
+                                                <span class="custom_checkbox">
+                                                    <input type="checkbox" value="1" name="newsletter">
+                                                    <label>Đăng ký nhận bản tin của chúng tôi<br><em>Bạn có thể hủy đăng ký bất kỳ lúc nào. Vì mục đích đó, vui lòng tìm thông tin liên hệ của chúng tôi trong thông báo pháp lý.</em></label>
+                                                </span>
+                                                <div class="save_button primary_btn default_button">
+                                                    <a href="#">Lưu</a>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>*@
+                            @Html.Action("Detail", "Account")
+                        </div>
+                        <div class="tab-pane fade" id="account-edit">
+                            <h3>Sửa Thông Tin Tài Khoản</h3>
+                            @Html.Action("Edit", "Account", new {id = Model.CustomerID})
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

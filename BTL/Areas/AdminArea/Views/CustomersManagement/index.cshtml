@@ -1,0 +1,111 @@
+﻿@using BTL.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<Customer>
+@{
+    ViewBag.Title = "index";
+    Layout = "~/Areas/AdminArea/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+<div id="customer-management-content">
+    <div class="content-section-header">Quản lý khách hàng</div>
+    <div class="customer-container">
+        <div class="buttons">
+            <button class="button export" onclick="location.href='@Url.Action("ExportToExcel", "CustomersManagement", new { search = ViewBag.CurrentSearch })'">
+                Xuất Excel
+            </button>
+        </div>
+        <div class="search-options">
+            @using (Html.BeginForm("index", "Customersmanagement", FormMethod.Get))
+            {
+                <p>
+                    @Html.TextBox("search", "", new { @class = "search-input", placeholder = "Nhập tên khách hàng..." })
+                    <button type="submit" class="search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </p>
+            }
+        </div>
+        @if (ViewBag.error == "")
+        {
+            <div class="order-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th> ID</th>
+                            <th> Họ và tên</th>
+                            <th> Địa chỉ</th>
+                            <th> Số điện thoại</th>
+                            <th> Email</th>
+                            <th> Chi tiết</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="center-clm">@Html.DisplayFor(modelItem => item.CustomerID)</td>
+                                <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Address)</td>
+                                <td class="center-clm">@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                <td class="actions center-clm">
+                                    <button class="detail" onclick="location.href='@Url.Action("detail", "CustomersManagement", new { id = item.CustomerID })'">Chi tiết</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <p>
+                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+            </p>
+            <div class="MenuTrang">
+                <ul class="pagination">
+                    @if (Model.PageNumber > 1)
+                    {
+                        <li>
+                            <a href="@Url.Action("index", new { search = ViewBag.CurrentSearch, page = 1 })">&laquo;&laquo;</a>
+                        </li>
+                    }
+
+                    @if (Model.PageNumber > 1)
+                    {
+                        <li>
+                            <a href="@Url.Action("index", new { search = ViewBag.CurrentSearch, page = Model.PageNumber - 1 })">&laquo;</a>
+                        </li>
+                    }
+
+                    @foreach (var page in ViewBag.PagesToShow)
+                    {
+                        if (page == Model.PageNumber)
+                        {
+                            <li class="active"><a>@page</a></li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a href="@Url.Action("index", new { search = ViewBag.CurrentSearch, page = page })">@page</a>
+                            </li>
+                        }
+                    }
+
+                    @if (Model.PageNumber < Model.PageCount)
+                    {
+                        <li>
+                            <a href="@Url.Action("index", new { search = ViewBag.CurrentSearch, page = Model.PageNumber + 1 })">&raquo;</a>
+                        </li>
+                    }
+
+                    @if (Model.PageNumber < Model.PageCount)
+                    {
+                        <li>
+                            <a href="@Url.Action("index", new { search = ViewBag.CurrentSearch, page = Model.PageCount })">&raquo;&raquo;</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+        <h2 style="text-align:center">@ViewBag.error</h2>
+
+    </div>
+</div>
+

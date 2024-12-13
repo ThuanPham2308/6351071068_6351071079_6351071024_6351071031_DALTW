@@ -1,0 +1,193 @@
+﻿@using BTL.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Product>
+
+@{
+    ViewBag.Title = "ShowShoesByIDCategory";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    <link href="~/Content/css/ShowProducts.css" rel="stylesheet" />
+    <link href="~/Content/css/Pagination.css" rel="stylesheet" />
+
+    // Nhóm sản phẩm theo CategoryID và lấy tên Category
+    var categoryFolders = Model
+        .GroupBy(p => p.CategoryID)
+        .ToDictionary(g => g.Key, g => g.First().Category.CategoryName);
+
+    // Nhóm sản phẩm theo TypeCategoryID và lấy tên TypeCategory
+    var typeCategoryFolders = Model
+        .GroupBy(p => p.Category.TypeCategoryID)
+        .ToDictionary(
+            g => g.Key,
+            g => g.FirstOrDefault()?.Category.TypeCategory.TypeCategoryName ?? "default" // Thêm kiểm tra null
+        );
+
+
+    //var categoryID = Model.FirstOrDefault()?.CategoryID;
+
+    var products = ViewData["Products"] as List<BTL.Models.Product>;
+    var totalPages = (int?)ViewData["TotalPages"] ?? 0;
+    var currentPage = (int?)ViewData["CurrentPage"] ?? 1;
+    var categoryID = (int?)ViewData["CategoryID"] ?? 0;
+}
+
+<div class="breadcrumbs_area" style="margin-right: 10.1%; margin-left: 10.1%;">
+    <div class="row">
+        <div class="col-12">
+            <div class="breadcrumb_content">
+                <ul>
+                    <li><a href="@Url.Action("index", "Home")">Trang chủ</a></li>
+                    <li><i class="fa fa-angle-right"></i></li>
+                    <li><a href="@Url.Action("index", "Shoes")">Giày</a></li>
+                    <li><i class="fa fa-angle-right"></i></li>
+                    <li><a href="@Url.Action("ShowShoesByIDCategory", "Shoes")">@categoryFolders.FirstOrDefault().Value</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" style="margin-right: 9.1%; margin-left: 9.1%;">
+    <div class="col-12">
+        <div class="shop_toolbar list_toolbar mb-35">
+            <div class="list_button">
+                <ul class="nav" role="tablist">
+                    <li>
+                        <a data-toggle="tab" href="#large" role="tab" aria-controls="large" aria-selected="true"><i class="fa fa-th-large"></i></a>
+                    </li>
+                    <li>
+                        <a class="active" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false"><i class="fa fa-th-list"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <form action="@Url.Action("ShowMenShirtsByIDCategory", new { id = categoryID, page = currentPage, orderby = Request.QueryString["orderby"] })" method="get">
+                <select name="orderby" id="short" onchange="this.form.submit()">
+                    <option value="1" @(Request.QueryString["orderby"] == "1" ? "selected" : "")>Tên SP A → Z</option>
+                    <option value="2" @(Request.QueryString["orderby"] == "2" ? "selected" : "")>Tên SP Z → A</option>
+                    <option value="3" @(Request.QueryString["orderby"] == "3" ? "selected" : "")>Giá cao → thấp</option>
+                    <option value="4" @(Request.QueryString["orderby"] == "4" ? "selected" : "")>Giá thấp → cao</option>
+                </select>
+            </form>
+
+
+
+        </div>
+    </div>
+</div>
+
+<div class="shop_tab_product shop_fullwidth">
+    <div class="tab-content" id="myTabContent">
+
+        @*Tab hiển thị dạng lưới*@
+        <div class="tab-pane fade" id="large" role="tabpanel" style="margin-left: 11%; margin-right: 11%; margin-top: -3%;">
+            <div class="row" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                @foreach (var product in Model)
+                {
+                    var categoryFolder = categoryFolders.ContainsKey(product.CategoryID) ? categoryFolders[product.CategoryID] : "default";
+                    var typeCategoryFolder = product.Category.TypeCategory != null ? product.Category.TypeCategory.TypeCategoryName : "default";
+
+                    var discountedProductIDs = Session["DiscountedProductIDs"] as List<int>;
+                    var isDiscounted = discountedProductIDs != null && discountedProductIDs.Contains(product.ProductID);
+
+
+                    var finalPrices = Session["FinalPrices"] as Dictionary<int, decimal>;
+                    var finalPrice = finalPrices != null && finalPrices.ContainsKey(product.ProductID)
+                        ? finalPrices[product.ProductID]
+                        : product.Price;
+
+                    <div class="single_product">
+                        <div class="product_thumb">
+                            <a href="@Url.Action("Details", "Product", new { id = product.ProductID })">
+                                <img src="@Url.Content($"~/Content/images/{typeCategoryFolder}/{categoryFolder}/{product.URLPicture}")" alt="@product.ProductName" style="width: 100%;">
+                            </a>
+                            <div class="img_icone">
+                                <img src="#" alt="">
+                            </div>
+                            <div class="product_action">
+                                <a href="@Url.Action("AddToCart", "Cart", new {id = product.ProductID})"> <i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
+                            </div>
+                        </div>
+                        <div class="product_content">
+                            @if (isDiscounted)
+                            {
+                                <span style="color: red; text-decoration: line-through; font-size: 15px;">
+                                    @product.Price.ToString("#,0")
+                                </span>
+                            }
+                            <span style="color: black;">@finalPrice.ToString("#,0") VNĐ</span>
+                            <h3 class="product_title"><a href="@Url.Action("Details", "Product", new { id = product.ProductID })">@product.ProductName</a></h3>
+                        </div>
+                        <div class="product_info">
+                            <ul>
+                                <li><a href="@Url.Action("AddToWishlist", "Wishlist", new {id = product.ProductID})" title=""><i class="fa-regular fa-heart"></i> Yêu thích</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        @*Tab hiển thị dạng danh sách*@
+        <div class="tab-pane fade show active" id="list" role="tabpanel" style="margin-left: 7.5%; margin-right: 10.5%; margin-top: -4%;">
+            <div class="product_list_item mb-35">
+                @foreach (var product in Model)
+                {
+                    var categoryFolder = categoryFolders.ContainsKey(product.CategoryID) ? categoryFolders[product.CategoryID] : "default";
+                    var typeCategoryFolder = product.Category.TypeCategory != null ? product.Category.TypeCategory.TypeCategoryName : "default";
+
+                    var discountedProductIDs = Session["DiscountedProductIDs"] as List<int>;
+                    var isDiscounted = discountedProductIDs != null && discountedProductIDs.Contains(product.ProductID);
+
+
+                    var finalPrices = Session["FinalPrices"] as Dictionary<int, decimal>;
+                    var finalPrice = finalPrices != null && finalPrices.ContainsKey(product.ProductID)
+                        ? finalPrices[product.ProductID]
+                        : product.Price;
+
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-5 col-sm-6">
+                            <div class="product_thumb">
+                                <a href="@Url.Action("Details", "Product", new { id = product.ProductID })">
+                                    <img src="@Url.Content($"~/Content/images/{typeCategoryFolder}/{categoryFolder}/{product.URLPicture}")" alt="@product.ProductName" style="width: 100%;">
+
+                                </a>
+                                <div class="img_icone">
+                                    <img src="#" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 col-md-7 col-sm-6">
+                            <div class="list_product_content">
+                                <div class="list_title">
+                                    <h3><a href="@Url.Action("Details", "Product", new { id = product.ProductID })">@product.ProductName</a></h3>
+                                </div>
+                                <p class="design">Mô tả sản phẩm: @product.Description</p>
+                                <div class="content_price" style="margin-top: 1%;">
+                                    @if (isDiscounted)
+                                    {
+                                        <span style="color: red; text-decoration: line-through; font-size: 15px;">
+                                            @product.Price.ToString("#,0")
+                                        </span>
+                                    }
+                                    <span style="color: black;">@finalPrice.ToString("#,0") VNĐ</span>
+                                </div>
+                                <div class="add_links">
+                                    <ul>
+                                        <li><a href="@Url.Action("AddToCart", "Cart", new {id = product.ProductID})" title="Thêm vào giỏ hàng"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                                        <li><a href="@Url.Action("AddToWishlist", "Wishlist", new {id = product.ProductID})" title="Thêm vào danh sách yêu thích"><i class="fa fa-heart" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="pagination-container">
+            @Html.PagedListPager(Model, page => Url.Action("ShowMenShirtsByIDCategory", new { page, orderby = Request.QueryString["orderby"], id = categoryID }))
+        </div>
+
+
+    </div>
+</div>
+

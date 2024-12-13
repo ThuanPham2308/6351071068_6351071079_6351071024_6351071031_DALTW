@@ -1,0 +1,204 @@
+﻿<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Men's Fashion Shop</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="assets\img\favicon.png">
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bundle.css" rel="stylesheet" />
+    <link href="~/Content/css/plugin.css" rel="stylesheet" />
+    <link href="~/Content/css/responsive.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+</head>
+<body>
+    <div class="pos_page">
+        <div class="container">
+            <div class="pos_page_inner">
+                <div class="header_area">
+                    <div class="header_top">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="header_links">
+                                    <ul>
+                                        <li><a href="@Url.Action("contact","Home")" title="Contact">Liên hệ</a></li>
+                                        <li><a href="@Url.Action("Index","Wishlist")" title="Wishlist">Danh sách yêu thích</a></li>
+                                        <li><a href="@Url.Action("Index","Account")" title="My account">Tài khoản</a></li>
+                                        <li><a href="@Url.Action("Index","Cart")" title="My cart">Giỏ hàng</a></li>
+                                        <li><a href="@Url.Action("Index", "Invoice")" title="InvoiceHistories">Lịch sử đơn hàng</a></li>
+                                    </ul>
+                                </div>
+                                <div class="user-menu" style="margin-left: 200%; margin-top: -5%;">
+                                    <ul>
+                                        <li>
+                                            <a href="@Url.Action("Index", "Account")"><i class="fa-regular fa-user"></i></a>
+                                            <div class="dropdown-menu">
+                                                @{
+                                                    var customer = Session["Customer"];
+                                                    if (customer == null)
+                                                    {
+                                                        <ul>
+                                                            <li><a href="@Url.Action("Login", "Account")">Đăng nhập</a></li>
+                                                            <li><a href="@Url.Action("Register", "Account")">Đăng ký</a></li>
+                                                        </ul>
+                                                    }
+                                                    else
+                                                    {
+                                                        <ul>
+                                                            <li><a href="@Url.Action("Index", "Cart")">Giỏ hàng</a></li>
+                                                            <li><a href="@Url.Action("Index", "Account")">Thông tin tài khoản</a></li>
+                                                            <li><a href="@Url.Action("Logout", "Account")">Đăng xuất</a></li>
+                                                        </ul>
+                                                    }
+                                                }
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <style>
+                                    /* Đảm bảo không hiển thị menu khi chưa hover */
+                                    .user-menu {
+                                        position: relative;
+                                    }
+
+                                    .dropdown-menu {
+                                        display: none;
+                                        position: absolute;
+                                        top: 15px;
+                                        /*                                        right: 100px;*/
+                                        background-color: #fff;
+                                        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                                        min-width: 160px;
+                                        border-radius: 5px;
+                                        padding: 10px 0;
+                                        z-index: 100;
+                                        opacity: 0; /* Bắt đầu với opacity = 0 để dễ dàng tạo hiệu ứng fade-in */
+                                        transform: translateY(-10px); /* Bắt đầu với vị trí trên */
+                                        transition: opacity 0.3s ease, transform 0.3s ease; /* Hiệu ứng mượt mà cho opacity và position */
+                                    }
+
+                                    /* Hiển thị menu khi hover vào icon */
+                                    .user-menu:hover .dropdown-menu {
+                                        display: block;
+                                        opacity: 1; /* Khi hover, opacity = 1 để hiển thị */
+                                        transform: translateY(0); /* Menu sẽ trượt xuống từ từ */
+                                    }
+
+                                    /* Lựa chọn trong menu */
+                                    .dropdown-menu ul {
+                                        list-style: none;
+                                        padding: 0;
+                                        margin: 0;
+                                    }
+
+                                    .dropdown-menu li {
+                                        padding: 8px 16px;
+                                        transition: background-color 0.3s ease; /* Thêm hiệu ứng nền khi hover */
+                                    }
+
+                                        .dropdown-menu li a {
+                                            color: black;
+                                            text-decoration: none;
+                                            font-size: 13px;
+                                            transition: color 0.3s ease; /* Hiệu ứng chuyển màu khi hover */
+                                        }
+
+                                            .dropdown-menu li a:hover {
+                                                color: #00bba6;
+                                            }
+                                </style>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+    <br />
+    <div class="footer_area">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer_widget">
+                            <h3>About us</h3>
+                            <ul>
+                                <li><a href="@Url.Action("index","Home")"><i class="fa-solid fa-shop"></i> Shop quần áo nam đẹp, quần áo nam hàng hiệu</a></li>
+                                <li>
+                                    <a href="https://maps.app.goo.gl/ktsnJ3xtCr3Kswh36" target="_blank"><i class="fa-solid fa-location-dot"></i> 450-451 Lê Văn Việt, Phường Tăng Nhơn Phú A, Hồ Chí Minh, Việt Nam</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa-solid fa-phone"></i> 0123456789
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=thuan23082004@gmail.com" target="_blank"><i class="fa-regular fa-envelope"></i> thuan23082004@gmail.com</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.facebook.com/imhuynu?mibextid=LQQJ4d" target="_blank"><i class="fa-brands fa-facebook"></i> Đinh Văn Huynh</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/2uanggvinhh?igsh=MWdjZmgwZnhuZnltZQ==" target="_blank"><i class="fa-brands fa-instagram"></i> Đặng Quang Vinh</a>
+                                </li>
+                                <li>
+                                    <a href="@("https://www.tiktok.com/@nth13012?_t=8qxyemzr9Ro&_r=1")" target="_blank">
+                                        <i class="fa-brands fa-tiktok"></i>
+                                        Nguyễn Thanh Hòa
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer_widget">
+                            <h3>Hướng dẫn</h3>
+                            <ul>
+                                <li><a href="#"><i class="fa-solid fa-cart-shopping"></i> Hướng dẫn mua hàng</a></li>
+                                <li><a href="#"><i class="fa-solid fa-shirt"></i> Hướng dẫn chọn size</a></li>
+                                <li><a href="#"><i class="fa-regular fa-pen-to-square"></i> Hướng dẫn đặt hàng</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer_widget">
+                            <h3>Chính sách</h3>
+                            <ul>
+                                <li><a href="#"><i class="fa-solid fa-user"></i> Chính sách khách hàng</a></li>
+                                <li><a href="#"><i class="fa-solid fa-lock"></i> Chính sách bảo mật</a></li>
+                                <li><a href="#"><i class="fa-solid fa-truck"></i> Chính sách vận chuyển</a></li>
+                                <li><a href="#"><i class="fa-solid fa-arrow-right-arrow-left"></i> Chính sách đổi trả</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer_widget">
+                            <h3>Chi nhánh</h3>
+                            <ul>
+                                <li><a href="https://maps.app.goo.gl/ktsnJ3xtCr3Kswh36" target="_blank"><i class="fa-solid fa-map"></i> 450-451 Lê Văn Việt, Phường Tăng Nhơn Phú A, Hồ Chí Minh, Việt Nam</a></li>
+                                <li><a href="https://maps.app.goo.gl/sYPf1NvxfSGZVvWG9" target="_blank"><i class="fa-solid fa-map"></i> 3 Đ. Cầu Giấy, Ngọc Khánh, Đống Đa, Hà Nội, Việt Nam</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer_bottom">
+        Copyright &copy; 2024 <a href="#">Men's Fashion Shop - Pham Van Thuan - Nguyen Thanh Hoa - Dang Quang Vinh - Dinh Van Huynh </a>
+    </div>
+    <script src="~/Scripts/jquery-1.12.0.min.js"></script>
+    <script src="~/Scripts/popper.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/ajax-mail.js"></script>
+    <script src="~/Scripts/plugins.js"></script>
+    <script src="~/Scripts/main.js"></script>
+</body>
+</html>

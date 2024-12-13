@@ -1,0 +1,114 @@
+﻿@model List<BTL.Models.Cart>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+    <link href="~/Content/css/Cart.css" rel="stylesheet" />
+}
+
+<br />
+<div style="padding-left:10%;padding-right:10%">
+    <div class="breadcrumbs_area">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb_content">
+                    <ul>
+                        <li><a href="@Url.Action("index","Home")">Trang chủ</a></li>
+                        <li><i class="fa fa-angle-right"></i></li>
+                        <li>Giỏ hàng</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shopping_cart_area">
+        <div class="row">
+            <div class="col-12">
+                <div class="table_desc">
+                    <div class="cart_page table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="product_thumb">Hình ảnh</th>
+                                    <th class="product_name">Tên sản phẩm</th>
+                                    <th class="product-price">Giá</th>
+                                    <th class="product_quantity">Số lượng</th>
+                                    <th class="product_total">Thành tiền</th>
+                                    <th class="product_remove">Xóa</th>
+                                    <th class="product_update">Cập nhật</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    decimal finalPrice = item.Product.Price;
+
+                                    var discountProductList = ViewData["DiscountProductList"] as List<int>;
+                                    if (discountProductList != null && discountProductList.Contains(item.ProductID))
+                                    {
+                                        decimal discountPercentage = (decimal)ViewData["DiscountPercentage"];
+                                        finalPrice = item.Product.Price - (item.Product.Price * discountPercentage / 100);
+                                    }
+
+                                    decimal finalProductTotal = finalPrice * item.Quantity ?? 0;
+
+                                    <tr>
+                                        <form method="post" action="@Url.Action("UpdateCart", "Cart")">
+                                        <td class="product_thumb">
+                                            <a href="@Url.Action("Details", "Product", new { id = item.ProductID })">
+                                                <img src="@Url.Content($"~/Content/images/{item.Product.Category.TypeCategory.TypeCategoryName}/{item.Product.Category.CategoryName}/{item.Product.URLPicture}")" alt="@item.Product.ProductName" style="width: 50%;" />
+                                            </a>
+                                        </td>
+                                        <td class="product_name">
+                                            <a href="@Url.Action("Details", "Product", new { id = item.ProductID })">@item.Product.ProductName</a>
+                                        </td>
+                                        <td class="product-price">
+                                            @if (discountProductList != null && discountProductList.Contains(item.ProductID))
+                                            {
+                                                <span style="text-decoration: line-through; color: red;">@item.Product.Price.ToString("N0")</span>
+                                                <br />
+                                            }
+                                            @finalPrice.ToString("N0")
+                                        </td>
+                                        <td class="quantity">
+                                            <input type="number" value="@item.Quantity" class="input_quantity" name="Quantity" min="1" />
+                                        </td>
+                                        <td class="product_total">
+                                            @finalProductTotal.ToString("N0")
+                                        </td>
+                                        <td class="product_remove">
+                                            <a href="@Url.Action("RemoveFromCart", "Cart", new { id = item.CartID, fromMiniCart = false })">
+                                                <i class="fa-regular fa-trash-can"></i>
+                                            </a>
+                                        </td>
+                                        <td class="product_update">
+                                            <input type="hidden" name="id" value="@item.CartID" />
+                                            <button type="submit" class="update-cart-btn">Cập nhật</button>
+                                        </td>
+                                        </form>
+                                    </tr>
+                                }
+                            </tbody>
+
+
+                        </table>
+                        <div class="total_amount">
+                            <div class="total_amount">
+                                @if (ViewData["TotalAmount"] != null)
+                                {
+                                    <span class="total_text">Tổng tiền: @ViewData["TotalAmount"] VNĐ</span>
+                                }
+                                else
+                                {
+                                    <span class="total_text">Tổng tiền: 0 VNĐ</span>
+                                }
+                            </div>
+                            <div class="cart_submit">
+                                <a href="@Url.Action("PayMoney", "Cart")" class="btn btn-primary">Thanh toán</a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

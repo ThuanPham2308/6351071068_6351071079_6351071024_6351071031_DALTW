@@ -1,0 +1,27 @@
+﻿@model BTL.Models.Customer
+@{
+    ViewBag.Title = "detail";
+    Layout = "~/Areas/AdminArea/Views/Shared/_LayoutPage1.cshtml";
+}
+<div class="content-section-header">Chi tiết khách hàng</div>
+<div class="customer-detail">
+    <div class="detail-item">
+        <strong>Mã khách hàng:</strong> @Html.DisplayFor(model => model.CustomerID)
+    </div>
+    <div class="detail-item">
+        <strong>Họ và tên:</strong> @Html.DisplayFor(model => model.FullName)
+    </div>
+    <div class="detail-item">
+        <strong>Địa chỉ:</strong> @Html.DisplayFor(model => model.Address)
+    </div>
+    <div class="detail-item">
+        <strong>Ngày sinh:</strong> @Model.BirthDate.ToString("dd/MM/yyyy")
+    </div>
+    <div class="detail-item">
+        <strong>Số điện thoại:</strong> @Html.DisplayFor(model => model.PhoneNumber)
+    </div>
+    <div class="detail-item">
+        <strong>Email:</strong> @Html.DisplayFor(model => model.Email)
+    </div>
+</div>
+

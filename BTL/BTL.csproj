@@ -1,0 +1,849 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C4206D93-0FD2-490F-8E59-CC7454C4981B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BTL</RootNamespace>
+    <AssemblyName>BTL</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44355</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=7.5.2.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.7.5.2\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=7.5.0.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.7.5.0\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=7.5.0.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.7.5.0\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.3.0.1\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing.Common, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.8.0.4\lib\net462\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.3.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.3.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.3.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\AdminCss\forgetPassword.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\bundle.css" />
+    <Content Include="Content\css\Cart.css" />
+    <Content Include="Content\css\Invoice.css" />
+    <Content Include="Content\css\Pagination.css" />
+    <Content Include="Content\css\plugin.css" />
+    <Content Include="Content\css\Product\Details.css" />
+    <Content Include="Content\css\responsive.css" />
+    <Content Include="Content\css\ShowProducts.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\images\463476903_1701809517261681_831119058312827677_n.jpg" />
+    <Content Include="Content\images\admin\800px-LogoUTC.jpg" />
+    <Content Include="Content\images\admin\huynh.png" />
+    <Content Include="Content\images\admin\hòa.png" />
+    <Content Include="Content\images\admin\thuận.png" />
+    <Content Include="Content\images\admin\Untitled-1.png" />
+    <Content Include="Content\images\admin\vinh.png" />
+    <Content Include="Content\images\admin\Ảnh1.jpg" />
+    <Content Include="Content\images\Banner-Sale1.png" />
+    <Content Include="Content\images\Banner1.jpg" />
+    <Content Include="Content\images\Banner2.jpg" />
+    <Content Include="Content\images\Banner3.jpg" />
+    <Content Include="Content\images\blog1.png" />
+    <Content Include="Content\images\blog2.png" />
+    <Content Include="Content\images\blog3.png" />
+    <Content Include="Content\images\Giày dép\Dép nam\DE003 %281%29.jpg" />
+    <Content Include="Content\images\Giày dép\Dép nam\DE003.jpg" />
+    <Content Include="Content\images\Giày dép\Dép nam\DE004 %281%29.jpg" />
+    <Content Include="Content\images\Giày dép\Dép nam\DE004.jpg" />
+    <Content Include="Content\images\Giày dép\Dép nam\Dép da Microfiber đế TPR - DE004 Màu Đen.jpg" />
+    <Content Include="Content\images\Giày dép\Dép nam\Dép da Microfiber đế trấu DE003 Màu Đen.jpg" />
+    <Content Include="Content\images\Giày dép\Giày\G015 %281%29.jpg" />
+    <Content Include="Content\images\Giày dép\Giày\G015.jpg" />
+    <Content Include="Content\images\Giày dép\Giày\G017 %281%29.jpg" />
+    <Content Include="Content\images\Giày dép\Giày\G017.jpg" />
+    <Content Include="Content\images\Giày dép\Giày\G018 %281%29.jpg" />
+    <Content Include="Content\images\Giày dép\Giày\G018.jpg" />
+    <Content Include="Content\images\Giày dép\Giày\GI020 %281%29.jpg" />
+    <Content Include="Content\images\Giày dép\Giày\GI020.jpg" />
+    <Content Include="Content\images\Giày dép\Giày\GI021 %281%29.jpg" />
+    <Content Include="Content\images\Giày dép\Giày\GI021.jpg" />
+    <Content Include="Content\images\Giày dép\Giày\Giày Chelsea Boots All Black G018 Màu Đen.jpg" />
+    <Content Include="Content\images\Giày dép\Giày\Giày Derby GI021 Màu Đen.jpg" />
+    <Content Include="Content\images\Giày dép\Giày\Giày Penny Loafer Da Bò GI020 Màu Đen.jpg" />
+    <Content Include="Content\images\Giày dép\Giày\Giày Thể Thao Thông Dụng Nam Biti%27s Basic BSM000600.jpg" />
+    <Content Include="Content\images\Giày dép\Giày\Giày Tây 4MEN G015 Màu Nâu.jpg" />
+    <Content Include="Content\images\Giày dép\Giày\Giày Tây Leather G017 Màu Đen.jpg" />
+    <Content Include="Content\images\Giày dép\Sandal\DE005 %281%29.jpg" />
+    <Content Include="Content\images\Giày dép\Sandal\DE005.jpg" />
+    <Content Include="Content\images\Giày dép\Sandal\DE006 %281%29.jpg" />
+    <Content Include="Content\images\Giày dép\Sandal\DE006.jpg" />
+    <Content Include="Content\images\Giày dép\Sandal\Dép sandal quai chéo da Microfiber đế TPR - DE006 Màu Kem.jpg" />
+    <Content Include="Content\images\Giày dép\Sandal\Dép sandal quai ngang da Microfiber đế TPR - DE005 Màu Đen.jpg" />
+    <Content Include="Content\images\Phụ kiện\Cà vạt\Cavat Caro CV035 Màu Nâu.jpg" />
+    <Content Include="Content\images\Phụ kiện\Cà vạt\CV044 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Cà vạt\CV044.jpg" />
+    <Content Include="Content\images\Phụ kiện\Cà vạt\CV054 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Cà vạt\CV054.jpg" />
+    <Content Include="Content\images\Phụ kiện\Cà vạt\CV055 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Cà vạt\CV055.jpg" />
+    <Content Include="Content\images\Phụ kiện\Cà vạt\CV057 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Cà vạt\CV057.jpg" />
+    <Content Include="Content\images\Phụ kiện\Cà vạt\CV059 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Cà vạt\CV059.jpg" />
+    <Content Include="Content\images\Phụ kiện\Cà vạt\Cà Vạt Bản Nhỏ Sọc CV044 Màu Xanh Đen.jpg" />
+    <Content Include="Content\images\Phụ kiện\Cà vạt\Cà vạt bản nhỏ sọc CV054 màu đen.jpg" />
+    <Content Include="Content\images\Phụ kiện\Cà vạt\Cà Vạt Họa tiết CV055.jpg" />
+    <Content Include="Content\images\Phụ kiện\Cà vạt\Cà Vạt Sọc CV057 Xanh Đen.jpg" />
+    <Content Include="Content\images\Phụ kiện\Cà vạt\Cà Vạt Sọc CV059.jpg" />
+    <Content Include="Content\images\Phụ kiện\Mũ nón\MU001.png" />
+    <Content Include="Content\images\Phụ kiện\Mũ nón\MU003.jpg" />
+    <Content Include="Content\images\Phụ kiện\Mũ nón\MU004.jpg" />
+    <Content Include="Content\images\Phụ kiện\Mũ nón\MU005.jpg" />
+    <Content Include="Content\images\Phụ kiện\Mũ nón\MU008.jpg" />
+    <Content Include="Content\images\Phụ kiện\Mũ nón\MU009.jpg" />
+    <Content Include="Content\images\Phụ kiện\Mũ nón\MU010.jpg" />
+    <Content Include="Content\images\Phụ kiện\Mũ nón\Nón LT Thêu Full Of Hope Màu Vàng MU004.jpg" />
+    <Content Include="Content\images\Phụ kiện\Mũ nón\Nón Lưỡi Trai Thêu 4MEN MU001 Màu Bò.jpg" />
+    <Content Include="Content\images\Phụ kiện\Mũ nón\Nón Lưỡi Trai Thêu 4MEN Màu Trắng MU003.jpg" />
+    <Content Include="Content\images\Phụ kiện\Mũ nón\Nón Lưỡi Trai Thêu 4MEN Tennis Club MU010 Màu Trắng.jpg" />
+    <Content Include="Content\images\Phụ kiện\Mũ nón\Nón lưỡi trai thêu Basic MU005 Màu Đen.jpg" />
+    <Content Include="Content\images\Phụ kiện\Mũ nón\Nón Lưỡi Trai Thêu Bon Voyage MU009 Màu Trắng.jpg" />
+    <Content Include="Content\images\Phụ kiện\Mũ nón\Nón Lưỡi Trai Thêu Mỏ Neo MU008 Màu Đen.jpg" />
+    <Content Include="Content\images\Phụ kiện\Nơ\NO 014 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Nơ\NO 014.jpg" />
+    <Content Include="Content\images\Phụ kiện\Nơ\NO 015 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Nơ\NO 015.jpg" />
+    <Content Include="Content\images\Phụ kiện\Nơ\NO 016 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Nơ\NO 016.jpg" />
+    <Content Include="Content\images\Phụ kiện\Nơ\NO 017 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Nơ\NO 017.jpg" />
+    <Content Include="Content\images\Phụ kiện\Nơ\NO 019 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Nơ\NO 019.jpg" />
+    <Content Include="Content\images\Phụ kiện\Nơ\NO 020 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Nơ\NO 020.jpg" />
+    <Content Include="Content\images\Phụ kiện\Nơ\Nơ Nam Họa tiết NO 014.jpg" />
+    <Content Include="Content\images\Phụ kiện\Nơ\Nơ Nam Họa tiết NO 015 .jpg" />
+    <Content Include="Content\images\Phụ kiện\Nơ\Nơ Nam Họa tiết NO 016.jpg" />
+    <Content Include="Content\images\Phụ kiện\Nơ\Nơ Nam Họa tiết NO 017.jpg" />
+    <Content Include="Content\images\Phụ kiện\Nơ\Nơ Nam Sọc caro NO 020.jpg" />
+    <Content Include="Content\images\Phụ kiện\Nơ\Nơ Nam Sọc gân NO 019.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\Thắt lưng khóa tự động TL159.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\Thắt lưng khóa tự động TL161.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\Thắt lưng khóa tự động TL163.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\Thắt lưng khóa tự động TL164.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\Thắt lưng đầu kim TL156.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\Thắt lưng đầu kim TL165 Màu Nâu.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\Thắt lưng đầu kim TL166 Màu Nâu.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\TL156 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\TL156.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\TL159 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\TL159.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\TL161 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\TL161.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\TL163 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\TL163.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\TL164 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\TL164.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\TL165 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\TL165.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\TL166 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Thắt lưng\TL166.jpg" />
+    <Content Include="Content\images\Phụ kiện\Túi xách\TX001.png" />
+    <Content Include="Content\images\Phụ kiện\Túi xách\TX002.png" />
+    <Content Include="Content\images\Phụ kiện\Túi xách\TX013.jpg" />
+    <Content Include="Content\images\Phụ kiện\Túi xách\TX014.jpg" />
+    <Content Include="Content\images\Phụ kiện\Túi xách\TX015.jpg" />
+    <Content Include="Content\images\Phụ kiện\Túi xách\TX016.jpg" />
+    <Content Include="Content\images\Phụ kiện\Túi xách\TX017.jpg" />
+    <Content Include="Content\images\Phụ kiện\Túi xách\Túi Bao Tử Casual TX014 Màu Xanh Đen.jpg" />
+    <Content Include="Content\images\Phụ kiện\Túi xách\Túi Canvas 4MEN TX013 Màu Be.jpg" />
+    <Content Include="Content\images\Phụ kiện\Túi xách\Túi Canvas Đen Phối Trắng TX017.jpg" />
+    <Content Include="Content\images\Phụ kiện\Túi xách\Túi Da Khóa Sắt TX015 Màu Đen.jpg" />
+    <Content Include="Content\images\Phụ kiện\Túi xách\Túi Da Ngang TX016 Màu Bò.jpg" />
+    <Content Include="Content\images\Phụ kiện\Túi xách\Túi Vải Canvas TX001 Màu Trắng.jpg" />
+    <Content Include="Content\images\Phụ kiện\Túi xách\Túi đeo chéo phối dây sọc bò TX002.jpg" />
+    <Content Include="Content\images\Phụ kiện\Ví da\017 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Ví da\017.jpg" />
+    <Content Include="Content\images\Phụ kiện\Ví da\018 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Ví da\018.jpg" />
+    <Content Include="Content\images\Phụ kiện\Ví da\020 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Ví da\020.jpg" />
+    <Content Include="Content\images\Phụ kiện\Ví da\BV030 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Ví da\BV030.jpg" />
+    <Content Include="Content\images\Phụ kiện\Ví da\BV041 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Ví da\BV041.jpg" />
+    <Content Include="Content\images\Phụ kiện\Ví da\BV045 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Ví da\BV045.jpg" />
+    <Content Include="Content\images\Phụ kiện\Ví da\Ví cầm tay có khóa cá sấu 017.jpg" />
+    <Content Include="Content\images\Phụ kiện\Ví da\Ví cầm tay có khóa hoa văn 018.jpg" />
+    <Content Include="Content\images\Phụ kiện\Ví da\Ví cầm tay có khóa trơn 020 Màu Đen.jpg" />
+    <Content Include="Content\images\Phụ kiện\Ví da\Ví Da Dáng Ngang BV030 Màu Nâu.jpg" />
+    <Content Include="Content\images\Phụ kiện\Ví da\Ví Da Dáng Ngang BV041 Màu Đen.jpg" />
+    <Content Include="Content\images\Phụ kiện\Ví da\Ví Da Dáng Ngang BV045 Màu Bò.jpg" />
+    <Content Include="Content\images\Phụ kiện\Vớ nam\VO059 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Vớ nam\VO059.jpg" />
+    <Content Include="Content\images\Phụ kiện\Vớ nam\VO064 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Vớ nam\VO064.jpg" />
+    <Content Include="Content\images\Phụ kiện\Vớ nam\VO068 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Vớ nam\VO068.jpg" />
+    <Content Include="Content\images\Phụ kiện\Vớ nam\VO072 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Vớ nam\VO072.jpg" />
+    <Content Include="Content\images\Phụ kiện\Vớ nam\VO073 %281%29.jpg" />
+    <Content Include="Content\images\Phụ kiện\Vớ nam\VO073.jpg" />
+    <Content Include="Content\images\Phụ kiện\Vớ nam\Vớ dài sọc VO072.jpg" />
+    <Content Include="Content\images\Phụ kiện\Vớ nam\Vớ dài sọc VO073 Màu Xanh Đen.jpg" />
+    <Content Include="Content\images\Phụ kiện\Vớ nam\Vớ lười FREEDOM VO064.jpg" />
+    <Content Include="Content\images\Phụ kiện\Vớ nam\Vớ Nam cổ cao phối sọc VO059 màu nâu.jpg" />
+    <Content Include="Content\images\Phụ kiện\Vớ nam\Vớ Nam cổ dài phối màu VO068.jpg" />
+    <Content Include="Content\images\Phụ kiện\Vớ nam\Vớ Nam cổ ngắn VO065 Màu Trắng 2.jpg" />
+    <Content Include="Content\images\Phụ kiện\Vớ nam\Vớ Nam cổ ngắn VO065 Màu Trắng.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\QJ071 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\QJ071.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\QJ080 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\QJ080.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\QJ087 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\QJ087.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\QJ095 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\QJ095 %282%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\QJ096 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\QJ096.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\QJ099 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\QJ099.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\QJ104 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\QJ104.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\QJ1654.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\Quần Jean Slim Cropped QJ1654 Màu Xanh Biển Đậm.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\Quần Jeans Regular Mid - Blue Geometric QJ071.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\Quần Jeans Thêu 4M Túi Sau Form Straight QJ104 Màu Be.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\Quần Jeans Thêu Mỏ Neo Form Straight QJ099 Màu Xanh Biển Đậm.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\Quần Jeans Xanh Đậm Túi Kiểu Form Slimfit QJ096.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\Quần Jeans Xanh Đậm Wash Cát Form Straight QJ095.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\Quần Jeans Xám Regular Túi Kiểu QJ080 Màu Xám.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jeans\Quần Jeans Xám Thêu Logo Túi Form Straight QJ087.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jogger\J009 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jogger\J009.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jogger\J010 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jogger\J010.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jogger\J811.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jogger\JO011 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jogger\JO011.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jogger\JO013 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jogger\JO013.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jogger\Quần Jogger Nỉ Bông Regular Rã Kiểu J009 Màu Be.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jogger\Quần Jogger Nỉ Chân Cua Regular Minimalism J010 Màu Đen.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jogger\Quần Jogger Thun J811 Màu Đỏ Đô.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jogger\Quần Jogger Túi Chéo 4MEN Form Slimfit JO013 Màu Đen.jpg" />
+    <Content Include="Content\images\Quần nam\Quần jogger\Quần Jogger Đũi Co Giãn Form Regular JO011 Màu Rêu.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\QK018 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\QK018.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\QK019.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\QK020 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\QK020.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\QK021 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\QK021.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\QK022 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\QK022.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\QK023 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\QK023.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\QK024 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\QK024.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\QK029 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\QK029.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\Quần Kaki Nhung Tăm Lưng Thun Form Slim-Cropped QK023 Màu Nâu.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\Quần Kaki Slimfit Trơn QK018 Màu Xám.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\Quần Kaki Slimfit Túi Rã QK020 Màu Đen.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\Quần Kaki Thêu Wave Form Baggy QK022 Màu Be.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\Quần Kaki Trơn Slimfit Rã Tam Giác QK019 Màu Kem.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\Quần Kaki Trơn Túi Rã Form Slimfit QK021 Màu Rêu.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\Quần Kaki Túi Chéo Kiểu Form Slimfit QK024 Màu Nâu.jpg" />
+    <Content Include="Content\images\Quần nam\Quần kaki\Quần Kaki Túi Kiểu Trang Trí Dây Sọc Form Regular QK029 Màu Be.jpg" />
+    <Content Include="Content\images\Quần nam\Quần lót\QL055.jpg" />
+    <Content Include="Content\images\Quần nam\Quần lót\QL056 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần lót\QL056.jpg" />
+    <Content Include="Content\images\Quần nam\Quần lót\QL059 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần lót\QL059.jpg" />
+    <Content Include="Content\images\Quần nam\Quần lót\Quần Boxer lưng xám QL059 Màu Đen Màu Xanh Biển.jpg" />
+    <Content Include="Content\images\Quần nam\Quần lót\Quần Boxer Slimfit Phối QL056 Màu Xám.jpg" />
+    <Content Include="Content\images\Quần nam\Quần lót\Quần Boxer SlimfitBasics QL055 Màu Đen.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\QS038 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\QS038.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\QS046 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\QS046.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\QS048 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\QS048.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\QS050 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\QS050.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\QS051 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\QS051.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\QS052 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\QS052.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\QS053 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\QS053.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\QS054 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\QS054.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\Quần Short Caro Lưng Thun Form Slimfit QS046 Màu Caro Xanh.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\Quần Short Jeans Xanh Đáp Túi Kiểu Form Straight QS051.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\Quần Short Jeans Đen Túi Chéo Wash Bạc Form Straight QS052.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\Quần Short Kaki Túi Nhỏ Kiểu Form Regular QS054 Màu Đen.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\Quần Short Nhung Tăm Gắn Tag Da Tam Giác Form Straight QS050 Màu Nâu.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\QUẦN SHORT REGULAR PHỐI SỌC QS038 Màu Bò.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\Quần Short Trơn Túi Xéo Basic Form Regular QS048 Màu Đen.jpg" />
+    <Content Include="Content\images\Quần nam\Quần short\Quần Short Túi Chéo Gắn Tag Da 4MEN Form Regular QS053 Màu Xanh Đen.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\QT049 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\QT049.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\QT054 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\QT054.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\QT055 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\QT055.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\QT056 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\QT056.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\QT059 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\QT059.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\QT060 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\QT060.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\QT061 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\QT061.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\QT062 %281%29.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\QT062.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\Quần Tây Lưng Thun Form Regular QT059 Màu Kem.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\Quần Tây Lưng Thun Form Regular QT060.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\Quần Tây Sidetab 1 Bên Form Regular QT062 Màu Be.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\Quần Tây Sidetab Form Slim-Cropped QT056 Màu Xám.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\Quần Tây Sidetab Regular Xếp Ly QT049 Màu Be.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\Quần Tây Sọc Túi Nắp Sau Form Slimfit QT061 Màu Xám.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\Quần Tây Trơn Slimfit Tem Inox QT054 Màu Nâu Nhạt.jpg" />
+    <Content Include="Content\images\Quần nam\Quần tây\Quần Tây Xếp Li Thêu Form Slimfit Crop QT055 Màu Be.jpg" />
+    <Content Include="Content\images\thuận.png" />
+    <Content Include="Content\images\Áo nam\áo ghi lê\1103 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo ghi lê\1103.jpg" />
+    <Content Include="Content\images\Áo nam\áo ghi lê\1113 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo ghi lê\1113.jpg" />
+    <Content Include="Content\images\Áo nam\áo ghi lê\AG036 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo ghi lê\AG036.jpg" />
+    <Content Include="Content\images\Áo nam\áo ghi lê\AG1114 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo ghi lê\AG1114.jpg" />
+    <Content Include="Content\images\Áo nam\áo ghi lê\AG1115 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo ghi lê\AG1115.jpg" />
+    <Content Include="Content\images\Áo nam\áo ghi lê\Áo Gile Trơn 4 Nút Form Slimfit AG036 Màu Xám Trắng.jpg" />
+    <Content Include="Content\images\Áo nam\áo ghi lê\Áo GiLê NAZAFU Xanh Đen 1113.jpg" />
+    <Content Include="Content\images\Áo nam\áo ghi lê\Áo GiLê NAZAFU Xám Chuột AG1114.jpg" />
+    <Content Include="Content\images\Áo nam\áo ghi lê\Áo GiLê NAZAFU Đen 1103.jpg" />
+    <Content Include="Content\images\Áo nam\áo ghi lê\Áo GiLê NAZAFU Đen AG1115.jpg" />
+    <Content Include="Content\images\Áo nam\áo hoodie &amp; sweatshirt\AH003 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo hoodie &amp; sweatshirt\AH003.jpg" />
+    <Content Include="Content\images\Áo nam\áo hoodie &amp; sweatshirt\AH004 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo hoodie &amp; sweatshirt\AH004.jpg" />
+    <Content Include="Content\images\Áo nam\áo hoodie &amp; sweatshirt\AK012 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo hoodie &amp; sweatshirt\AK012.jpg" />
+    <Content Include="Content\images\Áo nam\áo hoodie &amp; sweatshirt\AS001 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo hoodie &amp; sweatshirt\AS001.jpg" />
+    <Content Include="Content\images\Áo nam\áo hoodie &amp; sweatshirt\AS002 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo hoodie &amp; sweatshirt\AS002.jpg" />
+    <Content Include="Content\images\Áo nam\áo hoodie &amp; sweatshirt\AS004 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo hoodie &amp; sweatshirt\AS004.jpg" />
+    <Content Include="Content\images\Áo nam\áo hoodie &amp; sweatshirt\Áo Hoodie Believe AK012 Màu Rêu.jpg" />
+    <Content Include="Content\images\Áo nam\áo hoodie &amp; sweatshirt\Áo Hoodie May Đắp Basic Form Regular AH003 Màu Xanh Đen.jpg" />
+    <Content Include="Content\images\Áo nam\áo hoodie &amp; sweatshirt\Áo Hoodie Rã Phối Thêu Home Is Form Regular AH004 Màu Kem.jpg" />
+    <Content Include="Content\images\Áo nam\áo hoodie &amp; sweatshirt\Áo Sweater Thêu Logo 4MEN Form Regular AS004 Màu Kem.jpg" />
+    <Content Include="Content\images\Áo nam\áo hoodie &amp; sweatshirt\Áo Sweatshirt Regular Phối Sọc AS001 Màu Đen.jpg" />
+    <Content Include="Content\images\Áo nam\áo hoodie &amp; sweatshirt\Áo Sweatshirt Regular Sọc Gân AS002 Màu Đen.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\1.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\AK056 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\AK056.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\AK057 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\AK057.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\AK058 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\AK058.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\AK059 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\AK059.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\AK060 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\AK060.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\AK061 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\AK061.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\AK062 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\AK062.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\Áo Khoác Da Form Regular AK056 Màu Đen.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\Áo Khoác Da Lộn Rã Phối Regular AK054 Màu Nâu.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\Áo Khoác Da Lộn Rã Phối Regular AK054 Màu Đen.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\Áo Khoác Kaki Business Jacket Form Regular AK062 Màu Be.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\Áo Khoác Kaki Có Nón Form Loose AK058 Màu Đen.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\Áo Khoác Kaki Có Nón Rã Phối Preppy Heritage Form Loose AK061 Màu Đen.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\Áo Khoác Kaki Harington Form Regular AK057 Màu Be.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\Áo Khoác Kaki Trượt Nước Rã Viền Thêu Chữ Ký 4MEN Form Regular AK060 Màu Xanh Đen.jpg" />
+    <Content Include="Content\images\Áo nam\áo khoác\Áo Khoác Varsity Phối Bo Sọc Thêu 4MEN Tennis Club Form Regular AK059 Màu Xanh Đen.jpg" />
+    <Content Include="Content\images\Áo nam\áo len\AL005 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo len\AL005.jpg" />
+    <Content Include="Content\images\Áo nam\áo len\AL009 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo len\AL009.jpg" />
+    <Content Include="Content\images\Áo nam\áo len\AL010 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo len\AL010.jpg" />
+    <Content Include="Content\images\Áo nam\áo len\AL011 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo len\AL011.jpg" />
+    <Content Include="Content\images\Áo nam\áo len\AL012 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo len\AL012.jpg" />
+    <Content Include="Content\images\Áo nam\áo len\AL013 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo len\AL013.jpg" />
+    <Content Include="Content\images\Áo nam\áo len\Áo Len Cổ Tròn Bo Sọc AL005 Màu Nâu.jpg" />
+    <Content Include="Content\images\Áo nam\áo len\Áo Len Phối Màu AL011 Màu Đỏ.jpg" />
+    <Content Include="Content\images\Áo nam\áo len\Áo Len Regular Sọc Dệt Kim AL009 Màu Đen.jpg" />
+    <Content Include="Content\images\Áo nam\áo len\Áo Len Tay Dài Cổ V Sọc Dệt Vặn Thừng Form Regular AL013 Màu Trắng Kem.jpg" />
+    <Content Include="Content\images\Áo nam\áo len\Áo Len Tay Dài Dệt Họa Tiết Quả Trám Form Regular AL012 Màu Nâu.jpg" />
+    <Content Include="Content\images\Áo nam\áo len\Áo Len Đắp Tay AL010 Màu Bò.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO122 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO122.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO123 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO123.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO125 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO125.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO127 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO127.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO129 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO129.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO131 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO131.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO132 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO132.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO133 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO133.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO137 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO137.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO139 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\PO139.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\Áo Polo Cổ V Phối In Họa Tiết Form Regular PO122 Màu Trắng.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\Áo Polo In Full Họa Tiết 4TC Form Regular PO132 Màu Trắng.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\Áo Polo In Sọc Thêu Hình Ở Ngực Form Regular PO129 Màu Kem.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\Áo Polo Phối Bo Kiểu Thêu Ngực Form Regular PO133 Màu Xanh Đen.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\Áo Polo Phối Bo Thêu 4MEN Form Slimfit PO125 Màu Trắng.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\Áo Polo Rã Phối Dọc Thêu Ở Bo Cổ Form Regular PO131 Màu Xanh Lá.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\Áo Polo Rã Phối Thêu Logo Form Slimfit PO123 Màu Trắng.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\Áo Polo Rã Phối Thêu Đắp Con Giống Form Regular PO127 Màu Xanh Đen.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\Áo Polo Trơn Form Regular PO137 Màu Nâu Đậm.jpg" />
+    <Content Include="Content\images\Áo nam\áo polo\Áo Polo Vải Họa Tiết Nanh Sói Phối Tay Raglan Form Slimfit PO139 Màu Nâu.jpg" />
+    <Content Include="Content\images\Áo nam\áo sơ mi\SM085 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo sơ mi\SM085.jpg" />
+    <Content Include="Content\images\Áo nam\áo sơ mi\SM156 %281%29.png" />
+    <Content Include="Content\images\Áo nam\áo sơ mi\SM156.jpg" />
+    <Content Include="Content\images\Áo nam\áo sơ mi\SM157 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo sơ mi\SM157.jpg" />
+    <Content Include="Content\images\Áo nam\áo sơ mi\SM158 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo sơ mi\SM158.jpg" />
+    <Content Include="Content\images\Áo nam\áo sơ mi\SM159 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo sơ mi\SM159.jpg" />
+    <Content Include="Content\images\Áo nam\áo sơ mi\SM165 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo sơ mi\SM165.jpg" />
+    <Content Include="Content\images\Áo nam\áo sơ mi\Áo Sơ Mi Oxford Thêu Logo 4M SM085 Màu Xanh Đen.jpg" />
+    <Content Include="Content\images\Áo nam\áo sơ mi\Áo Sơ Mi Sọc Vải Bamboo Thêu Gentlemen Ở Măng Séc Form Slimfit SM156.jpg" />
+    <Content Include="Content\images\Áo nam\áo sơ mi\Áo Sơ Mi Vải Oxford Sọc Form Regular SM159 Sọc Xanh Biển.jpg" />
+    <Content Include="Content\images\Áo nam\áo sơ mi\Áo Sơ Mi Vải Oxford Sọc Phối Cổ Trắng Form Regular SM165 Màu Sọc Be.jpg" />
+    <Content Include="Content\images\Áo nam\áo sơ mi\Áo Sơ Mi Vải Oxford Trơn Form Regular SM158 Màu Kem.jpg" />
+    <Content Include="Content\images\Áo nam\áo sơ mi\Áo Sơ Mi Vải Oxford Trơn Signature Form Regular SM157 Màu Trắng Kem.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\AT141 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\AT141.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\AT143 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\AT143.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\AT146 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\AT146.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\AT147 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\AT147.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\AT149 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\AT149.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\AT151 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\AT151.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\AT157 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\AT157.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\PO140 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\PO140.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\PO141 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\PO141.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\PO142 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\PO142.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\Áo Polo Vải Sọc Ngang Thêu 4M Ở Lai Form Regular PO142 Màu Sọc Xanh.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\Áo Polo Vải Thun Xương Cá Cổ V Thêu 4M Form Slimfit PO141 Màu Trắng Kem .jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\Áo Rugby Shirt Sọc Thêu Logo Ngực Form Regular PO140 Màu Sọc Be.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\Áo Thun In Graphic Mỏ Neo Lớn Form Regular AT147 Màu Trắng.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\Áo Thun In Thêu Heritage Sau Lưng Form Loose AT157 Màu Be.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\Áo Thun Rã Phối In Home Is Form Regular AT141 Màu Nâu.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\Áo Thun Sọc Ngang Nautical Thêu Hình Ở Ngực Form Regular AT149 Màu Sọc Xanh Đen.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\Áo Thun Thêu Still Life Bo Cổ Kiểu Form Slimfit AT143 Màu Xám.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\Áo Thun Thêu Đắp Con Giống Mỏ Neo Form Regular AT146 Màu Xanh Đen.jpg" />
+    <Content Include="Content\images\Áo nam\áo thun\Áo Thun Wash Loang In Graphic Tennis Sau Lưng Form Regular AT151 Màu Kem.jpg" />
+    <Content Include="Content\images\Áo nam\áo vest\AV031 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo vest\AV031.jpg" />
+    <Content Include="Content\images\Áo nam\áo vest\AV032 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo vest\AV032.jpg" />
+    <Content Include="Content\images\Áo nam\áo vest\AV033 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo vest\AV033.jpg" />
+    <Content Include="Content\images\Áo nam\áo vest\AV037 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo vest\AV037.jpg" />
+    <Content Include="Content\images\Áo nam\áo vest\AV040 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo vest\AV040.jpg" />
+    <Content Include="Content\images\Áo nam\áo vest\AV1137 %281%29.jpg" />
+    <Content Include="Content\images\Áo nam\áo vest\AV1137.jpg" />
+    <Content Include="Content\images\Áo nam\áo vest\Áo Vest Caro Nâu Form Slimfit AV033.jpg" />
+    <Content Include="Content\images\Áo nam\áo vest\Áo Vest Caro Xanh Form Slimfit AV032.jpg" />
+    <Content Include="Content\images\Áo nam\áo vest\Áo Vest Cổ V 3 Hàng Nút Linen AV1137 Màu Xanh Bích.jpg" />
+    <Content Include="Content\images\Áo nam\áo vest\Áo Vest Trơn Form Slimfit AV031.jpg" />
+    <Content Include="Content\images\Áo nam\áo vest\Áo Vest Trơn Linen Form Regular AV040 Màu Trắng.jpg" />
+    <Content Include="Content\images\Áo nam\áo vest\Áo Vest Trơn Regular Túi Đắp AV037 Màu Be.jpg" />
+    <Content Include="Content\images\Ảnh2.jpg" />
+    <Content Include="Content\images\Ảnh3.jpg" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Fonts\fontawesome-webfont.svg" />
+    <Content Include="Fonts\MyriadPro-Bold.svg" />
+    <Content Include="Fonts\MyriadPro-Regular.svg" />
+    <Content Include="Areas\AdminArea\Views\ProductsManagement\edit.cshtml" />
+    <Content Include="Areas\AdminArea\Views\ProductsManagement\add.cshtml" />
+    <Content Include="Areas\AdminArea\Views\ProductsManagement\sale.cshtml" />
+    <Content Include="Areas\AdminArea\Views\OrdersManagement\detail.cshtml" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\MenShop.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MenShop.edmx</DependentUpon>
+      <LastGenOutput>MenShop.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\MenShop.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MenShop.edmx</DependentUpon>
+      <LastGenOutput>MenShop.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\ajax-mail.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.12.0.min.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\modernizr-2.8.3.min.js" />
+    <Content Include="Scripts\plugins.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\AdminArea\AdminAreaAreaRegistration.cs" />
+    <Compile Include="Areas\AdminArea\Controllers\AdminController.cs" />
+    <Compile Include="Areas\AdminArea\Controllers\CommentsController.cs" />
+    <Compile Include="Areas\AdminArea\Controllers\CustomersManagementController.cs" />
+    <Compile Include="Areas\AdminArea\Controllers\OrdersManagementController.cs" />
+    <Compile Include="Areas\AdminArea\Controllers\PersonnelManagementController.cs" />
+    <Compile Include="Areas\AdminArea\Controllers\ProductsManagementController.cs" />
+    <Compile Include="Areas\AdminArea\Controllers\RevenueReportsController.cs" />
+    <Compile Include="Areas\AdminArea\Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\AccessoryController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvoiceController.cs" />
+    <Compile Include="Controllers\MenPantsController.cs" />
+    <Compile Include="Controllers\MenShirtsController.cs" />
+    <Compile Include="Controllers\NewProductsController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SaleController.cs" />
+    <Compile Include="Controllers\ShoesController.cs" />
+    <Compile Include="Controllers\WishlistController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admin.cs">
+      <DependentUpon>MenShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Cart.cs">
+      <DependentUpon>MenShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Category.cs">
+      <DependentUpon>MenShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>MenShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>MenShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DiscountProduct.cs">
+      <DependentUpon>MenShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DiscountProgram.cs">
+      <DependentUpon>MenShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Invoice.cs">
+      <DependentUpon>MenShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InvoiceDetail.cs">
+      <DependentUpon>MenShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MenShop.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MenShop.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MenShop.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MenShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MenShop.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MenShop.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Product.cs">
+      <DependentUpon>MenShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductPicture.cs">
+      <DependentUpon>MenShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TypeCategory.cs">
+      <DependentUpon>MenShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Wishlist.cs">
+      <DependentUpon>MenShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Fonts\fontawesome-webfont-1.bin" />
+    <Content Include="Fonts\fontawesome-webfont-2.bin" />
+    <Content Include="Fonts\fontawesome-webfont-3.bin" />
+    <Content Include="Fonts\fontawesome-webfont.bin" />
+    <Content Include="Fonts\fontawesome-webfont.ttf" />
+    <Content Include="Fonts\MyriadPro-Bold-1.bin" />
+    <Content Include="Fonts\MyriadPro-Bold-2.bin" />
+    <Content Include="Fonts\MyriadPro-Bold-3.bin" />
+    <Content Include="Fonts\MyriadPro-Bold.bin" />
+    <Content Include="Fonts\MyriadPro-Bold.ttf" />
+    <Content Include="Fonts\MyriadPro-Regular-1.bin" />
+    <Content Include="Fonts\MyriadPro-Regular-2.bin" />
+    <Content Include="Fonts\MyriadPro-Regular-3.bin" />
+    <Content Include="Fonts\MyriadPro-Regular.bin" />
+    <Content Include="Fonts\MyriadPro-Regular.ttf" />
+    <Content Include="district.json" />
+    <Content Include="Areas\AdminArea\Views\web.config" />
+    <Content Include="Areas\AdminArea\Views\Admin\index.cshtml" />
+    <Content Include="Areas\AdminArea\Views\Admin\login.cshtml" />
+    <Content Include="Areas\AdminArea\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\AdminArea\Views\Admin\forgetPassword.cshtml" />
+    <Content Include="Areas\AdminArea\Views\Admin\verifyCode.cshtml" />
+    <Content Include="Areas\AdminArea\Views\Admin\resetPassword.cshtml" />
+    <Content Include="Areas\AdminArea\Views\Shared\_LayoutPage1.cshtml" />
+    <Content Include="Areas\AdminArea\Views\PersonnelManagement\index.cshtml" />
+    <Content Include="Areas\AdminArea\Views\CustomersManagement\index.cshtml" />
+    <Content Include="Areas\AdminArea\Views\ProductsManagement\index.cshtml" />
+    <Content Include="Areas\AdminArea\Views\OrdersManagement\index.cshtml" />
+    <Content Include="Areas\AdminArea\Views\RevenueReports\index.cshtml" />
+    <Content Include="Areas\AdminArea\Views\Comments\index.cshtml" />
+    <Content Include="Areas\AdminArea\Views\Settings\index.cshtml" />
+    <Content Include="Areas\AdminArea\Views\PersonnelManagement\insert.cshtml" />
+    <Content Include="Areas\AdminArea\Views\PersonnelManagement\detail.cshtml" />
+    <Content Include="Areas\AdminArea\Views\CustomersManagement\detail.cshtml" />
+    <Content Include="Areas\AdminArea\Views\ProductsManagement\detail.cshtml" />
+    <Content Include="Areas\AdminArea\Views\PersonnelManagement\edit.cshtml" />
+    <Content Include="Areas\AdminArea\Views\ProductsManagement\insert.cshtml" />
+    <EntityDeploy Include="Models\MenShop.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MenShop.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MenShop.edmx.diagram">
+      <DependentUpon>MenShop.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Accessory\index.cshtml" />
+    <Content Include="Views\Accessory\ShowAccessoriesByIDCategory.cshtml" />
+    <Content Include="Views\Account\ForgetPassword.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Cart\ConfirmPayment.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\MiniCart.cshtml" />
+    <Content Include="Views\Cart\PayMoney.cshtml" />
+    <Content Include="Views\Home\Accessories.cshtml" />
+    <Content Include="Views\Home\BestSellingProductsList.cshtml" />
+    <Content Include="Views\Home\contact.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Home\index.cshtml" />
+    <Content Include="Views\Home\MenPants.cshtml" />
+    <Content Include="Views\Home\MenShirts.cshtml" />
+    <Content Include="Views\Home\NewProductsList.cshtml" />
+    <Content Include="Views\Home\Shoes.cshtml" />
+    <Content Include="Views\Invoice\Detail.cshtml" />
+    <Content Include="Views\Invoice\Index.cshtml" />
+    <Content Include="Views\MenPants\index.cshtml" />
+    <Content Include="Views\MenPants\ShowMenPantsByIDCategory.cshtml" />
+    <Content Include="Views\MenShirts\index.cshtml" />
+    <Content Include="Views\MenShirts\showMenShirtsByIDCategory.cshtml" />
+    <Content Include="Views\NewProducts\index.cshtml" />
+    <Content Include="Views\Product\AnotherProducts.cshtml" />
+    <Content Include="Views\Product\BestSellingProductsList.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Sale\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
+    <Content Include="Views\Shared\_Layout3.cshtml" />
+    <Content Include="Views\Shoes\index.cshtml" />
+    <Content Include="Views\Shoes\ShowShoesByIDCategory.cshtml" />
+    <Content Include="Views\Wishlist\Index.cshtml" />
+    <Content Include="Views\Account\Detail.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Home\ProductSale.cshtml" />
+    <Content Include="Views\Home\SearchProduct.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\AdminArea\Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49895</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44355/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

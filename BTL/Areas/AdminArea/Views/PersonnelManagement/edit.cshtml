@@ -1,0 +1,121 @@
+﻿@model BTL.Models.Admin
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/AdminArea/Views/Shared/_LayoutPage1.cshtml";
+}
+<div class="employee-form">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="content-section-header">Sửa thông tin nhân viên</div>
+        @Html.HiddenFor(model => model.AdminID)
+
+        <div class="custom-form-group">
+            <label for="FullName" class="control-label col-md-2">Họ và tên: </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="custom-form-group">
+            <label for="Email" class="control-label col-md-2">Email: </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="custom-form-group">
+            <label for="Address" class="control-label col-md-2">Địa chỉ: </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="custom-form-group">
+            <label for="PhoneNumber" class="control-label col-md-2">Số điện thoại: </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="custom-form-group">
+            <label for="BirthDate" class="control-label col-md-2">Ngày sinh: </label>
+            <div class="col-md-10">
+                <input type="date"
+                       class="form-control"
+                       id="BirthDate"
+                       name="BirthDate"
+                       value="@(Model.BirthDate != DateTime.MinValue ? Model.BirthDate.ToString("yyyy-MM-dd") : "")" />
+                @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="custom-form-group">
+            <label for="HomeTown" class="control-label col-md-2">Quê quán: </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HomeTown, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HomeTown, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="custom-form-group">
+            <label for="IndentityCard" class="control-label col-md-2">Số CCCD/CMND: </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IdentityCard, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IdentityCard, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="custom-form-group">
+            <label for="Role" class="control-label col-md-2">Chức vụ: </label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(
+                    model => model.Role,
+                    new SelectList(
+                        new List<string> { "Nhân viên", "Quản lý" },
+                    Model.Role
+                    ),
+                    new { @class = "form-control" }
+                )
+                @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="custom-form-group">
+            <label for="UserName" class="control-label col-md-2">Tên đăng nhập: </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="custom-form-group">
+            <label for="Password" class="control-label col-md-2">Mật khẩu: </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="custom-form-group">
+            <label for="URLPicture" class="control-label col-md-2">Ảnh đại diện: </label>
+            <div class="col-md-10">
+                @if (!string.IsNullOrEmpty(Model.URLPicture))
+                {
+                    <img src="@Url.Content("~/Content/images/admin/" + Model.URLPicture)" alt="Ảnh nhân viên" style="max-width: 200px; height: auto;" />
+                }
+                <input type="file" name="URLPicture" class="form-control" />@Model.URLPicture
+                @Html.ValidationMessageFor(model => model.URLPicture, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <button id="save-employee">Lưu lại</button>
+        <button type="button" onclick="location.href='@Url.Action("index", "PersonnelManagement")'" id="cancel-employee">Hủy bỏ</button>
+    </div>
+    }
+
+</div>

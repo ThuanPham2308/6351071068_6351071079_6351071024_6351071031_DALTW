@@ -1,0 +1,66 @@
+﻿@*@model BTL.Models.Product*@
+@model List<BTL.Models.Category>
+@{
+    ViewBag.Title = "Insert Product";
+    Layout = "~/Areas/AdminArea/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div id="add-product-form">
+    <div class="content-section-header">Thêm sản phẩm</div>
+    <div class="product-form">
+        <form action="@Url.Action("insert", "ProductsManagement")" method="post" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+
+            <div class="validation-summary">
+                <!-- Đây là phần hiển thị lỗi từ ValidationSummary, bạn cần xử lý ở client-side hoặc sử dụng jQuery để hiển thị lỗi -->
+            </div>
+
+            <label for="ProductName">Tên sản phẩm: </label>
+            <input type="text" id="ProductName" name="ProductName" placeholder="Tên sản phẩm" />
+            <div class="validation-message">
+                <!-- Validation message for ProductName -->
+            </div>
+
+            <label for="CategoryID">Danh mục: </label>
+            <select id="CategoryID" name="CategoryID">
+                <option value="">Chọn danh mục</option>
+                @foreach (var category in Model)
+                {
+                    <option value="@category.CategoryID">@category.CategoryName</option>
+                }
+            </select>
+
+            <div class="validation-message">
+                <!-- Validation message for CategoryID -->
+            </div>
+
+            <label for="Price">Giá: </label>
+            <input type="text" id="Price" name="Price" placeholder="Giá" />
+            <div class="validation-message">
+                <!-- Validation message for Price -->
+            </div>
+
+            <label for="QuantityInStock">Số lượng tồn kho: </label>
+            <input type="text" id="QuantityInStock" name="QuantityInStock" placeholder="Số lượng tồn kho" />
+            <div class="validation-message">
+                <!-- Validation message for QuantityInStock -->
+            </div>
+
+            <label for="Description">Mô tả: </label>
+            <textarea id="Description" name="Description" placeholder="Mô tả sản phẩm"></textarea>
+            <div class="validation-message">
+                <!-- Validation message for Description -->
+            </div>
+
+            <label for="URLPicture">Ảnh sản phẩm: </label>
+            <input type="file" name="URLPicture" class="form-control" />
+            <div>
+                <!-- Validation message for URLPicture -->
+            </div>
+
+            <button id="save-product" type="submit">Lưu lại</button>
+            <button type="button" onclick="location.href='@Url.Action("index", "ProductsManagement")'" id="cancel-product">Hủy bỏ</button>
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,82 @@
+﻿@model BTL.Models.Customer
+
+<div>
+    <dl class="dl-horizontal">
+        <dt style="">
+            @Html.Label("Họ và tên")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+
+        <dt>
+            @Html.Label("Ngày sinh")
+        </dt>
+
+        <dd>
+            @(Model.BirthDate.ToString("MM/dd/yyyy"))
+        </dd>
+
+
+        <dt>
+            @Html.Label("Số điện thoại")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.Label("Email")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.Label("Địa chỉ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+    </dl>
+</div>
+<style>
+    .dl-horizontal {
+        display: flex;
+        flex-direction: column;
+    }
+
+        .dl-horizontal dt {
+            font-weight: bold; 
+            color: black;
+            margin-bottom: 5px;
+        }
+
+        .dl-horizontal dd {
+            margin-left: 15px;
+            margin-bottom: 15px;
+        }
+
+    p {
+        margin-top: 20px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #3498db;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    label {
+        font-weight: bold; 
+    }
+</style>
+

@@ -1,0 +1,44 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <title>index</title>
+</head>
+<body>
+    <div class="admin-control" style="margin: -10px;">
+        <div class="sidebar" style="height: 100%;">
+            @{
+                var admin = Session["Admin"] as BTL.Models.Admin;
+                <p class="admin-name">
+                    <img src="@Url.Content($"~/Content/images/admin/{admin.URLPicture}")" />
+                    <br />
+                    @admin.FullName
+                </p>
+            }
+            <a href="@Url.Action("index","Admin")" id="dashboard"><i class="fa-solid fa-gauge"></i> Bảng điều khiển</a>
+            <a href="@Url.Action("index","PersonnelManagement")" id="employee-management"><i class="fa-solid fa-address-card"></i> Quản lý nhân viên</a>
+            <a href="@Url.Action("index","CustomersManagement")" id="customer-management"><i class="fa-solid fa-users-gear"></i> Quản lý khách hàng</a>
+            <a href="@Url.Action("index","ProductsManagement")" id="product-management"><i class="fa-solid fa-tag"></i> Quản lý sản phẩm</a>
+            <a href="@Url.Action("index","OrdersManagement")" id="order-management"><i class="fa-solid fa-truck-fast"></i> Quản lý đơn hàng</a>
+            <a href="@Url.Action("index","RevenueReports")" id="revenue-report"><i class="fa-solid fa-chart-column"></i> Báo cáo doanh thu</a>
+            <a href="@Url.Action("index","Comments")" id="contact"><i class="fa-solid fa-user-pen"></i> Ý kiến đóng góp</a>
+            <a href="@Url.Action("index","Settings", new {id = admin.AdminID})" id="settings"><i class="fa-solid fa-gear"></i> Cài đặt hệ thống</a>
+            <a href="@Url.Action("logout","Admin")" id="logout"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</a>
+        </div>
+        <div class="main-content">
+            @RenderBody()
+        </div>
+    </div>
+
+
+</body>
+
+</html>

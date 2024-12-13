@@ -1,0 +1,12 @@
+﻿@model IEnumerable<BTL.Models.Category>
+
+@foreach (var item in Model)
+{
+    <li>
+        <a href="@Url.Action("ShowAccessoriesByIDCategory","Accessory", new {id = item.CategoryID})">
+            @item.CategoryName
+        </a>
+    </li>
+}
+
+

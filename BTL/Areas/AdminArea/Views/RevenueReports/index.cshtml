@@ -1,0 +1,273 @@
+﻿
+@{
+    ViewBag.Title = "revenueReport";
+    Layout = "~/Areas/AdminArea/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div id="revenue-report-content" class="content-section active" style="padding-top:20px">
+    <div class="content-section-header">Báo cáo doanh thu</div>
+    <div class="revenue-report-container">
+        <div class="rev-card">
+            <h3>Tổng Doanh Thu Năm</h3>
+            <p>@(@ViewBag.totalRevenueYear.ToString("N0") + " VND")</p>
+
+            <h3>Tổng Đơn Hàng</h3>
+            <p>@(@ViewBag.totalOrdersYear.ToString("N0"))</p>
+
+            <h3>Doanh Thu Tháng Hiện Tại</h3>
+            <p>
+                @(ViewBag.totalRevenueMonth != null ? ViewBag.totalRevenueMonth.ToString("N0") + " VND" : "0 VND")
+            </p>
+
+            <h3>Đơn Hàng Tháng Hiện Tại</h3>
+            <p>@(@ViewBag.totalOrdersMonth.ToString("N0"))</p>
+        </div>
+        <div class="rev-card">
+            <h3>Doanh Thu Theo Danh Mục</h3>
+            <canvas id="revenueByGroupChart"></canvas>
+        </div>
+        <div class="rev-card rev-growth-group-card">
+            <h3>Tổng doanh thu theo từng tháng</h3>
+            <canvas id="growthByGroupChart" class="rev-growth-group-chart"></canvas>
+        </div>
+        <div class="rev-card rev-revenue-group-card">
+            <h3>Sản Phẩm Bán Chạy</h3>
+            <canvas id="topRevenueProductChart" class="rev-revenue-group-chart"></canvas>
+        </div>
+    </div>
+</div>
+<script>
+      const revenueByGroupCtx = document.getElementById('revenueByGroupChart').getContext('2d');
+      const revenueMenShirts = parseFloat('@ViewBag.revenueMenShirts') || 0;
+      const revenueMenPants = parseFloat('@ViewBag.revenueMenPants') || 0;
+      const revenueAccessories = parseFloat('@ViewBag.revenueAccessory') || 0;
+      const revenueMenShoes = parseFloat('@ViewBag.revenueMenShoes') || 0;
+     new Chart(revenueByGroupCtx, {
+         type: 'pie',
+         data: {
+             labels: ['Áo nam', 'Quần nam', 'Phụ kiện', 'Giày dép'],
+             datasets: [{
+                 label: 'Doanh Thu (Millions)',
+                 data: [revenueMenShirts, revenueMenPants, revenueAccessories, revenueMenShoes],
+                 backgroundColor: ['#4caf50', '#2196f3', '#ff9800', '#9c27b0']
+             }]
+         },
+         options: {
+             responsive: true,
+             maintainAspectRatio: false,
+             plugins: {
+                 datalabels: {
+                     formatter: (value, context) => {
+                         const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                         const percentage = ((value / total) * 100).toFixed(2) + '%';
+                         return percentage;
+                     },
+                     color: '#fff',
+                     font: {
+                         weight: 'bold',
+                         size: 14
+                     },
+                     anchor: 'center',
+                     align: 'center',
+                     offset: 0
+                 }
+             }
+         },
+         plugins: [ChartDataLabels]
+     });
+</script>
+@*<script type="text/javascript">
+     document.addEventListener('DOMContentLoaded', function () {
+     var revenueTC1 = @Html.Raw(Json.Encode(ViewData["revenueTC1"]));
+     var revenueTC2 = @Html.Raw(Json.Encode(ViewData["revenueTC2"]));
+
+     if (revenueTC1 && revenueTC1.length > 0 && revenueTC2 && revenueTC2.length > 0) {
+         const labels = [];
+         const revenues = [];
+         const typeCategories = Array.from(new Set([...revenueTC1, ...revenueTC2].map(item => item.TypeCategoryName)));
+
+         const monthlyData = Array.from({ length: 12 }, (_, i) => {
+             const revenue1 = revenueTC1.find(item => item.Month === (i + 1)) || { Revenue: 0, TypeCategoryName: 'Áo nam' };
+             const revenue2 = revenueTC2.find(item => item.Month === (i + 1)) || { Revenue: 0, TypeCategoryName: 'Quần nam' };
+             return {
+                 Month: i + 1,
+                 Revenue1: revenue1.Revenue,
+                 Revenue2: revenue2.Revenue,
+                 TypeCategoryName: revenue1.TypeCategoryName
+             };
+         });
+
+         monthlyData.forEach(item => {
+             labels.push(`T${item.Month}`);
+             revenues.push({ 'Áo nam': item.Revenue1, 'Quần nam': item.Revenue2 });
+         });
+
+         const datasets = [
+             {
+                 label: 'Áo nam',
+                 data: revenues.map(r => r['Áo nam']),
+                 borderColor: getRandomColor(),
+                 backgroundColor: getRandomColor(0.2)
+             },
+             {
+                 label: 'Quần nam',
+                 data: revenues.map(r => r['Quần nam']),
+                 borderColor: getRandomColor(),
+                 backgroundColor: getRandomColor(0.2)
+             }
+         ];
+
+         const growthByGroupCtx = document.getElementById('growthByGroupChart').getContext('2d');
+         new Chart(growthByGroupCtx, {
+             type: 'line',
+             data: {
+                 labels: labels,
+                 datasets: datasets
+             },
+             options: {
+                 responsive: true,
+                 maintainAspectRatio: false
+             }
+         });
+     }
+
+     function getRandomColor(alpha = 1) {
+         const r = Math.floor(Math.random() * 256);
+         const g = Math.floor(Math.random() * 256);
+         const b = Math.floor(Math.random() * 256);
+         return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+     }
+ });
+</script>*@
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var revenueTC1 = @Html.Raw(Json.Encode(ViewData["revenueTC1"]));
+        var revenueTC2 = @Html.Raw(Json.Encode(ViewData["revenueTC2"]));
+        var revenueTC3 = @Html.Raw(Json.Encode(ViewData["revenueTC3"]));
+        var revenueTC4 = @Html.Raw(Json.Encode(ViewData["revenueTC4"]));
+
+        if (revenueTC1 && revenueTC1.length > 0 && revenueTC2 && revenueTC2.length > 0 && revenueTC3 && revenueTC3.length > 0 && revenueTC4 && revenueTC4.length > 0) {
+            const labels = [];
+            const revenues = [];
+            const typeCategories = Array.from(new Set([
+                ...revenueTC1, ...revenueTC2, ...revenueTC3, ...revenueTC4
+            ].map(item => item.TypeCategoryName)));
+
+            const monthlyData = Array.from({ length: 12 }, (_, i) => {
+                const revenue1 = revenueTC1.find(item => item.Month === (i + 1)) || { Revenue: 0, TypeCategoryName: 'Áo nam' };
+                const revenue2 = revenueTC2.find(item => item.Month === (i + 1)) || { Revenue: 0, TypeCategoryName: 'Quần nam' };
+                const revenue3 = revenueTC3.find(item => item.Month === (i + 1)) || { Revenue: 0, TypeCategoryName: 'Phụ kiện' };
+                const revenue4 = revenueTC4.find(item => item.Month === (i + 1)) || { Revenue: 0, TypeCategoryName: 'Giày dép' };
+                return {
+                    Month: i + 1,
+                    Revenue1: revenue1.Revenue,
+                    Revenue2: revenue2.Revenue,
+                    Revenue3: revenue3.Revenue,
+                    Revenue4: revenue4.Revenue,
+                    TypeCategoryName: revenue1.TypeCategoryName
+                };
+            });
+
+            monthlyData.forEach(item => {
+                labels.push(`T${item.Month}`);
+                revenues.push({
+                    'Áo nam': item.Revenue1,
+                    'Quần nam': item.Revenue2,
+                    'Phụ kiện': item.Revenue3,
+                    'Giày dép': item.Revenue4
+                });
+            });
+
+            const datasets = [
+                {
+                    label: 'Áo nam',
+                    data: revenues.map(r => r['Áo nam']),
+                    borderColor: getRandomColor(),
+                    backgroundColor: getRandomColor(0.2)
+                },
+                {
+                    label: 'Quần nam',
+                    data: revenues.map(r => r['Quần nam']),
+                    borderColor: getRandomColor(),
+                    backgroundColor: getRandomColor(0.2)
+                },
+                {
+                    label: 'Phụ kiện',
+                    data: revenues.map(r => r['Phụ kiện']),
+                    borderColor: getRandomColor(),
+                    backgroundColor: getRandomColor(0.2)
+                },
+                {
+                    label: 'Giày dép',
+                    data: revenues.map(r => r['Giày dép']),
+                    borderColor: getRandomColor(),
+                    backgroundColor: getRandomColor(0.2)
+                }
+            ];
+
+            const growthByGroupCtx = document.getElementById('growthByGroupChart').getContext('2d');
+            new Chart(growthByGroupCtx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        }
+
+        function getRandomColor(alpha = 1) {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+        }
+    });
+    </script>
+
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        var data = @Html.Raw(Json.Encode(ViewData["TopSellingProducts"]));
+
+        const topRevenueProductCtx = document.getElementById('topRevenueProductChart').getContext('2d');
+
+        const revenueData = {
+            labels: data.map(product => product.ProductName),
+            datasets: [{
+                label: 'Số lượng sản phẩm bán được',
+                data: data.map(product => product.TotalQuantitySold),
+                backgroundColor: '#ff9800',
+                borderWidth: 2
+            }]
+        };
+
+        new Chart(topRevenueProductCtx, {
+            type: 'bar',
+            data: revenueData,
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            maxRotation: 90,
+                            minRotation: 80
+                        }
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                }
+            }
+        });
+    });
+</script>

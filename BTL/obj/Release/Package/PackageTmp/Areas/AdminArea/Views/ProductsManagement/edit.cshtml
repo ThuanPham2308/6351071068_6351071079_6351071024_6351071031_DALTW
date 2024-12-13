@@ -1,0 +1,74 @@
+﻿@model BTL.Models.Product
+@{
+    ViewBag.Title = "Sửa Sản Phẩm";
+    Layout = "~/Areas/AdminArea/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="product-form">
+    <form action="@Url.Action("Edit", "ProductsManagement", new {id = Model.ProductID})" method="post" enctype="multipart/form-data">
+        <div class="form-horizontal">
+            <div class="content-section-header">Sửa thông tin sản phẩm</div>
+            <div class="custom-form-group">
+                <label for="ProductName" class="control-label col-md-2">Tên sản phẩm: </label>
+                <div class="col-md-10">
+                    <input type="text" id="ProductName" name="ProductName" value="@Model.ProductName" class="form-control" />
+                    <span class="text-danger" id="ProductName-error"></span>
+                </div>
+            </div>
+
+            <div class="custom-form-group">
+                <label for="CategoryID" class="control-label col-md-2">Danh mục: </label>
+                <div class="col-md-10">
+                    <select id="CategoryID" name="CategoryID" class="form-control">
+                        <option value="@Model.CategoryID" selected>@(Model.Category?.CategoryName)</option>
+                        @foreach (var category in ViewBag.CategoryList)
+                        {
+                            <option value="@category.CategoryID">@category.CategoryName</option>
+                        }
+                    </select>
+
+                    <span class="text-danger" id="CategoryID-error"></span>
+                </div>
+            </div>
+
+            <div class="custom-form-group">
+                <label for="Price" class="control-label col-md-2">Giá: </label>
+                <div class="col-md-10">
+                    <input type="text" id="Price" name="Price" value="@Model.Price" class="form-control" />
+                    <span class="text-danger" id="Price-error"></span> <!-- Validation message for Price -->
+                </div>
+            </div>
+
+            <div class="custom-form-group">
+                <label for="QuantityInStock" class="control-label col-md-2">Số lượng còn lại: </label>
+                <div class="col-md-10">
+                    <input type="text" id="QuantityInStock" name="QuantityInStock" value="@Model.QuantityInStock" class="form-control" />
+                    <span class="text-danger" id="QuantityInStock-error"></span> <!-- Validation message for QuantityInStock -->
+                </div>
+            </div>
+
+            <div class="custom-form-group">
+                <label for="Description" class="control-label col-md-2">Mô tả: </label>
+                <div class="col-md-10">
+                    <textarea id="Description" name="Description" class="form-control">@Model.Description</textarea>
+                    <span class="text-danger" id="Description-error"></span> <!-- Validation message for Description -->
+                </div>
+            </div>
+
+            <div class="custom-form-group">
+                <label for="URLPicture" class="control-label col-md-2">Ảnh sản phẩm: </label>
+                <div class="col-md-10">
+                    @if (!string.IsNullOrEmpty(Model.URLPicture))
+                    {
+                        <img src="@Url.Content("~/Content/images/" + Model.URLPicture)" alt="Ảnh sản phẩm" style="max-width: 200px; height: auto;" />
+                    }
+                    <input type="file" name="URLPicture" class="form-control" />
+                    <span class="text-danger" id="URLPicture-error"></span> <!-- Validation message for URLPicture -->
+                </div>
+            </div>
+
+            <button type="submit" id="save-product" class="btn btn-primary">Lưu</button>
+            <button type="button" onclick="location.href='@Url.Action("Index", "ProductsManagement")'" id="cancel-product" class="btn btn-secondary">Hủy bỏ</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+    <link href="~/Content/css/Login/login.css" rel="stylesheet" />
+}
+<div style="padding-left:10%;padding-right:10%">
+    <br />
+    <div class="breadcrumbs_area">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb_content">
+                    <ul>
+                        <li><a href="@Url.Action("index","Home")">Trang chủ</a></li>
+                        <li><i class="fa fa-angle-right"></i></li>
+                        <li>Đăng nhập</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="customer_login">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="account_form">
+                    <h2>Đăng nhập</h2>
+                    <form action="@Url.Action("Login", "Account")" method="post">
+                        <p>
+                            <label>Tài khoản<span style="color: red;">*</span></label>
+                            <input type="text" required name="username">
+                        </p>
+                        <p>
+                            <label>Mật Khẩu<span style="color: red;">*</span></label>
+                            <input type="password" required name="password">
+                        </p>
+                        <div class="login_submit">
+                            <button type="submit">Đăng nhập</button>
+                            <a href="@Url.Action("ForgetPassword", "Account")">Quên mật khẩu?</a>
+                        </div>
+                        @if (ViewBag.Error != null)
+                        {
+                            <div class="error-message">
+                                @ViewBag.Error
+                            </div>
+                        }
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

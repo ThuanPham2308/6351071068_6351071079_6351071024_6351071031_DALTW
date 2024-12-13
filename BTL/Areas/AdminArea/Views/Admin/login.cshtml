@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model BTL.Models.Admin
+@{
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="login-admin">
+    <div class="login-container">
+        <h2>Admin Đăng Nhập</h2>
+        <p></p>
+        <form action="@Url.Action("login", "Admin", new { area = "AdminArea" })" method="post">
+            <div class="input-group">
+                <i class="fas fa-user icon"></i>
+                <input type="text" placeholder="Tên đăng nhập" required name="username">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock icon"></i>
+                <input type="password" placeholder="Mật khẩu" required name="password">
+            </div>
+            <p style="color:red;font-weight:bold;">@ViewBag.ErrorMessage</p>
+            <button type="submit" name="login" value="Login">Đăng nhập</button>
+        </form>
+
+        <div class="support-links">
+            <a href="@Url.Action("forgetPassword", "Admin", new { area = "AdminArea" })">Quên mật khẩu?</a> |
+        </div>
+    </div>
+</body>
+</html>
